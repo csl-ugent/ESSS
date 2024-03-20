@@ -1,0 +1,11 @@
+export LLVM_COMPILER=clang
+export LLVM_COMPILER_PATH=/home/evaluation/ESSS/llvm/llvm-project/prefix/bin
+mkdir -p tmp
+rm tmp/* tmp/.*
+alias wllvm="wllvm -g"
+CC=wllvm CXX=wllvm++ ./Configure -g
+make -j4
+extract-bc --manifest libcrypto.so
+extract-bc --manifest libssl.so
+cat *.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; done
+$LLVM_COMPILER_PATH/llvm-link libcrypto.so.bc --override=libssl.so.bc -o combined.bc

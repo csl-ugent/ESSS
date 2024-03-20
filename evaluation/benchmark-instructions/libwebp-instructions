@@ -1,0 +1,13 @@
+export LLVM_COMPILER=clang
+export LLVM_COMPILER_PATH=/home/niels/errorchecks/crix/llvm/llvm-project/prefix/bin
+mkdir -p tmp
+rm tmp/* tmp/.*
+alias wllvm="wllvm -g"
+mkdir -p prefix
+./autogen.sh
+CFLAGS="-g" CC=wllvm CXX=wllvm++ ./configure --prefix="$(realpath prefix)/usr/local"
+make -j4
+make install
+extract-bc --manifest prefix/usr/local/lib/libwebp.so
+cat prefix/usr/local/lib/libwebp.so.llvm.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; done
+$LLVM_COMPILER_PATH/llvm-link tmp/.*.o.bc -o combined.bc

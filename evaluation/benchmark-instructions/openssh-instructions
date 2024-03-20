@@ -1,0 +1,21 @@
+export LLVM_COMPILER=clang
+export LLVM_COMPILER_PATH=/home/evaluation/ESSS/llvm/llvm-project/prefix/bin
+mkdir -p tmp
+rm tmp/* tmp/.*
+alias wllvm="wllvm -g"
+autoreconf
+CC=wllvm CXX=wllvm++ ./configure --with-pam --with-zlib
+make -j6
+extract-bc --manifest sshd
+extract-bc --manifest scp
+extract-bc --manifest ssh-agent
+extract-bc --manifest ssh-add
+extract-bc --manifest ssh
+extract-bc --manifest ssh-sk-helper
+extract-bc --manifest ssh-pkcs11-helper
+extract-bc --manifest sftp
+extract-bc --manifest sftp-server
+extract-bc --manifest ssh-keygen
+extract-bc --manifest ssh-keyscan
+extract-bc --manifest ssh-keysign
+cat *.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; done

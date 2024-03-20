@@ -1,0 +1,11 @@
+export LLVM_COMPILER=clang
+export LLVM_COMPILER_PATH=/home/niels/errorchecks/crix/llvm/llvm-project/prefix/bin
+mkdir -p tmp
+rm tmp/* tmp/.*
+alias wllvm="wllvm -g"
+./autogen.sh
+CFLAGS="-g" CC=wllvm CXX=wllvm++ ./configure
+make -j4
+find .libs -type f -name "*.bc"| sort|uniq&>llvm.manifest
+cat ./llvm.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; done
+rm tmp/.testdso.o.bc

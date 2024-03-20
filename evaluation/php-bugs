@@ -1,0 +1,558 @@
+# The prefix before the _ indicates whether it's an incorrect (I) case or a missing (M) case.
+
+# A   = applied the fix
+# C   = confirmed
+# PT  = probably true positive
+# PF  = probably false positive
+# FNE = false positive because not an error
+# FPS = false positive because path-sensitive
+# L   = limitation of my tool
+# W   = wrong value included in error interval
+# IDK = I don't know
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+I_A	ext/tidy/tidy.c: 324
+I_A	ext/tidy/tidy.c: 970
+I_A	ext/tidy/tidy.c: 434
+
+I_PT	ext/session/mod_user_class.c: 149
+I_PT	ext/phar/phar_object.c: 4381
+I_PT	ext/odbc/php_odbc.c: 2072
+I_PT	ext/odbc/php_odbc.c: 1225
+I_PT	ext/openssl/xp_ssl.c: 2450
+I_PT	ext/standard/streamsfuncs.c: 1350
+I_PT	ext/sockets/sockets.c: 750
+I_PT	ext/sockets/sockets.c: 712
+I_PT	ext/odbc/php_odbc.c: 826
+I_PT	ext/pgsql/pgsql.c: 2475
+I_PT	ext/mysqlnd/mysqlnd_ps_codec.c: 261
+# Flaw, but can't be triggered because...
+# ... private properties
+I_PT	ext/snmp/snmp.c: 1723
+I_PT	ext/mysqli/mysqli.c: 273
+I_PT	ext/dom/php_dom.c: 338
+# Other type of flaw
+I_PT	main/streams/streams.c: 669
+
+I_FNE	ext/opcache/zend_accelerator_module.c: 225
+I_FNE	Zend/zend.c: 196
+I_FNE	ext/intl/resourcebundle/resourcebundle_iterator.c: 168
+I_FNE	ext/tidy/tidy.c: 1552
+I_FNE	ext/tidy/tidy.c: 1523
+I_FNE	ext/opcache/ZendAccelerator.c: 3054
+I_FNE	Zend/zend.c: 180
+I_FNE	Zend/zend_ini.c: 687
+I_FNE	ext/standard/array.c: 4886
+I_FNE	ext/standard/array.c: 4890
+I_FNE	ext/standard/array.c: 4949
+I_FNE	ext/standard/array.c: 5274
+
+I_W	ext/phar/phar.c: 1406
+I_W	ext/ftp/ftp.c: 1318
+I_W	ext/phar/phar_object.c: 3624
+I_W	ext/odbc/php_odbc.c: 590
+I_W	main/streams/plain_wrapper.c: 1375
+I_W	ext/standard/file.c: 713
+I_W	main/streams/userspace.c: 257
+I_W	ext/sqlite3/sqlite3.c: 1923
+I_W	Zend/Optimizer/sccp.c: 1679
+I_W	ext/sockets/sockets.c: 1365
+I_w	Zend/zend_generators.c: 734
+# External library thus can't use VSA to look into the implementation, too wide error interval
+I_W	ext/zip/php_zip.c: 1941
+I_W	ext/pdo_pgsql/pgsql_statement.c: 580
+# Same as before, but libc
+I_W	ext/pcntl/pcntl.c: 183
+I_W	main/network.c: 881
+I_W	main/network.c: 869
+I_W	main/network.c: 483
+I_W	main/fastcgi.c: 760
+I_W	main/fastcgi.c: 758
+I_W	sapi/phpdbg/phpdbg_prompt.c: 310
+I_W	sapi/phpdbg/phpdbg_prompt.c: 402
+I_W	ext/sysvsem/sysvsem.c: 254
+I_W	Zend/zend_signal.c: 313
+I_W	ext/standard/basic_functions.c: 618
+I_W	main/fopen_wrappers.c: 786
+I_W	main/fastcgi.c: 761
+I_W	ext/odbc/php_odbc.c: 975
+I_W	ext/exif/exif.c: 4381
+I_W	sapi/cli/php_cli_server.c: 1318
+I_W	main/main.c: 830
+I_W	ext/openssl/openssl.c: 2384
+I_W	ext/libxml/libxml.c: 293
+I_W	ext/sockets/conversions.c: 1443
+I_W	ext/opcache/ZendAccelerator.c: 1064
+I_W	ext/posix/posix.c: 133
+I_W	sapi/cli/php_cli_server.c: 2356
+I_W	ext/sockets/sockets.c: 1326
+I_W	ext/session/mod_files.c: 181
+I_W	ext/shmop/shmop.c: 185
+I_W	Zend/zend_fibers.c: 250
+I_W	ext/posix/posix.c: 228
+I_W	sapi/phpdbg/phpdbg_prompt.c: 1394
+I_W	ext/session/mod_files.c: 209
+I_W	sapi/phpdbg/phpdbg.c: 270
+I_W	ext/opcache/shared_alloc_shm.c: 76
+I_W	ext/session/session.c: 1137
+I_W	ext/opcache/ZendAccelerator.c: 1049
+I_W	main/fastcgi.c: 1304
+I_W	main/streams/plain_wrapper.c: 362
+I_W	main/streams/plain_wrapper.c: 1140
+I_W	sapi/cli/php_cli.c: 318
+I_W	ext/sysvshm/sysvshm.c: 226
+I_W	sapi/cgi/cgi_main.c: 349
+I_W	sapi/phpdbg/phpdbg_io.c: 77
+I_W	main/streams/plain_wrapper.c: 426
+I_W	sapi/cli/php_cli_server.c: 1134
+I_W	ext/bcmath/bcmath.c: 463
+I_W	ext/bcmath/bcmath.c: 558
+I_W	Zend/zend_API.c: 2263
+
+# Bugs?
+I_L	ext/mbstring/mbstring.c: 1204
+I_L	ext/pdo/pdo_dbh.c: 389
+I_L	ext/pdo/pdo_dbh.c: 1183
+I_L	Zend/zend_alloc.c: 720
+I_L	ext/mbstring/mbstring.c: 1069
+# Regular limitations
+I_L	ext/ffi/ffi_parser.c: 2878
+
+I_IDK	Zend/zend_inheritance.c: 2614
+I_IDK	ext/pdo_odbc/odbc_stmt.c: 663
+I_IDK	ext/odbc/php_odbc.c: 1767
+I_IDK	ext/pdo_dblib/dblib_stmt.c: 159
+I_IDK	ext/pdo_dblib/dblib_driver.c: 130
+I_IDK	ext/pdo_dblib/dblib_driver.c: 124
+I_IDK	Zend/zend_highlight.c: 196
+I_IDK	ext/pdo_odbc/odbc_stmt.c: 167
+
+# Bundled libraries
+/	ext/fileinfo/libmagic/apprentice.c: 3422
+/	ext/standard/libavifinfo/avifinfo.c: 216
+/	ext/fileinfo/libmagic/buffer.c: 48
+/	ext/pcre/pcre2lib/pcre2_compile.c: 10432
+/	ext/gd/libgd/wbmp.c: 44
+/	ext/gd/libgd/wbmp.c: 96
+/	ext/fileinfo/libmagic/encoding.c: 119
+/	ext/fileinfo/libmagic/softmagic.c: 1871
+/	ext/pcre/pcre2lib/pcre2_jit_compile.c: 13962
+/	ext/fileinfo/libmagic/apprentice.c: 3233
+/	ext/fileinfo/libmagic/softmagic.c: 1924
+/	ext/pcre/pcre2lib/pcre2_jit_compile.c: 9646
+/	ext/opcache/zend_accelerator_module.c: 200
+/	ext/fileinfo/libmagic/apprentice.c: 1501
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+M_A	ext/mbstring/libmbfl/filters/mbfilter_7bit.c: 82
+M_A	ext/mbstring/libmbfl/filters/mbfilter_sjis.c: 1775
+M_A	ext/mbstring/libmbfl/filters/mbfilter_sjis.c: 1847
+M_A	ext/mbstring/libmbfl/filters/mbfilter_sjis.c: 2144
+M_A	ext/mbstring/libmbfl/filters/mbfilter_sjis_mobile.c: 524
+M_A	ext/mbstring/libmbfl/filters/mbfilter_sjis_mobile.c: 452
+M_A	ext/mbstring/libmbfl/filters/mbfilter_sjis_mobile.c: 835
+M_A	ext/phar/util.c: 1582
+M_A	ext/openssl/openssl.c: 2604
+M_A	ext/openssl/openssl.c: 5291
+M_A	ext/openssl/openssl.c: 5876
+M_A	ext/ftp/php_ftp.c: 1226
+M_A	ext/pdo_odbc/odbc_driver.c: 452
+M_A	zend_update_static_property
+
+# Flaws
+M_PT	ext/standard/password.c: 249
+M_PT	ext/standard/password.c: 129
+M_PT	ext/snmp/snmp.c: 1735
+M_PT	ext/snmp/snmp.c: 1732
+M_PT	ext/sysvsem/sysvsem.c: 143
+M_PT	main/fastcgi.c: 768
+M_PT	ext/standard/basic_functions.c: 173
+M_PT	Zend/zend_compile.c: 1225
+M_PT	ext/sodium/sodium_pwhash.c: 133
+M_PT	ext/session/mod_files.c: 240
+M_PT	ext/openssl/xp_ssl.c: 2049
+M_PT	ext/mysqlnd/mysqlnd_vio.c: 663
+M_PT	sapi/cgi/cgi_main.c: 605
+M_PT	ext/standard/ftp_fopen_wrapper.c: 83
+M_PT	ext/pdo_odbc/odbc_driver.c: 128
+M_PT	ext/opcache/shared_alloc_shm.c: 118
+M_PT	ext/posix/posix.c: 430
+M_PT	ext/posix/posix.c: 432
+M_PT	ext/pdo_odbc/pdo_odbc.c: 95
+M_PT	ext/standard/streamsfuncs.c: ~1625~
+M_PT	ext/odbc/php_odbc.c: 1100
+M_PT	ext/pcntl/pcntl.c: 149
+M_PT	ext/standard/password.c: 145
+M_PT	ext/imap/php_imap.c: 1889
+M_PT	main/SAPI.c: 424
+M_PT	main/SAPI.c: 481
+M_PT	ext/pdo/pdo_stmt.c: 234
+M_PT	ext/dba/dba_cdb.c: 124
+M_PT	ext/mbstring/mbstring.c: ~816~
+M_PT	ext/mysqlnd/mysqlnd_ps.c: 974
+M_PT	ext/opcache/shared_alloc_shm.c: 115
+M_PT	ext/pgsql/pgsql.c: 3444
+M_PT	ext/mysqlnd/mysqlnd_loaddata.c: 218
+M_PT	main/streams/plain_wrapper.c: 1092
+M_PT	ext/mysqlnd/mysqlnd_debug.c: 131
+M_PT	ext/odbc/php_odbc.c: 643
+M_PT	main/fastcgi.c: 1302
+M_PT	ext/pdo/pdo_dbh.c: 1415
+M_PT	ext/zip/zip_stream.c: 102
+M_PT	ext/sodium/libsodium.c: 2637
+M_PT	main/network.c: 376
+M_PT	ext/openssl/openssl.c: 2004
+M_PT	ext/openssl/openssl.c: 2010
+M_PT	ext/openssl/openssl.c: 2016
+M_PT	ext/sodium/libsodium.c: 2475
+M_PT	ext/opcache/zend_file_cache.c: 1844
+M_PT	ext/opcache/zend_file_cache.c: 1806
+M_PT	ext/sodium/libsodium.c: 2642
+M_PT	ext/mysqlnd/mysqlnd_vio.c: 255
+M_PT	ext/mysqlnd/mysqlnd_vio.c: 679
+M_PT	ext/mysqlnd/mysqlnd_vio.c: 682
+M_PT	ext/bz2/bz2.c: 282
+M_PT	ext/dba/dba.c: 824
+M_PT	ext/opcache/zend_file_cache.c: 1796
+M_PT	ext/opcache/zend_file_cache.c: 1814
+M_PT	ext/opcache/zend_shared_alloc.c: 90
+M_PT	ext/opcache/zend_shared_alloc.c: 94
+M_PT	ext/readline/readline_cli.c: 615
+M_PT	ext/readline/readline_cli.c: 635
+M_PT	ext/readline/readline_cli.c: 658
+M_PT	ext/sockets/sockets.c: 2260
+M_PT	ext/sockets/sockets.c: 2297
+M_PT	ext/sockets/sockets.c: 2303
+M_PT	ext/sockets/sockets.c: 2319
+M_PT	ext/standard/proc_open.c: 714
+M_PT	ext/zip/zip_stream.c: ~123~
+M_PT	ext/zip/zip_stream.c: 359
+M_PT	main/network.c: 319
+M_PT	main/php_ini.c: 604
+M_PT	sapi/cgi/cgi_main.c: 1466
+M_PT	sapi/cli/php_cli_server.c: 2376
+M_PT	sapi/phpdbg/phpdbg_print.c: 84
+M_PT	sapi/phpdbg/phpdbg_prompt.c: 1192
+M_PT	sapi/phpdbg/phpdbg_utils.c: 392
+M_PT	sapi/phpdbg/phpdbg_utils.c: 394
+M_PT	sapi/phpdbg/phpdbg_watch.c: 1484
+M_PT	Zend/zend_compile.c: 8437
+M_PT	sapi/cgi/cgi_main.c: 638
+M_PT	Zend/zend_signal.c: 202
+M_PT	Zend/zend_signal.c: 214
+M_PT	Zend/zend_signal.c: 268
+M_PT	sapi/cgi/cgi_main.c: 2580
+M_PT	sapi/cgi/cgi_main.c: 2434
+M_PT	ext/opcache/zend_shared_alloc.c: 612
+M_PT	sapi/phpdbg/phpdbg_watch.c: 301
+M_PT	sapi/phpdbg/phpdbg_watch.c: 324
+M_PT	sapi/phpdbg/phpdbg_watch.c: 1144
+M_PT	Zend/zend_language_scanner.l: 1130
+M_PT	Zend/zend_language_scanner.l: 2540
+M_PT	Zend/zend_language_scanner.l: 3109
+
+# Regular PT's
+M_PT	ext/iconv/iconv.c: 579
+M_PT	ext/standard/var.c: 959
+M_PT	ext/pdo_mysql/mysql_statement.c: 845
+M_PT	ext/mysqlnd/mysqlnd_ps.c: 867
+M_PT	ext/standard/image.c: 619
+M_PT	ext/standard/image.c: 620
+M_PT	ext/mysqli/mysqli_api.c: 1547
+M_PT	ext/mysqlnd/mysqlnd_ps.c: 927
+M_PT	ext/mysqlnd/mysqlnd_loaddata.c: 198
+M_PT	ext/mysqlnd/mysqlnd_auth.c: 486
+M_PT	ext/opcache/zend_accelerator_blacklist.c: 297
+M_PT	ext/pdo_mysql/mysql_statement.c: 350
+M_PT	ext/phar/phar_object.c: 508
+M_PT	ext/iconv/iconv.c: 686
+M_PT	ext/mysqlnd/mysqlnd_ps.c: 649
+M_PT	ext/curl/multi.c: 398
+M_PT	Zend/zend.c: 1002
+M_PT	ext/mysqlnd/mysqlnd_ps.c: 1788
+M_PT	ext/mysqlnd/mysqlnd_debug.c: 233
+M_PT	ext/standard/link.c: 105
+M_PT	ext/soap/php_encoding.c: 1885
+M_PT	ext/reflection/php_reflection.c: 5659
+M_PT	sapi/phpdbg/phpdbg_prompt.c: 953
+M_PT	ext/soap/php_http.c: 1434
+M_PT	ext/odbc/php_odbc.c: 141
+M_PT	ext/opcache/jit/zend_jit.c: 4072
+M_PT	ext/mysqlnd/mysqlnd_driver.c: 134
+M_PT	ext/mysqlnd/mysqlnd_auth.c: 1271
+M_PT	ext/pgsql/pgsql.c: 3931
+M_PT	ext/zlib/zlib.c: 1333
+M_PT	main/rfc1867.c: 883
+M_PT	ext/odbc/php_odbc.c: 2352
+M_PT	ext/standard/basic_functions.c: 2084
+M_PT	ext/opcache/zend_accelerator_blacklist.c: 295
+M_PT	ext/iconv/iconv.c: 325
+M_PT	ext/odbc/php_odbc.c: 1231
+M_PT	ext/odbc/php_odbc.c: 832
+M_PT	ext/mysqlnd/mysqlnd_auth.c: 1267
+M_PT	ext/mysqlnd/mysqlnd_vio.c: 586
+M_PT	ext/dba/libflatfile/flatfile.c: 64
+M_PT	ext/mysqli/mysqli_nonapi.c: 206
+M_PT	ext/mysqli/mysqli_nonapi.c: 272
+M_PT	ext/mysqli/mysqli_nonapi.c: 275
+M_PT	ext/mysqlnd/mysqlnd_auth.c: 160
+M_PT	ext/mysqlnd/mysqlnd_commands.c: 542
+M_PT	ext/mysqlnd/mysqlnd_connection.c: 607
+M_PT	ext/opcache/ZendAccelerator.c: 1937
+M_PT	ext/opcache/ZendAccelerator.c: 2234
+M_PT	ext/openssl/xp_ssl.c: 1771
+M_PT	ext/pcntl/pcntl.c: 1122
+M_PT	ext/pdo_mysql/mysql_driver.c: 946
+M_PT	ext/pdo_odbc/odbc_stmt.c: 267
+M_PT	ext/pdo/pdo_stmt.c: 502
+M_PT	ext/pgsql/pgsql.c: 3471
+M_PT	ext/phar/phar_object.c: 161
+M_PT	ext/phar/phar.c: 2804
+M_PT	ext/phar/util.c: 1594
+M_PT	ext/phar/zip.c: 1187
+M_PT	ext/phar/zip.c: 916
+M_PT	ext/readline/readline.c: 507
+M_PT	ext/reflection/php_reflection.c: 1993
+M_PT	ext/reflection/php_reflection.c: 2032
+M_PT	ext/sockets/conversions.c: 1452
+M_PT	ext/spl/spl_array.c: 1328
+M_PT	ext/spl/spl_array.c: 1337
+M_PT	ext/spl/spl_array.c: 1345
+M_PT	ext/soap/php_http.c: 664
+M_PT	ext/standard/basic_functions.c: 1658
+M_PT	ext/standard/browscap.c: 435
+M_PT	ext/standard/file.c: 436
+M_PT	ext/standard/http_fopen_wrapper.c: 225
+M_PT	ext/standard/http_fopen_wrapper.c: 943
+M_PT	ext/standard/iptc.c: 244
+M_PT	ext/standard/mail.c: 504
+M_PT	ext/standard/streamsfuncs.c: 1173
+M_PT	ext/zip/php_zip.c: 257
+M_PT	main/main.c: 1565
+M_PT	main/main.c: 2447
+M_PT	main/main.c: 2535
+M_PT	main/main.c: 2538
+M_PT	main/rfc1867.c: 1254
+M_PT	main/SAPI.c: 420
+M_PT	main/SAPI.c: 478
+M_PT	main/streams/cast.c: 202
+M_PT	main/streams/memory.c: 583
+M_PT	main/streams/memory.c: 720
+M_PT	main/streams/streams.c: 1134
+M_PT	main/streams/streams.c: 1569
+M_PT	main/streams/streams.c: 504
+M_PT	sapi/cli/php_cli_server.c: 2225
+M_PT	sapi/phpdbg/phpdbg_prompt.c: 1516
+M_PT	sapi/phpdbg/phpdbg_prompt.c: 441
+M_PT	sapi/phpdbg/phpdbg_utils.c: 521
+M_PT	sapi/phpdbg/phpdbg_utils.c: 530
+M_PT	sapi/cgi/cgi_main.c: 1991
+M_PT	stream_cookie_writer
+M_PT	stream_cookie_reader
+M_PT	ext/date/lib/unixtime2tm.c: 102
+M_PT	ext/iconv/iconv.c: 1649
+M_PT	ext/iconv/iconv.c: 1661
+M_PT	ext/opcache/zend_persist.c: 1354
+M_PT	ext/opcache/zend_persist.c: 694
+M_PT	ext/phar/phar_object.c: 1652
+M_PT	ext/phar/phar_object.c: 197
+M_PT	ext/phar/phar_object.c: 3619
+M_PT	ext/phar/phar_object.c: 4823
+M_PT	ext/ldap/ldap.c: 1279
+M_PT	ext/ldap/ldap.c: 1319
+M_PT	ext/ldap/ldap.c: 1320
+M_PT	ext/ldap/ldap.c: 1330
+M_PT	ext/ldap/ldap.c: 1331
+M_PT	ext/ldap/ldap.c: 1341
+M_PT	ext/ldap/ldap.c: 1342
+M_PT	ext/phar/phar.c: 2682
+M_PT	ext/phar/phar.c: 3223
+M_PT	ext/phar/phar.c: 3232
+M_PT	ext/phar/phar.c: 3239
+M_PT	ext/phar/tar.c: 1340
+M_PT	ext/phar/tar.c: 1349
+M_PT	ext/phar/tar.c: 1360
+M_PT	ext/phar/tar.c: 1367
+M_PT	ext/phar/util.c: 450
+M_PT	ext/phar/util.c: 662
+M_PT	ext/phar/util.c: 871
+M_PT	ext/phar/zip.c: 1068
+M_PT	ext/phar/zip.c: 1525
+M_PT	ext/phar/zip.c: 438
+M_PT	ext/phar/zip.c: 442
+M_PT	ext/standard/file.c: 1944
+M_PT	ext/standard/file.c: 2053
+M_PT	ext/standard/file.c: 2122
+M_PT	ext/standard/file.c: 2153
+M_PT	ext/standard/string.c: 1301
+M_PT	sapi/phpdbg/phpdbg_watch.c: 1365
+M_PT	sapi/phpdbg/phpdbg_watch.c: 1140
+M_PT	sapi/phpdbg/phpdbg_watch.c: 1482
+M_PT	Zend/zend_execute_API.c: 1404
+M_PT	Zend/zend_highlight.c: 63
+
+# Confirmed by comment
+M_C	ext/pdo/pdo_dbh.c: 416
+M_C	ext/soap/php_sdl.c: 1040
+
+# False, *out param:
+M_L	ext/intl/common/common_date.cpp: 201
+M_L	ext/sockets/sockaddr_conv.c: 37
+
+# False, bug?
+M_L	ext/soap/soap.c: 3396
+
+# False, handled differently
+M_L	ext/spl/spl_directory.c: 605
+M_L	Zend/zend_vm_execute.h: 36433
+M_L	Zend/zend_vm_execute.h: 467
+M_L	ext/random/engine_secure.c: 40
+M_L	ext/xsl/xsltprocessor.c: 266
+M_L	Zend/zend_fibers.c: 588
+M_L	Zend/zend_vm_execute.h: 5436
+M_L	Zend/zend_vm_execute.h: 488
+M_L	ext/json/json.c: 287
+M_L	ext/openssl/openssl.c: 3321
+M_L	ext/standard/proc_open.c: 1211
+M_L	ext/standard/var_unserializer.re: 1255
+M_L	ext/reflection/php_reflection.c: 2894
+M_L	ext/reflection/php_reflection.c: 3886
+M_L	ext/reflection/php_reflection.c: 6949
+M_L	Zend/zend_vm_execute.h: 34342
+M_L	Zend/zend_vm_execute.h: 7243
+M_L	Zend/zend_vm_execute.h: 25001
+M_L	Zend/zend_vm_execute.h: 8398
+
+# False, compiler optimized away the check but it's fine
+M_L	ext/openssl/openssl.c: 3872
+
+# FNE
+M_FNE	ext/xml/xml.c: 655
+M_FNE	Zend/zend_compile.c: 4988
+M_FNE	ext/spl/spl_heap.c: 982
+M_FNE	ext/spl/spl_heap.c: 955
+M_FNE	ext/standard/scanf.c: 401
+M_FNE	ext/pdo_pgsql/pgsql_driver.c: 933
+M_FNE	ext/dom/nodelist.c: 71
+M_FNE	sapi/phpdbg/phpdbg_bp.c: 400
+M_FNE	ext/spl/spl_iterators.c: 3160
+M_FNE	ext/mbstring/mbstring.c: 806
+M_FNE	ext/standard/array.c: 5485
+M_FNE	ext/spl/spl_functions.c: 33
+M_FNE	Zend/Optimizer/dfa_pass.c: 456
+M_FNE	Zend/zend_closures.c: 197
+M_FNE	Zend/zend_compile.c: 5895
+M_FNE	ext/pcre/php_pcre.c: 1059
+M_FNE	ext/mbstring/mbstring.c: 2756
+M_FNE	Zend/zend_ini.c: 136
+M_FNE	ext/pdo_pgsql/pgsql_driver.c: 750
+M_FNE	ext/pdo_pgsql/pgsql_driver.c: 848
+M_FNE	Zend/zend_gc.c: 1010
+M_FNE	Zend/zend_hash.h: 270
+M_FNE	ext/standard/browscap.c: 294
+M_FNE	Zend/Optimizer/dfa_pass.c: 440
+M_FNE	ext/date/php_date.c: 2295
+M_FNE	ext/standard/string.c: 2640
+M_FNE	ext/opcache/zend_file_cache.c: 1938
+M_FNE	ext/ffi/ffi.c: ~2024~
+M_FNE	ext/gd/gd.c: 3646
+M_FNE	ext/ldap/ldap.c: 1533
+M_FNE	ext/mysqli/mysqli.c: 358
+M_FNE	ext/opcache/ZendAccelerator.c: 3539
+M_FNE	ext/opcache/ZendAccelerator.c: 3543
+M_FNE	ext/spl/php_spl.c: 474
+M_FNE	ext/spl/spl_array.c: 1440
+M_FNE	ext/spl/spl_array.c: 966
+M_FNE	ext/spl/spl_dllist.c: 443
+M_FNE	ext/spl/spl_dllist.c: 461
+M_FNE	ext/spl/spl_fixedarray.c: 603
+M_FNE	ext/spl/spl_fixedarray.c: 636
+M_FNE	ext/spl/spl_observer.c: 491
+M_FNE	ext/standard/array.c: 3856
+M_FNE	ext/standard/assert.c: ~120~
+M_FNE	ext/standard/image.c: 1035
+M_FNE	ext/zlib/zlib.c: 304
+M_FNE	main/fastcgi.c: 1736
+M_FNE	sapi/cli/php_cli_server.c: 1680
+M_FNE	sapi/cli/php_cli_server.c: 1681
+M_FNE	Zend/Optimizer/compact_literals.c: 113
+M_FNE	Zend/zend_API.h: 816
+M_FNE	Zend/zend_closures.c: 158
+M_FNE	Zend/zend_closures.c: 307
+M_FNE	Zend/zend_compile.c: 2957
+M_FNE	Zend/zend_compile.c: 4276
+M_FNE	Zend/zend_compile.c: 4293
+M_FNE	Zend/zend_compile.c: 5682
+M_FNE	Zend/zend_exceptions.c: 666
+M_FNE	Zend/zend_hash.h: 645
+M_FNE	zend_restore_ini_entry_cb
+M_FNE	ext/ffi/ffi.c: 2061
+M_FNE	ext/mysqlnd/mysqlnd_debug.c: 581
+M_FNE	ext/random/engine_mt19937.c: 400
+M_FNE	ext/simplexml/simplexml.c: 2551
+M_FNE	ext/soap/php_sdl.c: 1989
+M_FNE	ext/standard/basic_functions.c: 1119
+M_FNE	ext/standard/browscap.c: 282
+M_FNE	ext/standard/browscap.c: 285
+M_FNE	ext/standard/browscap.c: 289
+M_FNE	sapi/phpdbg/phpdbg_sigsafe.c: 16
+M_FNE	sapi/phpdbg/phpdbg_sigsafe.c: 22
+
+# Really stupidly benign
+M_FNE	ext/snmp/snmp.c: 482
+M_FNE	ext/soap/php_encoding.c: 507
+M_FNE	ext/sodium/libsodium.c: 2587
+M_FNE	ext/sodium/libsodium.c: 2592
+
+# IDK
+M_IDK	main/php_ini.c: 317
+M_IDK	Zend/zend_inheritance.c: 2651
+M_IDK	ext/mysqlnd/mysqlnd_ps.c: 1635
+M_IDK	ext/sodium/libsodium.c: 723
+M_IDK	ext/mysqlnd/mysqlnd_auth.c: 484
+M_IDK	ext/pdo_pgsql/pgsql_driver.c: 638
+M_IDK	ext/pdo_pgsql/pgsql_statement.c: 455
+M_IDK	ext/pgsql/pgsql.c: 4191
+M_IDK	ext/spl/spl_iterators.c: 2953
+M_IDK	ext/standard/user_filters.c: 116
+M_IDK	ext/standard/user_filters.c: 317
+M_IDK	main/php_ini.c: 389
+M_IDK	zend_ast_evaluate
+M_IDK	main/main.c: 853
+
+# Bundled libraries
+/	ext/fileinfo/libmagic/funcs.c: 198
+/	ext/fileinfo/libmagic/funcs.c: 201
+/	ext/fileinfo/libmagic/funcs.c: 195
+/	ext/gd/libgd/gd_gif_in.c: 645
+/	ext/fileinfo/libmagic/magic.c: 115
+/	ext/dba/libinifile/inifile.c: 298
+/	ext/fileinfo/libmagic/apprentice.c: 670
+/	ext/pcre/pcre2lib/pcre2_match.c: 5073
+/	ext/pcre/pcre2lib/sljit/sljitNativeX86_common.c: 1609
+/	ext/pcre/pcre2lib/pcre2_compile.c: 10228
+/	ext/pcre/pcre2lib/sljit/sljitNativeX86_64.c: 835
+/	ext/opcache/jit/vtune/jitprofiling.c: 164
+/	ext/gd/libgd/gd_gif_out.c: 125
+/	ext/gd/libgd/gd_wbmp.c: 98
+/	ext/bcmath/libbcmath/src/raisemod.c: 93
+/	ext/gd/libgd/gd_interpolation.c: 2245
+# Miscompiled?
+/	ext/openssl/xp_ssl.c: 1325
+/	ext/curl/interface.c: 1299
+/	ext/pcre/pcre2lib/pcre2_jit_compile.c: 13176
+/	ext/pcre/pcre2lib/sljit/sljitNativeX86_common.c: 2219
+# Duplicates due to inlining
+/	zend_update_static_property_stringl
+/	zend_update_static_property_string
+/	zend_update_static_property_bool
+/	zend_update_static_property_double
+/	zend_update_static_property_long
+/	zend_update_static_property_null
+/	zend_ast_evaluate_inner

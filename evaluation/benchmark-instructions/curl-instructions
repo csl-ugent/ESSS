@@ -1,0 +1,11 @@
+export LLVM_COMPILER=clang
+export LLVM_COMPILER_PATH=/home/evaluation/ESSS/llvm/llvm-project/prefix/bin
+mkdir -p tmp
+rm tmp/* tmp/.*
+alias wllvm="wllvm -g"
+CFLAGS="-g" CC=wllvm CXX=wllvm++ ./configure --enable-smtp --enable-dict --enable-tftp --with-ssl --enable-optimize --disable-ldap --enable-debug
+make -j4
+extract-bc --manifest ./src/.libs/curl
+extract-bc --manifest ./lib/.libs/libcurl.so.4.5.0
+cat src/.libs/curl.llvm.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; done
+cat lib/.libs/libcurl.so.4.5.0.llvm.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; done

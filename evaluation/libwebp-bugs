@@ -1,0 +1,34 @@
+# The prefix before the _ indicates whether it's an incorrect (I) case or a missing (M) case.
+
+# A   = applied the fix
+# C   = confirmed
+# PT  = probably true positive
+# PF  = probably false positive
+# FNE = false positive because not an error
+# FPS = false positive because path-sensitive
+# L   = limitation of my tool
+# W   = wrong value included in error interval
+# IDK = I don't know
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+# Already checked indirectly with a previous call
+M_FPS	huffman_utils.c: 253
+M_FPS	huffman_utils.c: 259
+
+IDK	vp8_dec.c: 384
+IDK	thread_utils.c: 294
+IDK	thread_utils.c: 209
+IDK	thread_utils.c: 238
+
+M_PT	vp8l_enc.c: 1978
+M_PT	idec_dec.c: 291
+M_PT	idec_dec.c: 261
+M_PT	idec_dec.c: 677
+M_PT	alpha_enc.c: 238
+M_PT	analysis_enc.c: 364
+M_PT	frame_enc.c: 744
+M_PT	alpha_enc.c: 58
+M_PT	alpha_enc.c: 69

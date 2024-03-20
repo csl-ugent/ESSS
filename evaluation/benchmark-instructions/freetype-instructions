@@ -1,0 +1,10 @@
+export LLVM_COMPILER=clang
+export LLVM_COMPILER_PATH=/home/evaluation/ESSS/llvm/llvm-project/prefix/bin
+mkdir -p tmp
+rm tmp/* tmp/.*
+alias wllvm="wllvm -g"
+./autogen.sh
+CC=wllvm CXX=wllvm++ ./configure --with-zlib --with-png
+make -j6
+extract-bc --manifest ./objs/.libs/libfreetype.a
+cat ./objs/.libs/*.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; done

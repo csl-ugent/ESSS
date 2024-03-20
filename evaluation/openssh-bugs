@@ -1,0 +1,105 @@
+# The prefix before the _ indicates whether it's an incorrect (I) case or a missing (M) case.
+
+# A   = applied the fix
+# C   = confirmed
+# PT  = probably true positive
+# PF  = probably false positive
+# FNE = false positive because not an error
+# FPS = false positive because path-sensitive
+# L   = limitation of my tool
+# W   = wrong value included in error interval
+# IDK = I don't know
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+# Debug code
+M_FNE	dh.c: 239
+M_FNE	packet.c: 1102
+
+# IV length
+I_FNE	libressl-api-compat.c: 343
+I_FNE	libressl-api-compat.c: 372
+
+I_FNE	kexgexc.c: 109
+I_FNE	ssh-keygen.c: 2824
+I_FNE	servconf.c: 2661
+
+I_PT	hostfile.c: 527
+I_PT	servconf.c: 1227
+I_PT	readconf.c: 2284
+I_PT	addr.c: 445
+
+# Flaws
+I_PT	mac.c: 185
+
+I_W	sshconnect2.c: 557
+
+M_PT	scp.c: 1847
+M_PT	scp.c: 1836
+M_PT	sftp.c: 228
+M_PT	clientloop.c: 407
+M_PT	scp.c: 1535
+M_PT	scp.c: 1941
+M_PT	ssh-add.c: 223
+M_PT	channels.c: 826
+M_PT	channels.c: 390
+M_PT	channels.c: 392
+M_PT	ssh-keygen.c: 1133
+M_PT	channels.c: 1337
+M_PT	ssh-keyscan.c: 331
+M_PT	sftp.c: 1653
+M_PT	monitor.c: 1479
+M_PT	packet.c: 395
+M_PT	packet.c: 1690
+M_PT	scp.c: 1072
+M_PT	scp.c: 1483
+M_PT	auth-pam.c: 573
+M_PT	channels.c: 1791
+M_PT	loginrec.c: 456
+M_PT	kexgexs.c: 103
+M_PT	scp.c: 1243
+
+# Flaws
+M_PT	ssh-keygen.c: 2612
+M_PT	sshconnect.c: 1455
+M_PT	channels.c: ~509~
+M_PT	scp.c: 2233
+M_PT	sshpty.c: 228
+M_PT	channels.c: 394
+M_PT	sshpty.c: 162
+M_PT	sshpty.c: 108
+M_PT	readpassphrase.c: 102
+M_PT	sftp.c: 274
+M_PT	sftp.c: 251
+M_PT	scp.c: 1850
+M_PT	session.c: 804
+M_PT	auth-pam.c: 669
+M_PT	log.c: 411
+M_PT	readpass.c: 162
+M_PT	readpass.c: 281
+M_PT	readpassphrase.c: 129
+M_PT	readpassphrase.c: 148
+M_PT	ssh.c: 576
+M_PT	ssh.c: 581
+M_PT	scp.c: 197
+M_PT	scp.c: 201
+
+# Checked in another way
+M_L	misc.c: 2768
+M_L	sshlogin.c: 81
+
+M_FNE	sshconnect.c: 1508
+M_FNE	readconf.c: 1188
+M_FNE	servconf.c: 1764
+M_FNE	servconf.c: 2547
+M_FNE	scp.c: 2252
+M_FNE	scp.c: 2254
+
+M_W	ssh-pkcs11-client.c: 385
+
+# Confirmed by comment
+M_C	auth-pam.c: ~473~
+
+I_IDK	sftp.c: 735

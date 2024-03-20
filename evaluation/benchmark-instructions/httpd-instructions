@@ -1,0 +1,17 @@
+export LLVM_COMPILER=clang
+export LLVM_COMPILER_PATH=/home/evaluation/ESSS/llvm/llvm-project/prefix/bin
+
+# OpenSSL 1.1.1 dependency (in ~/build-openssl-1.1.1/openssl)
+mkdir prefix
+./Configure -g linux-x86_64-clang --prefix="$(realpath prefix)"
+make -j4
+make install
+
+# httpd itself
+mkdir -p tmp
+rm tmp/* tmp/.*
+alias wllvm="wllvm -g"
+CFLAGS='-g -Xclang -disable-O0-optnone' CC=wllvm CXX=wllvm++ ./configure --enable-ssl=~/build-openssl-1.1.1/openssl/prefix/  --enable-md --enable-lua --enable-http --enable-mods-static=all
+make -j4
+extract-bc --manifest .libs/httpd
+cat .libs/*.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; done

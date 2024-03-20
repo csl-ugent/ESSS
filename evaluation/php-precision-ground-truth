@@ -1,0 +1,310 @@
+_emalloc_80	[0, 0]
+_php_iconv_appendl	[0, 0]
+_php_stream_bz2open_from_BZFILE	[0, 0]
+_php_stream_flush	EMPTY
+_php_stream_fopen_from_fd	[0, 0]
+_readline_command_generator	[0, 0]
+accel_startup	[-1, -1]
+add_next_index_double	[-1, -1]
+add_next_index_reference	[-1, -1]
+append_user_shutdown_function	[0, 0]
+bmp_read_direct	[1, 1]
+bmp_read_palette	[1, 1]
+cdf_unpack_catalog	[-1, -1]
+cfg_get_entry	[0, 0]
+check_nesting_at_end	[-1, -1]
+create_notation	[0, 0]
+date_period_it_current_data	[0, 0]
+dba_info_flatfile	[0, 0]
+dblib_handle_commit	[0, 0]
+decode_context_param	[0, 0]
+div_function_base	[2, 2]
+dom_characterdata_data_write	[-1, -1]
+dom_document_encoding_read	[-1, -1]
+dom_document_standalone_read	[-1, -1]
+dom_document_version_write	[-1, -1]
+dom_documenttype_name_read	[-1, -1]
+dom_node_namespace_uri_read	[-1, -1]
+dom_node_next_sibling_read	[-1, -1]
+dom_notation_public_id_read	[-1, -1]
+dom_parent_node_first_element_child_read	[-1, -1]
+dtpg_ctor(_zend_execute_data*, _zval_struct*, zend_error_handling*, bool*)	[-1, -1]
+file_buffer	[-1, -1]
+file_encoding	[1, 1]
+file_fmtdatetime	[0, 0]
+ftp_nb_get	[0, 0]
+ftp_put	[0, 0]
+ftp_pwd	[0, 0]
+ftp_quit	[0, 0]
+ftp_reinit	[0, 0]
+ftp_rmdir	[0, 0]
+get_active_function_or_method_name	[0, 0]
+get_active_function_or_method_name	[0, 0]
+get_element	EMPTY
+get_node_with_attribute_ex	[0, 0]
+ini_key_compare	[0, 0]
+internal_get_arr_ele	[0, 0]
+lex_scan	[-128, -1] U [1, 406]
+link_connect_error_read	EMPTY
+link_info_read	[0, 0]
+link_insert_id_read	[0, 0]
+lo_import_with_oid	[0, 0]
+lo_unlink	[1, 1]
+mb_gb18030_to_wchar	EMPTY
+mb_iso2022jpms_to_wchar	EMPTY
+mb_sjis_to_wchar	EMPTY
+mbfl_filt_conv_8859_9_wchar	[-1, -1]
+mbfl_filt_conv_cp5022x_wchar	[-1, -1]
+mbfl_filt_conv_eucjp_wchar	[-1, -1]
+mbfl_filt_conv_pass	[-1, -1]
+mbfl_filt_conv_pass	EMPTY
+mbfl_filt_conv_sjis_mobile_wchar	[-1, -1]
+mbfl_filt_conv_utf8_wchar	[-1, -1]
+mbfl_filt_conv_wchar_8859_5	[-2147483648, -1]
+mbfl_filt_conv_wchar_eucjp	[-1, -1]
+mbfl_filt_conv_wchar_eucjpwin	[-1, -1]
+mbfl_filt_conv_wchar_utf7	[-2147483648, -1]
+mbfl_no_encoding2name	[0, 0]
+mbfl_strcut	[0, 0]
+dba_firstkey_gdbm	[0, 0]
+dba_fetch_gdbm	[0, 0]
+mysql_handle_preparer	[0, 0]
+mysqlnd_auth_change_user	[0, 0]
+mysqlnd_caching_sha2_handle_server_response	[0, 0]
+mysqlnd_connection_init	[0, 0]
+mysqlnd_mysqlnd_command_process_kill_pub	[1, 1]
+mysqlnd_mysqlnd_conn_data_info_pub	[1, 1]
+mysqlnd_mysqlnd_conn_data_set_client_option_pub	[1, 1]
+mysqlnd_mysqlnd_conn_data_tx_savepoint_release_pub	[1, 1]
+mysqlnd_mysqlnd_object_factory_get_pfc_pub	[0, 0]
+mysqlnd_mysqlnd_stmt_store_result_pub	[-2147483648, -1] U [1, 2147483647]
+mysqlnd_zval_array_to_mysqlnd_array	[-1, -1]
+odbc_handle_commit	[-1, -1]
+odbc_handle_get_attr	[0, 0]
+odbc_stmt_get_attr	[0, 0]
+onig_match_with_param	[-2147483648, -1]
+OnUpdate_mbstring_http_output_conv_mimetypes	[-1, -1]
+OnUpdate_zlib_output_compression	[-1, -1]
+optimize_class	[0, 0]
+parse_enumerator_list	[-1, 43] U [45, 99]
+parse_equality_expression	/
+parse_ext	[-1, -1]
+pdo_sqlite_stmt_get_col	[0, 0]
+phar_convert_to_other	[0, 0]
+phar_convert_to_other	[0, 0]
+phar_find_in_include_path	[0, 0]
+phar_find_in_include_path	[0, 0]
+phar_get_entry_data	[-1, -1]
+phar_get_or_create_entry_data	[0, 0]
+phar_is_tar	[0, 0]
+phar_open_or_create_filename	[-1, -1]
+phar_stream_seek	[-1, -1]
+phar_stream_stat	[-1, -1]
+phar_tar_setmetadata	[0, 0]
+phar_wrapper_open_dir	[0, 0]
+php_addcslashes	EMPTY
+php_addslashes_sse42	[0, 0]
+php_ap_getword_conf	[0, 0]
+php_bz2_compress_filter	[0, 0]
+php_check_open_basedir_ex	[-1, -1]
+php_cli_server_client_read_request_on_header_value	EMPTY
+php_cli_server_client_read_request_on_message_begin	EMPTY
+php_cli_server_send_event	[-1, -1]
+php_curl_option_url	[-1, -1]
+php_dom_libxml_notation_iter	[0, 0]
+php_escape_html_entities	EMPTY
+php_gd_gdImageEmboss	[1, 1]
+php_gd_gdImageRotate90 [0, 0]
+php_gd_gdImageWBMPPtr	[0, 0]
+php_gd_gdNewDynamicCtx	[0, 0]
+php_init_config	EMPTY
+php_mb_rfc1867_getword	[0, 0]
+php_network_connect_socket	[-1, -1]
+php_network_gethostbyname	[0, 0]
+php_odbc_connstr_should_quote	[0, 0]
+php_openssl_csr_from_param	[0, 0]
+php_openssl_enable_server_sni	[-1, -1]
+php_openssl_sockop_read	[-2147483648, -1]
+php_pcre_malloc	[0, 0]
+php_pcre_replace	[0, 0]
+php_pcre_replace_impl	[0, 0]
+php_pcre2_general_context_copy	[0, 0]
+php_pcre2_general_context_copy	[0, 0]
+php_pcre2_general_context_create	[0, 0]
+php_pgsql_insert	[-1, -1]
+php_plain_files_url_stater	[-1, -1]
+php_random_bin2hex_le	[0, 0]
+php_resolve_path_for_zend	[0, 0]
+php_sapi_phpdbg_module_startup	[-1, -1]
+php_set_sock_blocking	[-1, -1]
+php_snmp_read_property	[0, 0]
+php_snmp_write_enum_print	EMPTY
+php_snmp_write_exceptions_enabled	EMPTY
+php_snmp_write_oid_output_format	[0, 0]
+php_sockop_stat [-1, -1]
+php_sodium_argon2_hash	[0, 0]
+php_stdiop_write	[-1, 0]
+php_stream_generic_socket_factory	[0, 0]
+php_stream_memory_set_option	[-2, -1]
+php_stream_open_for_zend	[-1, -1]
+php_tcp_sockop_set_option	[-2, -1]
+php_tidy_malloc	[0, 0]
+php_zlib_decode	[-1, -1]
+php_zlib_deflate_filter	[0, 1]
+php_zlib_output_handler_ex	[0, 0]
+phpdbg_check_caught_ex	[0, 0]
+phpdbg_compile_file	[0, 0]
+phpdbg_find_conditional_breakpoint	[-2147483648, -1] U [1, 2147483647]
+phpdbg_malloc_wrapper	[0, 0]
+phpdbg_short_zval_print	[0, 0]
+phpdbg_stack_verify	[-1, -1]
+preg_replace_func_impl	[0, 0]
+ps_create_sid_files	[0, 0]
+ps_srlzr_decode_php_binary	[-1, -1]
+ps_validate_sid_files	[-1, -1]
+row_prop_read	[0, 0]
+sapi_fcgi_getenv	[0, 0]
+sapi_header_op	[-1, -1]
+spl_array_has_dimension	[0, 0]
+sqlite_handle_rollback	[0, 0]
+strfilter_toupper_create	[0, 0]
+sxe_prop_dim_exists	[0, 0]
+tsrm_realpath	[0, 0]
+u_tolower_72	[-2147483648, 65535]
+ubrk_next_72	EMPTY
+virtual_chdir_file	[-2147483648, -1] U [1, 2147483647]
+write_history	[0, 0]
+xmlNewReference	[0, 0]
+xmlURIUnescapeString	[0, 0]
+ZEND_ADD_ARRAY_ELEMENT_SPEC_CONST_CV_HANDLER	EMPTY
+zend_array_to_list	[0, 0]
+ZEND_ASSIGN_DIM_OP_SPEC_CV_TMPVAR_HANDLER	EMPTY
+ZEND_ASSIGN_DIM_OP_SPEC_VAR_TMPVAR_HANDLER	EMPTY
+ZEND_ASSIGN_DIM_SPEC_VAR_UNUSED_OP_DATA_CV_HANDLER	EMPTY
+ZEND_ASSIGN_OBJ_OP_SPEC_CV_TMPVAR_HANDLER	EMPTY
+ZEND_ASSIGN_OBJ_REF_SPEC_CV_CONST_OP_DATA_VAR_HANDLER	EMPTY
+ZEND_ASSIGN_OBJ_REF_SPEC_VAR_CONST_OP_DATA_CV_HANDLER	EMPTY
+ZEND_ASSIGN_OBJ_SPEC_CV_CV_OP_DATA_CONST_HANDLER	EMPTY
+ZEND_ASSIGN_OBJ_SPEC_CV_TMPVAR_OP_DATA_CONST_HANDLER	EMPTY
+ZEND_ASSIGN_OBJ_SPEC_UNUSED_CV_OP_DATA_VAR_HANDLER	EMPTY
+ZEND_ASSIGN_SPEC_VAR_VAR_RETVAL_USED_HANDLER	EMPTY
+zend_ast_evaluate_ex	[-1, -1]
+ZEND_BOOL_XOR_SPEC_TMPVAR_TMPVAR_HANDLER	EMPTY
+ZEND_BW_OR_SPEC_TMPVARCV_CONST_HANDLER	EMPTY
+ZEND_CALL_TRAMPOLINE_SPEC_HANDLER	EMPTY
+ZEND_CALLABLE_CONVERT_SPEC_UNUSED_UNUSED_HANDLER	EMPTY
+zend_check_and_resolve_property_class_type	[0, 0]
+zend_check_user_type_slow	[-1, -1]
+zend_closure_get_debug_info	[0, 0]
+ZEND_DECLARE_CONST_SPEC_CONST_CONST_HANDLER	EMPTY
+ZEND_DIV_SPEC_CV_CONST_HANDLER	EMPTY
+ZEND_DO_FCALL_SPEC_RETVAL_UNUSED_HANDLER	EMPTY
+ZEND_DO_FCALL_SPEC_RETVAL_USED_HANDLER	EMPTY
+ZEND_DO_ICALL_SPEC_OBSERVER_HANDLER	EMPTY
+zend_eval_stringl	[-1, -1]
+ZEND_FE_RESET_R_SPEC_CV_HANDLER	EMPTY
+ZEND_FETCH_CLASS_CONSTANT_SPEC_CONST_TMPVARCV_HANDLER	EMPTY
+ZEND_FETCH_DIM_FUNC_ARG_SPEC_CV_CONST_HANDLER	EMPTY
+ZEND_FETCH_DIM_IS_SPEC_CONST_TMPVAR_HANDLER	EMPTY
+ZEND_FETCH_DIM_IS_SPEC_TMPVAR_CONST_HANDLER	EMPTY
+ZEND_FETCH_DIM_IS_SPEC_TMPVAR_CV_HANDLER	EMPTY
+ZEND_FETCH_DIM_R_SPEC_TMPVAR_CV_HANDLER	EMPTY
+ZEND_FETCH_OBJ_IS_SPEC_TMPVAR_TMPVAR_HANDLER	EMPTY
+ZEND_FETCH_OBJ_UNSET_SPEC_UNUSED_CONST_HANDLER	EMPTY
+ZEND_FETCH_OBJ_UNSET_SPEC_VAR_CV_HANDLER	EMPTY
+ZEND_FETCH_OBJ_W_SPEC_CV_TMPVAR_HANDLER	EMPTY
+zend_fetch_resource2_ex	[0, 0]
+zend_ffi_cdata_it_get_current_data	[0, 0]
+zend_get_callable_name	[0, 0]
+ZEND_GET_CLASS_SPEC_UNUSED_UNUSED_HANDLER	EMPTY
+zend_get_constant	[0, 0]
+zend_get_parameter_attribute_str	[0, 0]
+zend_handle_loops_and_finally_ex	[-1, -1]
+zend_hash_add_empty_element	[0, 0]
+zend_hash_add_or_update	[0, 0]
+zend_hash_find_ptr_lc	[0, 0]
+zend_hash_str_find	[0, 0]
+zend_ini_parse_quantity_warn	[-2147483648, -1]
+ZEND_INIT_STATIC_METHOD_CALL_SPEC_VAR_CONST_HANDLER	EMPTY
+zend_is_callable_check_class	[-1, -1]
+ZEND_IS_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPZ_HANDLER	[0, 1]
+ZEND_IS_NOT_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPZ_HANDLER	EMPTY
+ZEND_IS_NOT_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER	EMPTY
+ZEND_IS_NOT_EQUAL_SPEC_CONST_CONST_HANDLER	EMPTY
+ZEND_IS_NOT_EQUAL_SPEC_CV_TMPVAR_HANDLER	EMPTY
+ZEND_IS_NOT_IDENTICAL_SPEC_CONST_CONST_HANDLER	EMPTY
+ZEND_IS_NOT_IDENTICAL_SPEC_CV_VAR_HANDLER	EMPTY
+ZEND_IS_SMALLER_LONG_SPEC_TMPVARCV_CONST_JMPZ_HANDLER	EMPTY
+ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER	EMPTY
+ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_CONST_TMPVARCV_JMPZ_HANDLER	EMPTY
+ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPZ_HANDLER	EMPTY
+ZEND_IS_SMALLER_SPEC_TMPVARCV_CONST_HANDLER	EMPTY
+ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CONST_CONST_HANDLER	EMPTY
+ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CV_CV_HANDLER	EMPTY
+ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_TMPVAR_CONST_HANDLER	EMPTY
+ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_TMPVAR_CV_HANDLER	EMPTY
+ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_UNUSED_TMPVAR_HANDLER	EMPTY
+zend_jit_assign_obj	[0, 0]
+zend_jit_cannot_add_element_stub	EMPTY
+zend_jit_fe_fetch	[0, 0]
+zend_jit_negative_shift_stub	EMPTY
+zend_jit_send_var	[0, 0]
+zend_jit_trace_handler	[0, 0]
+ZEND_JMPZ_EX_SPEC_TMPVAR_HANDLER	EMPTY
+zend_lex_tstring	[-1, -1]
+ZEND_MATCH_ERROR_SPEC_CONST_UNUSED_HANDLER	EMPTY
+ZEND_MOD_SPEC_CONST_TMPVARCV_HANDLER	EMPTY
+ZEND_MOD_SPEC_TMPVARCV_CONST_HANDLER	EMPTY
+ZEND_MUL_LONG_SPEC_TMPVARCV_CONST_HANDLER	EMPTY
+zend_multibyte_encoding_converter	EMPTY
+ZEND_NEW_SPEC_VAR_UNUSED_HANDLER	EMPTY
+ZEND_POST_INC_OBJ_SPEC_CV_CV_HANDLER	EMPTY
+ZEND_POST_INC_OBJ_SPEC_UNUSED_CONST_HANDLER	EMPTY
+ZEND_POST_INC_OBJ_SPEC_UNUSED_CV_HANDLER	EMPTY
+ZEND_PRE_DEC_LONG_SPEC_CV_RETVAL_USED_HANDLER	EMPTY
+ZEND_PRE_INC_SPEC_VAR_RETVAL_UNUSED_HANDLER	EMPTY
+ZEND_QM_ASSIGN_SPEC_CONST_HANDLER	EMPTY
+zend_read_static_property	[0, 0]
+ZEND_RECV_INIT_SPEC_CONST_HANDLER	EMPTY
+ZEND_SEND_USER_SPEC_VAR_HANDLER	EMPTY
+ZEND_SEND_VAL_EX_SPEC_TMP_UNUSED_QUICK_HANDLER	EMPTY
+ZEND_SEND_VAR_EX_SIMPLE_SPEC_CV_UNUSED_HANDLER	EMPTY
+ZEND_SEND_VAR_EX_SPEC_CV_CONST_HANDLER	EMPTY
+ZEND_SEND_VAR_SPEC_VAR_CONST_HANDLER	EMPTY
+ZEND_SPACESHIP_SPEC_CONST_TMPVAR_HANDLER	EMPTY
+ZEND_SPACESHIP_SPEC_CV_CONST_HANDLER	EMPTY
+zend_startup_builtin_functions	[-1, -1]
+zend_string_init_interned_permanent	[0, 0]
+zend_string_init_interned_request	[0, 0]
+ZEND_SUB_LONG_NO_OVERFLOW_SPEC_CONST_TMPVARCV_HANDLER	EMPTY
+ZEND_SUB_LONG_SPEC_CONST_TMPVARCV_HANDLER	EMPTY
+ZEND_SUB_LONG_SPEC_CONST_TMPVARCV_HANDLER	EMPTY
+ZEND_SUB_SPEC_CONST_CONST_HANDLER	EMPTY
+ZEND_SWITCH_LONG_SPEC_CONST_CONST_HANDLER	EMPTY
+ZEND_SWITCH_STRING_SPEC_TMPVARCV_CONST_HANDLER	EMPTY
+zend_try_compile_cv	[0, 0]
+ZEND_TYPE_CHECK_SPEC_TMPVAR_HANDLER	EMPTY
+zend_ulong_to_str	[0, 0]
+ZEND_UNSET_DIM_SPEC_CV_TMPVAR_HANDLER	EMPTY
+ZEND_UNSET_DIM_SPEC_VAR_CONST_HANDLER	EMPTY
+ZEND_UNSET_OBJ_SPEC_VAR_CONST_HANDLER	EMPTY
+zend_update_static_property_string	[1, 1]
+zend_update_type_info	[0, 0]
+ZEND_VERIFY_RETURN_TYPE_SPEC_TMP_UNUSED_HANDLER	EMPTY
+ZEND_YIELD_SPEC_TMP_UNUSED_HANDLER	EMPTY
+zip_get_name	[0, 0]
+zm_activate_mysqli	EMPTY
+zm_activate_pcre	[-1, -1]
+zm_activate_pcre	[-1, -1]
+zm_activate_pgsql	EMPTY
+zm_startup_basic	[-1, -1]
+zm_startup_date	EMPTY
+zm_startup_password	[-1, -1]
+zm_startup_pdo_dblib	[-1, -1]
+zm_startup_spl	EMPTY
+zm_startup_standard_filters	[-1, -1]
+zm_startup_var	EMPTY
+zm_startup_zlib	EMPTY
+zval_make_interned_string	[0, 0]
+zval_update_constant	[-1, -1]
+zend_mark_internal_attribute	[0, 0]

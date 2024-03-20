@@ -1,0 +1,2914 @@
+~/benchmarks/libwebp ~/errorchecks/crix/evaluation
+Total 219 file(s)
+IncorrectCheckThreshold = 72.50
+MissingCheckThreshold = 72.50
+Total number of functions: 3376
+Total number of non-void functions: 1586
+[CallGraph] Initializing 219 modules ...........................................................................................................................................................................................................................
+[CallGraph / 1] [CallGraph] Postprocessing ...
+[CallGraph] Done!
+
+[EHBlockDetector] Initializing 219 modules ...........................................................................................................................................................................................................................
+[EHBlockDetector / 1]   %37 = call i32 @pthread_mutex_unlock(%struct.pthread_mutex_t* noundef nonnull %36) #48
+?: ?
+  %24 = tail call i32* @___errno_location() #49
+?: ?
+  %62 = call i32 @pthread_mutex_lock(%struct.pthread_mutex_t* noundef nonnull %36) #48
+?: ?
+  %63 = tail call i32* @___errno_location() #49
+?: ?
+  %45 = tail call i32 @pthread_rwlock_wrlock(%struct.pthread_rwlock_t* noundef bitcast ({ { [14 x i32] } }* @maplock to %struct.pthread_rwlock_t*)) #46
+?: ?
+  %148 = tail call i32 @pthread_rwlock_unlock(%struct.pthread_rwlock_t* noundef bitcast ({ { [14 x i32] } }* @maplock to %struct.pthread_rwlock_t*)) #46
+?: ?
+  %145 = tail call i32 @pthread_mutex_lock(%struct.pthread_mutex_t* noundef nonnull %144) #46
+?: ?
+  %100 = tail call i32* @___errno_location() #48
+?: ?
+  %27 = tail call i32* @___errno_location() #45
+?: ?
+  %98 = tail call i32* @___errno_location() #45
+?: ?
+  %19 = tail call i32* @___errno_location() #46
+?: ?
+  %8 = tail call i32* @___errno_location() #46
+?: ?
+  %29 = tail call i32* @___errno_location() #48
+?: ?
+  %49 = tail call i32* @___errno_location() #48
+?: ?
+  %95 = tail call i32* @___errno_location() #48
+?: ?
+  %25 = tail call i32* @___errno_location() #48
+?: ?
+  %13 = tail call i32* @___errno_location() #46
+?: ?
+  %918 = tail call i32* @___errno_location() #49
+?: ?
+  %11 = tail call i32* @___errno_location() #46
+?: ?
+  %130 = tail call i32* @___errno_location() #47
+?: ?
+  %132 = tail call i32 @munmap(i8* noundef %129, i64 noundef %126) #48
+?: ?
+  %105 = tail call i32* @___errno_location() #47
+?: ?
+  %26 = tail call i32 @munmap(i8* noundef %9, i64 noundef %8) #46
+?: ?
+  %9 = tail call i32* @___errno_location() #46
+?: ?
+  %139 = call i32 @pthread_setcancelstate(i32 noundef %138, i32* noundef null) #45
+?: ?
+  %25 = call i32 @pthread_setcancelstate(i32 noundef 1, i32* noundef nonnull %9) #46
+?: ?
+  %81 = call i32 @pthread_setcancelstate(i32 noundef %80, i32* noundef null) #46
+?: ?
+  %45 = tail call i32* @___errno_location() #47
+?: ?
+  %63 = tail call i32* @___errno_location() #47
+?: ?
+  %12 = tail call i32* @___errno_location() #47
+?: ?
+  %21 = tail call i32* @___errno_location() #47
+?: ?
+  %22 = tail call i32* @___errno_location() #47
+?: ?
+  %37 = tail call i32* @___errno_location() #47
+?: ?
+  %18 = call i32 @pthread_setcancelstate(i32 noundef 1, i32* noundef nonnull %5) #46
+?: ?
+  %21 = call i32 @pthread_setcancelstate(i32 noundef %20, i32* noundef null) #46
+?: ?
+  %14 = tail call i32* @___errno_location() #47
+?: ?
+  %28 = tail call i32* @___errno_location() #47
+?: ?
+  %33 = tail call i32* @___errno_location() #47
+?: ?
+  %197 = tail call i32* @___errno_location() #47
+?: ?
+  %15 = call i32 @pthread_setcancelstate(i32 noundef 1, i32* noundef nonnull %7) #46
+?: ?
+  %42 = call i32 @pthread_setcancelstate(i32 noundef %41, i32* noundef null) #46
+?: ?
+  %5 = tail call i32* @___errno_location() #46
+?: ?
+  %5 = tail call i32* @___errno_location() #46
+?: ?
+  %14 = tail call i32* @___errno_location() #46
+?: ?
+  %246 = tail call i32* @___errno_location() #46
+?: ?
+  %111 = tail call i32* @___errno_location() #46
+?: ?
+  %115 = tail call i32* @___errno_location() #46
+?: ?
+  %112 = call i32 @pthread_setcancelstate(i32 noundef %111, i32* noundef null) #46
+?: ?
+  %236 = call i32 @pthread_setcancelstate(i32 noundef %235, i32* noundef null) #46
+?: ?
+  %8 = tail call i32* @___errno_location() #47
+?: ?
+  %11 = call i32 @pthread_setcancelstate(i32 noundef 1, i32* noundef nonnull %4) #47
+?: ?
+  %15 = call i32 @pthread_setcancelstate(i32 noundef %14, i32* noundef null) #47
+?: ?
+  %44 = tail call i32* @___errno_location() #48
+?: ?
+  %14 = tail call i32* @___errno_location() #46
+?: ?
+  %18 = tail call i32* @___errno_location() #46
+?: ?
+  %60 = tail call i32* @___errno_location() #47
+?: ?
+  %48 = call i32 @pthread_setcancelstate(i32 noundef 1, i32* noundef nonnull %8) #46
+?: ?
+  %56 = call i32 @pthread_setcancelstate(i32 noundef %55, i32* noundef null) #46
+?: ?
+  %66 = tail call i32* @___errno_location() #48
+?: ?
+  %20 = tail call i32* @___errno_location() #47
+?: ?
+  %15 = tail call i32* @___errno_location() #47
+?: ?
+  %61 = call i32 @pthread_setcancelstate(i32 noundef %60, i32* noundef null) #46
+?: ?
+  %65 = tail call i32* @___errno_location() #47
+?: ?
+  %153 = tail call i32* @___errno_location() #47
+?: ?
+  %91 = tail call i32* @___errno_location() #48
+?: ?
+  %69 = tail call i32* @___errno_location() #47
+?: ?
+  %53 = tail call i32* @___errno_location() #46
+?: ?
+  %64 = tail call i32* @___errno_location() #47
+?: ?
+  %10 = tail call i32* @___errno_location() #46
+?: ?
+  %99 = call i32 @pthread_setcancelstate(i32 noundef %98, i32* noundef null) #47
+?: ?
+  %93 = call i32 @pthread_setcancelstate(i32 noundef %92, i32* noundef null) #47
+?: ?
+  %316 = call i32 @clock_gettime(i32 noundef 0, %struct.timespec* noundef nonnull %8) #47
+?: ?
+  %32 = tail call i32* @___errno_location() #47
+?: ?
+  %14 = tail call i32* @___errno_location() #47
+?: ?
+  %17 = call i32 @pthread_setcancelstate(i32 noundef %16, i32* noundef null) #46
+?: ?
+  %24 = tail call i32* @___errno_location() #47
+?: ?
+  %260 = call i32 @pthread_setcancelstate(i32 noundef %259, i32* noundef null) #46
+?: ?
+  %74 = tail call i32* @___errno_location() #47
+?: ?
+  %109 = tail call i32* @___errno_location() #47
+?: ?
+  %145 = tail call i32* @___errno_location() #47
+?: ?
+  %155 = tail call i32* @___errno_location() #47
+?: ?
+  %176 = tail call i32* @___errno_location() #47
+?: ?
+  %21 = tail call i32* @___errno_location() #47
+?: ?
+  %119 = call i32 @pthread_setcancelstate(i32 noundef %118, i32* noundef null) #46
+?: ?
+  %87 = tail call i32* @___errno_location() #47
+?: ?
+  %53 = tail call i32* @___errno_location() #47
+?: ?
+  %81 = tail call i32* @___errno_location() #47
+?: ?
+  %21 = tail call i32* @___errno_location() #47
+?: ?
+  %192 = call i32 @pthread_setcancelstate(i32 noundef %191, i32* noundef null) #46
+?: ?
+  %71 = tail call i32* @___errno_location() #47
+?: ?
+  %122 = tail call i32* @___errno_location() #47
+?: ?
+  %132 = tail call i32* @___errno_location() #47
+?: ?
+  %22 = tail call i32* @___errno_location() #47
+?: ?
+  %102 = call i32 @pthread_setcancelstate(i32 noundef %101, i32* noundef null) #46
+?: ?
+  %48 = call i32 @pthread_setcancelstate(i32 noundef 1, i32* noundef nonnull %7) #46
+?: ?
+  %51 = call i32 @pthread_setcancelstate(i32 noundef %50, i32* noundef null) #46
+?: ?
+  %19 = tail call i32* @___errno_location() #47
+?: ?
+  %36 = tail call i32* @___errno_location() #48
+?: ?
+  %65 = call i32 @pthread_setcancelstate(i32 noundef %64, i32* noundef null) #46
+?: ?
+  %67 = call i32 @sigaction(i32 noundef 2, %struct.sigaction* noundef nonnull %6, %struct.sigaction* noundef null) #47
+?: ?
+  %68 = call i32 @sigaction(i32 noundef 3, %struct.sigaction* noundef nonnull %7, %struct.sigaction* noundef null) #47
+?: ?
+  %70 = tail call i32* @___errno_location() #48
+?: ?
+  %63 = call i32 @sigaction(i32 noundef 2, %struct.sigaction* noundef nonnull %6, %struct.sigaction* noundef null) #47
+?: ?
+  %64 = call i32 @sigaction(i32 noundef 3, %struct.sigaction* noundef nonnull %7, %struct.sigaction* noundef null) #47
+?: ?
+  %59 = tail call i32* @___errno_location() #48
+?: ?
+  %140 = tail call i32* @___errno_location() #47
+?: ?
+  %7 = tail call i32* @___errno_location() #46
+?: ?
+  %10 = tail call i32* @___errno_location() #47
+?: ?
+  %11 = tail call i32* @___errno_location() #46
+?: ?
+  %8 = tail call i32* @___errno_location() #46
+?: ?
+  %9 = tail call i32* @___errno_location() #46
+?: ?
+  %94 = tail call i32* @___errno_location() #46
+?: ?
+  %10 = tail call i32* @___errno_location() #46
+?: ?
+  %18 = tail call i32* @___errno_location() #46
+?: ?
+  %12 = tail call i32* @___errno_location() #47
+?: ?
+  %19 = tail call i32* @___errno_location() #47
+?: ?
+  %125 = tail call i32* @___errno_location() #49
+?: ?
+  %36 = tail call i32* @___errno_location() #46
+?: ?
+  %23 = call i32 @pthread_setcancelstate(i32 noundef 1, i32* noundef nonnull %4) #47
+?: ?
+  %17 = tail call i32* @___errno_location() #46
+?: ?
+  %36 = tail call i32* @___errno_location() #46
+?: ?
+  %44 = call i32 @pthread_setcancelstate(i32 noundef %43, i32* noundef null) #47
+?: ?
+  %30 = tail call i32* @___errno_location() #46
+?: ?
+  %23 = call i32 @pthread_setcancelstate(i32 noundef 1, i32* noundef nonnull %3) #46
+?: ?
+  %17 = tail call i32* @___errno_location() #47
+?: ?
+  %33 = tail call i32* @___errno_location() #47
+?: ?
+  %41 = call i32 @pthread_setcancelstate(i32 noundef %40, i32* noundef null) #46
+?: ?
+  %30 = tail call i32* @___errno_location() #47
+?: ?
+  %61 = tail call i32* @___errno_location() #47
+?: ?
+  %209 = call i32 @pthread_setcancelstate(i32 noundef %208, i32* noundef null) #46
+?: ?
+  %86 = tail call i32* @___errno_location() #47
+?: ?
+  %138 = tail call i32* @___errno_location() #47
+?: ?
+  %161 = tail call i32* @___errno_location() #47
+?: ?
+  %32 = tail call i32* @___errno_location() #47
+?: ?
+  %8 = call i8* @asctime_r(%struct.tm* noundef nonnull %5, i8* noundef %1) #46
+?: ?
+  %41 = call i32 @pthread_setcancelstate(i32 noundef %40, i32* noundef null) #45
+?: ?
+  %17 = tail call i32* @___errno_location() #47
+?: ?
+  %7 = tail call i32* @___errno_location() #46
+?: ?
+  %15 = tail call i32* @___errno_location() #46
+?: ?
+  %29 = tail call i32* @___errno_location() #48
+?: ?
+  %123 = call i8* @nl_langinfo(i32 noundef 131111) #46
+?: ?
+  %8 = tail call i32* @___errno_location() #47
+?: ?
+  %74 = tail call i32* @___errno_location() #48
+?: ?
+  %23 = tail call i32* @___errno_location() #45
+?: ?
+  %10 = tail call i32* @___errno_location() #47
+?: ?
+  %16 = tail call i32* @___errno_location() #46
+?: ?
+  %5 = tail call i32* @___errno_location() #46
+?: ?
+  %13 = tail call i32* @___errno_location() #47
+?: ?
+  %19 = tail call i32* @___errno_location() #47
+?: ?
+  %31 = tail call i32* @___errno_location() #47
+?: ?
+  %56 = tail call i32* @___errno_location() #48
+?: ?
+  %264 = tail call i32* @___errno_location() #50
+?: ?
+  tail call void @_dl_debug_state() #48
+?: ?
+  %308 = tail call i32* @___errno_location() #47
+?: ?
+  %291 = tail call i32* @___errno_location() #47
+?: ?
+  %177 = tail call i32* @___errno_location() #47
+?: ?
+  %309 = tail call i32* @___errno_location() #47
+?: ?
+  %19 = tail call i32* @___errno_location() #46
+?: ?
+  %12 = tail call i32* @___errno_location() #46
+?: ?
+  call void @_dl_debug_state() #46
+?: ?
+  %42 = call i32 @pthread_rwlock_rdlock(%struct.pthread_rwlock_t* noundef nonnull @lock.1333) #46
+?: ?
+  %45 = call i32 @pthread_rwlock_unlock(%struct.pthread_rwlock_t* noundef nonnull @lock.1333) #46
+?: ?
+[EHBlockDetector] Postprocessing ...
+[EHBlockDetector] Done!
+
+Function: WebPEncodingSetError
+	in-error: 40, not-in-error: 2, fraction: 95.24%
+[EHBlockDetector] Initializing 219 modules ...........................................................................................................................................................................................................................
+[EHBlockDetector / 1] [EHBlockDetector] Postprocessing ...
+[EHBlockDetector] Done!
+
+Returning [0,2)for: EncodeImageNoHuffman
+Returning [-1,5)for: wcrtomb
+Returning [0,1)for: WebPEncodingSetError
+Returning [0,2)for: WebPReportProgress
+Returning [0,2)for: VP8LGetBackwardReferences
+Returning [0,2)for: BackwardRefsWithLocalCache
+Returning [0,2)for: VP8LBitWriterClone
+Returning [-1,1)for: openpty
+Returning [-1,1)for: __parsespent
+Returning [0,2)for: IsNear
+Returning [0,2)for: VP8ApplyNearLossless
+Returning [0,2)for: VP8LCheckSignature
+Returning [0,2)for: fnmatch_internal
+Returning [-1,18)for: __res_mkquery
+Returning [0,2)for: VP8LHashChainFill
+Returning [0,8)for: ParsePartitions
+Returning [-1,1)for: login_tty
+Returning [0,2)for: BackwardReferencesHashChainFollowChosenPath
+Returning [0,2)for: CheckMemBufferMode
+Returning [0,2)for: VP8CheckSignature
+Returning [0,2)for: AllocateAndInitRescaler
+Returning [0,2)for: WebPAvoidSlowMemory
+Returning [-1,2)for: inet_pton
+Returning [-1,256)for: __uflow
+Returning [0,8)for: ParseOptionalChunks
+Returning [0,2)for: VP8LHashChainInit
+Returning [0,2)for: WebPPictureYUVAToARGB
+Returning [-1,0)for: __syscall_ret
+In: fcntl
+Returning [-1,0)for: fcntl
+Returning [-2,2)for: __lookup_ipliteral
+Returning [0,9)for: PutAlphaChunk
+unique interval case for full-set of: BuildHuffmanTable
+[0,1)Returning [0,1)for: BuildHuffmanTable
+Returning [0,1)for: VP8LBuildHuffmanTable
+Returning empty-setfor: strlen
+Returning [-1,0)for: mbsrtowcs
+Returning [-1,0)for: mbstowcs
+Returning [-1,2)for: printf_core
+Returning [-1,2)for: vfprintf
+Returning [-1,2)for: vsnprintf
+Returning [0,2)for: VP8EncFinishAlpha
+Returning [0,2)for: match_bracket
+Returning [0,2)for: WebPIsRGBMode
+Returning [0,2)for: VP8DecodeMB
+Returning [0,2)for: ApplyPredictFilter
+Returning [0,2)for: VP8LBitWriterResize
+Returning [0,2)for: VP8LBitWriterInit
+Returning [0,2)for: EncodeAlphaInternal
+Returning [0,2)for: ApplyFiltersAndEncode
+Returning [0,2)for: NeedsFilter2_C
+Returning [0,1)for: __intscan
+Returning [0,1)for: strtox.963
+Returning [0,1)for: strtoul
+Returning [0,2)for: AppendToMemBuffer
+unique interval case for full-set of: VP8LReadBits
+Returning full-setfor: VP8LReadBits
+Returning empty-setfor: VP8LHashPix
+Returning [-1,0)for: VP8LColorCacheContains
+Returning empty-setfor: GetLE32
+Returning [0,2)for: RemapMemBuffer
+In: VP8BitWriterSize
+Returning empty-setfor: VP8BitWriterSize
+Returning [0,2)for: Sync
+Returning [0,2)for: Reset
+Returning [0,5)for: __fpclassifyl
+Returning empty-setfor: tre_ast_to_tnfa
+Returning [0,13)for: tre_make_trans
+Returning [0,13)for: tre_ast_to_tnfa
+RANGE: [0,13)
+In: legacy_map
+Returning empty-setfor: legacy_map
+Returning [0,2)for: VP8LDecodeAlphaHeader
+Returning [0,2)for: ALPHInit
+Returning [0,2)for: VP8LColorCacheInit
+Returning [-1,0)for: sendto
+Returning [-1,0)for: send
+Returning [-1,1)for: netlink_msg_to_ifaddr
+Returning [-1,1)for: netlink_msg_to_nameindex
+Returning [-1,1)for: __netlink_enumerate
+Returning [0,2)for: WebPPictureAllocYUVA
+In: ReadPackedSymbols
+Returning [0,1)for: ReadPackedSymbols
+Returning [0,2)for: VP8LGetInfo
+Returning [0,2)for: IsValidColorspace
+Returning [0,2)for: is_valid_hostname
+Returning [0,2)for: WebPCheckCropDimensions
+Returning [0,2)for: WebPRescalerGetScaledDimensions
+Returning [0,2)for: HistogramCombineStochastic
+Returning [-1,0)for: chdir
+Returning [0,2)for: ImportYUVAFromRGBA
+Returning [0,2)for: PictureARGBToYUVA
+Returning [0,2)for: WebPPictureARGBToYUVADithered
+Returning [-1,0)for: _Fork
+Returning [-1,0)for: fork
+Returning [-1,0)for: __dup3
+Returning empty-setfor: getcpu_init
+Returning [-38,-37)for: getcpu_init
+RANGE: [-38,-37)
+Returning [0,2)for: WebPPictureInitInternal
+Returning [0,2)for: WebPPictureInit
+Returning [-1,0)for: fstatat
+Returning [-1,0)for: fstat
+Returning [0,2)for: VP8GetBit
+Returning [0,2)for: VP8LIsEndOfStream
+Returning [-1,0)for: setsid
+Returning [0,4)for: CopyParts0Data
+phi range full set: ilogbl
+  %29 = select i1 %28, i32 2147483647, i32 -2147483648
+  %33 = phi i32 [ %29, %23 ], [ %31, %30 ], [ -2147483648, %13 ], [ -16382, %11 ], [ %20, %17 ]
+unique interval case for full-set of: ilogbl
+[-2147483648,-16382)Returning [-2147483648,-16382)for: ilogbl
+Returning [0,2)for: BackwardRefsClone
+Returning [-1,0)for: stat
+Returning [-1,1)for: sem_trywait
+Returning [0,1)for: strncmp
+Returning [0,17006)for: uni_to_jis
+Returning [0,2)for: MakeInputImageCopy
+Returning [0,2)for: PutPaddingByte
+Returning [0,1)for: fread
+Returning [-1,0)for: lstat
+Returning [-1,1)for: __towrite
+Returning [0,2)for: tre_neg_char_classes_match
+Returning [0,132)for: __pthread_mutex_trylock_owner
+Returning [0,132)for: __pthread_mutex_trylock
+Returning [0,1)for: strncasecmp
+Returning [0,2)for: WebPPlaneDistortion
+Returning [-1,5)for: mbtowc
+Returning [-1,5)for: sw_write
+Returning [0,1)for: fwrite
+Returning [-1,1)for: __stdio_read
+Returning [0,2)for: resize
+Returning [0,2)for: AllocateTransformBuffer
+Returning empty-setfor: getservbyport_r
+Returning [0,35)for: getservbyport_r
+RANGE: [0,35)
+Returning [0,2)for: DecodeImageData
+Returning [0,2)for: CalculateBestCacheSize
+unique interval case for full-set of: posix_spawn
+[-2147483648,2147483647)Returning [-2147483648,2147483647)for: posix_spawn
+Returning [-1,0)for: dup2
+Returning empty-setfor: do_glob
+Returning [0,3)for: do_glob
+RANGE: [0,3)
+phi range full set: __getpwent_a
+  %23 = load i32, i32* %22, align 4, !tbaa !3
+  %25 = phi i32 [ %23, %21 ], [ 0, %18 ]
+phi range full set: __getpwent_a
+  %25 = phi i32 [ %23, %21 ], [ 0, %18 ]
+  %100 = phi i32 [ %25, %24 ], [ 0, %95 ]
+unique interval case for full-set of: __getpwent_a
+[-2147483648,2147483647)Returning [-2147483648,2147483647)for: __getpwent_a
+Returning [-1,1)for: read_loop
+Returning [0,2)for: iswalnum
+Returning [0,17)for: __pthread_rwlock_tryrdlock
+Returning [0,2)for: ParseSegmentHeader
+Returning [0,2)for: CostManagerInit
+phi range full set: pat_next
+  %123 = load i32, i32* %5, align 4, !tbaa !8
+  %125 = phi i32 [ -2, %119 ], [ %123, %120 ]
+phi range full set: pat_next
+  %125 = phi i32 [ -2, %119 ], [ %123, %120 ]
+  %130 = phi i32 [ %108, %106 ], [ -4, %109 ], [ %125, %124 ], [ %128, %126 ], [ 0, %10 ], [ -5, %11 ]
+unique interval case for full-set of: pat_next
+Returning full-setfor: pat_next
+Returning [0,6)for: IDecCheckStatus
+Returning [0,1)for: ReadHuffmanCode
+Returning [-1,2)for: cmp
+phi range full set: str_next
+  %17 = load i32, i32* %4, align 4, !tbaa !8
+  %19 = phi i32 [ -1, %14 ], [ %17, %15 ]
+phi range full set: str_next
+  %19 = phi i32 [ -1, %14 ], [ %17, %15 ]
+  %24 = phi i32 [ %19, %18 ], [ %22, %20 ], [ 0, %6 ]
+unique interval case for full-set of: str_next
+Returning full-setfor: str_next
+Returning empty-setfor: PairComparison
+Returning [-1,0)for: waitpid
+Returning [-1,0)for: recvfrom
+Returning [-1,0)for: recv
+Returning [0,17)for: __pthread_rwlock_trywrlock
+Returning [0,9)for: PutVP8FrameHeader
+Returning [0,2)for: GetBackwardReferences
+Returning [0,2)for: WebPValidatePicture
+Returning [0,2)for: AdjustAndCheckRectangle
+Returning [0,2)for: PaletteSortModifiedZeng
+Returning [0,2)for: VP8LRefsCursorOk
+Returning [0,13)for: tre_stack_push
+Returning [0,13)for: tre_match_empty
+Returning empty-setfor: VP8PutBit
+Returning [-1,2)for: fprintf
+Returning [0,2)for: AllocateAlphaPlane
+Returning [-1,2)for: snprintf
+Returning [0,1)for: memcmp
+Returning empty-setfor: parse_atom
+Returning [0,14)for: parse_atom
+RANGE: [0,14)
+phi range full set: __getgrent_a
+  %22 = load i32, i32* %21, align 4, !tbaa !3
+  %24 = phi i32 [ %22, %20 ], [ 0, %17 ]
+phi range full set: __getgrent_a
+  %24 = phi i32 [ %22, %20 ], [ 0, %17 ]
+  %117 = phi i32 [ %24, %23 ], [ 0, %111 ], [ %88, %86 ]
+unique interval case for full-set of: __getgrent_a
+[-2147483648,2147483647)Returning [-2147483648,2147483647)for: __getgrent_a
+Returning [-1,256)for: locking_getc
+Returning [-1,256)for: getc
+Returning [0,2)for: iswupper
+Returning [0,1)for: VP8SetError
+Returning [0,2)for: AllocateMemory
+Returning [0,2)for: RescalePlane
+Returning [0,2)for: WriteImageSize
+Returning [0,2)for: WebPValidateConfig
+Returning empty-setfor: WriteRiffHeader
+Returning [0,2)for: BackwardReferencesHashChainDistanceOnly
+Returning [-1,1)for: fputs
+Returning [0,2)for: StoreImageToBitMask
+In: VP8EnterCritical
+Returning [0,1)for: VP8EnterCritical
+Returning [0,9)for: PutVP8XHeader
+Returning empty-setfor: strnlen
+Returning [-1,0)for: read
+Returning [-1,1)for: sigprocmask
+Returning [0,2)for: PixOrCopyIsLiteral
+Returning [-2,2)for: mbrtowc
+Returning [-2,2)for: mbsnrtowcs
+Returning [255,256)for: GetProba
+Returning empty-setfor: MemDataSize
+phi range full set: __toread
+  %33 = ashr i32 %32, 31
+  %35 = phi i32 [ -1, %22 ], [ %33, %24 ]
+unique interval case for full-set of: __toread
+[-2147483648,2147483647)Returning [-2147483648,2147483647)for: __toread
+Returning [0,2)for: EncodePalette
+Returning [0,13)for: posix_spawn_file_actions_addclose
+Returning [-1,0)for: __mprotect
+Returning [0,8)for: ParseRIFF
+Returning [-12,1)for: getnameinfo
+Returning [0,2)for: VP8InitFrame
+Returning [0,2)for: ParseFrame
+unique interval case for full-set of: VP8Decode
+[0,1)Returning [0,1)for: VP8Decode
+Returning [0,2)for: isatty
+Returning [-1,0)for: sendmsg
+Returning [0,2)for: WebPPictureSharpARGBToYUVA
+Returning [-11,2)for: __lookup_serv
+Returning [-1,1)for: __get_resolv_conf
+Returning [-1,0)for: access
+Returning [0,111)for: __timedwait_cp
+Returning [0,2)for: VP8LBackwardReferencesTraceBackwards
+Returning [-1,0)for: getsockname
+Returning [-1,0)for: poll
+Returning [-1,0)for: readlink
+Returning [0,8)for: ParseVP8X
+Returning [0,8)for: ParseVP8Header
+Returning [0,8)for: ParseHeadersInternal
+Returning [0,8)for: WebPParseHeaders
+In: DecodeInto
+Returning [0,3)for: CheckDecBuffer
+Returning [0,3)for: AllocateBuffer
+Returning [0,3)for: WebPFlipBuffer
+Returning [0,3)for: WebPAllocateDecBuffer
+In: DecodeInto
+In: DecodeInto
+In: DecodeInto
+Returning [0,8)for: DecodeInto
+Returning [0,2)for: WebPIsAlphaMode
+Returning [0,2)for: AllocateInternalBuffers32b
+Returning empty-setfor: VP8PutBitUniform
+Returning [-1,1)for: append
+Returning [-1,1)for: vfscanf
+Returning [-1,1)for: fscanf
+Returning [-1,1)for: sigaddset
+Returning [0,2)for: VP8LHuffmanTablesAllocate
+Returning [0,2)for: VP8LDecodeHeader
+Returning [-1,0)for: ns_skiprr
+Returning [0,2)for: ApplyPalette
+Returning [-1,0)for: pipe
+Returning [0,2)for: WebPIoInitFromOptions
+Returning [0,2)for: EncoderAnalyze
+Returning [0,2)for: ferror
+Returning [0,13)for: tre_copy_ast
+Returning [-1,0)for: __res_send
+Returning [0,13)for: posix_spawn_file_actions_adddup2
+Returning [0,2)for: CheckSizeOverflow
+Returning [0,2)for: VP8GetInfo
+Returning [0,2)for: mbsinit
+Returning [0,9)for: PutRIFFHeader
+Returning [0,2)for: PutWebPHeaders
+Returning empty-setfor: strcmp
+Returning [0,2)for: HistoQueueInit
+Returning [0,2)for: WebPDequantizeLevels
+Returning empty-setfor: do_nftw
+Returning [-1,1)for: do_nftw
+RANGE: [-1,1)
+Returning [0,2)for: MapImageFromPalette
+Returning [0,2)for: WebPRescalerInit
+Returning [-1,0)for: pread
+Returning [-1,0)for: socket
+phi range full set: __fgetwc_unlocked
+  %37 = load i32, i32* %2, align 4, !tbaa !15
+  %73 = phi i32 [ %37, %30 ], [ %71, %70 ]
+unique interval case for full-set of: __fgetwc_unlocked
+[-1,11)Returning [-1,11)for: __fgetwc_unlocked
+Returning [-1,0)for: prctl
+Returning [-1,1)for: __init_tp
+Returning [0,2)for: VP8LDecodeImage
+Returning [0,2)for: VP8GetHeaders
+Returning [0,9)for: PutVP8Header
+Returning [-1,0)for: ioctl
+Returning [0,2)for: ReadImageInfo
+Returning [0,2)for: FinishRow
+unique interval case for full-set of: VP8ProcessRow
+[0,1)Returning [0,1)for: VP8ProcessRow
+Returning [0,2)for: VP8LGetHistoImageSymbols
+Returning [-1,256)for: __shgetc
+Returning [0,2)for: ParseFilterHeader
+Returning [0,2)for: WebPGetInfo
+Returning [0,2)for: WebPConfigInitInternal
+Returning [0,2)for: WebPConfigPreset
+Returning [0,8)for: GetFeatures
+Returning [0,111)for: __timedwait
+Returning [0,2)for: Hev
+Returning [-1,5)for: wctomb
+Returning [-1,0)for: write
+Returning [-1,0)for: accept
+unique interval case for full-set of: VP8EncAnalyze
+Returning full-setfor: VP8EncAnalyze
+Returning [0,2)for: VP8LEncodeImage
+unique interval case for full-set of: WebPEncode
+[0,1)Returning [0,1)for: WebPEncode
+Returning [-1,1)for: getdelim
+Returning [-1,1)for: getline
+Returning [0,2)for: CostModelBuild
+Returning [0,2)for: WebPPictureAllocARGB
+Returning [0,2)for: WebPPictureAlloc
+Returning [-1,1)for: __rtnetlink_enumerate
+Returning [0,2)for: VP8ParseIntraModeRow
+Returning [0,1)for: __stdio_write
+Returning [0,2)for: GetHuffBitLengthsAndCodes
+Returning empty-setfor: DecodeImageStream
+Returning [0,2)for: ReadTransform
+Returning [0,2)for: DecodeImageStream
+RANGE: [0,2)
+Returning [0,1)for: strtoull
+Returning [0,2)for: WebPPictureView
+Returning [0,2)for: ALPHDecode
+Returning [0,1)for: __stdout_write
+Returning empty-setfor: cgt_init
+Returning [-38,-37)for: cgt_init
+RANGE: [-38,-37)
+In: alloc_slot
+Returning [-1,1)for: alloc_slot
+Returning [0,2)for: sigismember
+Returning [0,2)for: EncoderInit
+phi range full set: if_nametoindex
+  %15 = select i1 %11, i32 0, i32 %14
+  %17 = phi i32 [ %15, %6 ], [ 0, %1 ]
+unique interval case for full-set of: if_nametoindex
+[-2147483648,2147483647)Returning [-2147483648,2147483647)for: if_nametoindex
+Returning [0,2)for: ApplyCrossColorFilter
+Returning [-11,1)for: name_from_dns
+Returning [-11,2)for: __lookup_name
+Returning [0,2)for: isalnum
+Returning empty-setfor: AddToken
+Returning [0,2)for: InitThreadContext
+Returning [0,2)for: __inet_aton
+Returning [-1,0)for: find_charmap
+Returning [0,2)for: HistogramCombineGreedy
+Returning [0,2)for: VP8ExitCritical
+Returning [0,2)for: iswxdigit
+Returning [0,2)for: iswspace
+Returning [0,2)for: iswpunct
+Returning [0,2)for: iswprint
+Returning [0,2)for: iswlower
+Returning [0,2)for: iswgraph
+Returning [0,2)for: iswcntrl
+Returning [0,2)for: isblank
+Returning [0,2)for: iswblank
+Returning [0,2)for: iswalpha
+Returning [0,2)for: iswctype
+Returning [0,1)for: VP8GetValue
+Returning [0,2)for: fnmatch
+Returning [0,13)for: tre_add_tag_left
+Returning [0,13)for: tre_add_tag_right
+Returning [0,13)for: tre_add_tags
+Returning [-1,1)for: pipe2
+Returning [-1,0)for: connect
+Returning [0,2)for: RecordTokens
+unique interval case for full-set of: SharpYuvConvert
+[0,1)Returning [0,1)for: SharpYuvConvert
+Returning [0,1)for: PreprocessARGB
+Returning [0,2)for: WriteRealAlphaAndVersion
+Returning [0,2)for: feof
+Returning [-1,0)for: open
+Returning [0,2)for: CompressAlphaJob
+Returning [0,2)for: VP8EncStartAlpha
+Returning [0,2)for: EncodeImageInternal
+Returning [0,13)for: tre_compute_nfl
+Returning [0,2)for: VP8LEncodeStream
+Returning [0,2)for: WriteImage
+Returning [0,2)for: BitWriterResize
+Returning [0,2)for: VP8BitWriterInit
+Returning [0,-2147483648)for: aio_error
+Function: WebPSafeCalloc
+	[0, 0]
+	Confidence: 100.00%, 8/8
+Function: EncodeImageNoHuffman
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: WebPSafeMalloc
+	[0, 0]
+	Confidence: 100.00%, 34/34
+Function: VP8LAllocateHistogramSet
+	[0, 0]
+	Confidence: 100.00%, 3/3
+Function: wcrtomb
+	[-1, -1]
+	Confidence: 100.00%, 3/3
+Function: bsearch
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: SharpYuvConvert
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: VP8LGetBackwardReferences
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: BackwardRefsWithLocalCache
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: VP8LBitWriterClone
+	[0, 0]
+	Confidence: 100.00%, 3/3
+Function: openpty
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: __parsespent
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: IsNear
+	[0, 0]
+	Confidence: 100.00%, 3/3
+Function: VP8ApplyNearLossless
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: VP8LCheckSignature
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: fnmatch_internal
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: __res_mkquery
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: VP8LHashChainFill
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: __libc_malloc
+	[0, 0]
+	Confidence: 66.67%, 4/6
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 33.33%, 2/6
+Function: ParsePartitions
+	[1, 7]
+	Confidence: 100.00%, 1/1
+Function: login_tty
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: BackwardReferencesHashChainFollowChosenPath
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: CheckMemBufferMode
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: VP8CheckSignature
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: __malloc_alloc_meta
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: AllocateAndInitRescaler
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: WebPAvoidSlowMemory
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: inet_pton
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: strchr
+	[0, 0]
+	Confidence: 54.55%, 12/22
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 45.45%, 10/22
+Function: __uflow
+	[0, 255]
+	Confidence: 100.00%, 1/1
+Function: ParseOptionalChunks
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: realloc
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 21.43%, 3/14
+	[0, 0]
+	Confidence: 78.57%, 11/14
+Function: VP8LHashChainInit
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: tre_ast_new_catenation
+	[0, 0]
+	Confidence: 100.00%, 6/6
+Function: __fopen_rb_ca
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 20.00%, 1/5
+	[0, 0]
+	Confidence: 80.00%, 4/5
+Function: WebPPictureYUVAToARGB
+	[0, 0]
+	Confidence: 100.00%, 3/3
+Function: fcntl
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: __lookup_ipliteral
+	[-2, 0]
+	Confidence: 50.00%, 1/2
+	[0, 1]
+	Confidence: 50.00%, 1/2
+Function: PutAlphaChunk
+	[1, 8]
+	Confidence: 100.00%, 1/1
+Function: VP8LNew
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 33.33%, 1/3
+	[0, 0]
+	Confidence: 66.67%, 2/3
+Function: VP8LBuildHuffmanTable
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: getprotoent
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: mbstowcs
+	EMPTY
+	Confidence: 33.33%, 1/3
+	[-1, -1]
+	Confidence: 66.67%, 2/3
+Function: vsnprintf
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: __shm_mapname
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: VP8EncFinishAlpha
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: match_bracket
+	[1, 1]
+	Confidence: 66.67%, 2/3
+	[0, 0]
+	Confidence: 33.33%, 1/3
+Function: __mmap
+	[-1, -1]
+	Confidence: 100.00%, 4/4
+Function: WebPIsRGBMode
+	[1, 1]
+	Confidence: 100.00%, 3/3
+Function: VP8DecodeMB
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: ApplyPredictFilter
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: ApplyFiltersAndEncode
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: NeedsFilter2_C
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: VP8LAllocateHistogram
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: strtoul
+	[0, 0]
+	Confidence: 66.67%, 4/6
+	EMPTY
+	Confidence: 33.33%, 2/6
+Function: AppendToMemBuffer
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: VP8LBitWriterResize
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: VP8LReadBits
+	[-2147483648, 46] U [48, 2147483647]
+	Confidence: 50.00%, 3/6
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 16.67%, 1/6
+	[-2147483648, 0]
+	Confidence: 16.67%, 1/6
+	[0, 2]
+	Confidence: 16.67%, 1/6
+Function: VP8LColorCacheContains
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: GetLE32
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: RemapMemBuffer
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: VP8BitWriterSize
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: Reset
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: __fpclassifyl
+	[1, 1]
+	Confidence: 14.29%, 2/14
+	[0, 1]
+	Confidence: 42.86%, 6/14
+	[0, 0]
+	Confidence: 14.29%, 2/14
+	[1, 4]
+	Confidence: 28.57%, 4/14
+Function: tre_ast_to_tnfa
+	[1, 12]
+	Confidence: 33.33%, 1/3
+	[0, 0]
+	Confidence: 66.67%, 2/3
+Function: legacy_map
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: strdup
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: ALPHInit
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: VP8LColorCacheInit
+	[0, 0]
+	Confidence: 75.00%, 3/4
+	[1, 1]
+	Confidence: 25.00%, 1/4
+Function: __netlink_enumerate
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: WebPPictureAllocYUVA
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: ReadPackedSymbols
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: VP8LGetInfo
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: IsValidColorspace
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: is_valid_hostname
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: strptime
+	[0, 0]
+	Confidence: 100.00%, 8/8
+Function: WebPCheckCropDimensions
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: WebPRescalerGetScaledDimensions
+	[0, 0]
+	Confidence: 100.00%, 3/3
+Function: HistogramCombineStochastic
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: chdir
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: WebPPictureARGBToYUVADithered
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: fork
+	EMPTY
+	Confidence: 20.00%, 1/5
+	[-1, -1]
+	Confidence: 80.00%, 4/5
+Function: __dup3
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: getcpu_init
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: WebPPictureInit
+	[0, 0]
+	Confidence: 100.00%, 3/3
+Function: fstat
+	[-1, -1]
+	Confidence: 100.00%, 6/6
+Function: VP8GetBit
+	[1, 1]
+	Confidence: 71.43%, 5/7
+	[0, 0]
+	Confidence: 28.57%, 2/7
+Function: VP8LIsEndOfStream
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: setsid
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: CopyParts0Data
+	[1, 3]
+	Confidence: 100.00%, 1/1
+Function: VP8LEncoderNew
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: ilogbl
+	[-2147483648, -16383]
+	Confidence: 100.00%, 1/1
+Function: BackwardRefsClone
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: stat
+	[-1, -1]
+	Confidence: 71.43%, 5/7
+	EMPTY
+	Confidence: 28.57%, 2/7
+Function: sem_trywait
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: strncmp
+	EMPTY
+	Confidence: 80.00%, 12/15
+	[0, 0]
+	Confidence: 20.00%, 3/15
+Function: pthread_mutex_init
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: uni_to_jis
+	[0, 0]
+	Confidence: 100.00%, 3/3
+Function: MakeInputImageCopy
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: PutPaddingByte
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: fread
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: tre_set_union
+	[0, 0]
+	Confidence: 100.00%, 4/4
+Function: lstat
+	EMPTY
+	Confidence: 66.67%, 2/3
+	[-1, -1]
+	Confidence: 33.33%, 1/3
+Function: __towrite
+	[-1, -1]
+	Confidence: 100.00%, 2/2
+Function: tre_neg_char_classes_match
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: __pthread_mutex_trylock
+	[0, 15] U [17, 131]
+	Confidence: 100.00%, 3/3
+Function: strncasecmp
+	[0, 0]
+	Confidence: 100.00%, 3/3
+Function: WebPPlaneDistortion
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: sw_write
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: WebPReportProgress
+	[0, 0]
+	Confidence: 80.00%, 8/10
+	[1, 1]
+	Confidence: 20.00%, 2/10
+Function: fwrite
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: __stdio_read
+	[-1, 0]
+	Confidence: 66.67%, 2/3
+	[0, 0]
+	Confidence: 33.33%, 1/3
+Function: resize
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: AllocateTransformBuffer
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: getservbyport_r
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: fetestexcept
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: DecodeImageData
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: CalculateBestCacheSize
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: posix_spawn
+	[-2147483648, -1] U [1, 2147483646]
+	Confidence: 100.00%, 2/2
+Function: dup2
+	EMPTY
+	Confidence: 100.00%, 3/3
+Function: do_glob
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: Sync
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: __getpwent_a
+	[-2147483648, -1] U [1, 2147483646]
+	Confidence: 100.00%, 1/1
+Function: read_loop
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: iswalnum
+	[1, 1]
+	Confidence: 100.00%, 9/9
+Function: __pthread_rwlock_tryrdlock
+	[0, 15]
+	Confidence: 100.00%, 2/2
+Function: ParseSegmentHeader
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: CostManagerInit
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: pat_next
+	[0, 0] U [47, 47]
+	Confidence: 11.11%, 1/9
+	[-2, -2]
+	Confidence: 11.11%, 1/9
+	[-5, -5] U [-2, -2]
+	Confidence: 22.22%, 2/9
+	[-2147483648, -6] U [-4, 2147483647]
+	Confidence: 55.56%, 5/9
+Function: IDecCheckStatus
+	[0, 4]
+	Confidence: 100.00%, 2/2
+Function: ReadHuffmanCode
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: cmp
+	[-1, -1] U [1, 1]
+	Confidence: 100.00%, 1/1
+Function: str_next
+	[-2147483648, 0]
+	Confidence: 57.14%, 4/7
+	[0, 0]
+	Confidence: 14.29%, 1/7
+	[0, 2147483647]
+	Confidence: 28.57%, 2/7
+Function: PairComparison
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: waitpid
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: recv
+	[-1, -1]
+	Confidence: 100.00%, 2/2
+Function: __pthread_rwlock_trywrlock
+	[0, 15]
+	Confidence: 100.00%, 2/2
+Function: PutVP8FrameHeader
+	[1, 8]
+	Confidence: 100.00%, 1/1
+Function: GetBackwardReferences
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: WebPValidatePicture
+	[0, 0]
+	Confidence: 100.00%, 3/3
+Function: VP8LHtreeGroupsNew
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: AdjustAndCheckRectangle
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: PaletteSortModifiedZeng
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: VP8LRefsCursorOk
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: __map_file
+	[0, 0]
+	Confidence: 20.00%, 1/5
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 80.00%, 4/5
+Function: tre_match_empty
+	[1, 12]
+	Confidence: 100.00%, 4/4
+Function: send
+	EMPTY
+	Confidence: 66.67%, 2/3
+	[-1, -1]
+	Confidence: 33.33%, 1/3
+Function: VP8PutBit
+	EMPTY
+	Confidence: 100.00%, 16/16
+Function: fprintf
+	[-1, -1]
+	Confidence: 100.00%, 2/2
+Function: AllocateAlphaPlane
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: snprintf
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: memcmp
+	EMPTY
+	Confidence: 76.19%, 16/21
+	[0, 0]
+	Confidence: 23.81%, 5/21
+Function: parse_atom
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: __getgrent_a
+	[-2147483648, -1] U [1, 2147483646]
+	Confidence: 100.00%, 1/1
+Function: getc
+	[-1, -1] U [10, 10]
+	Confidence: 100.00%, 1/1
+Function: iswupper
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: VP8New
+	[0, 0]
+	Confidence: 50.00%, 1/2
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 50.00%, 1/2
+Function: AllocateMemory
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: RescalePlane
+	[0, 0]
+	Confidence: 100.00%, 5/5
+Function: WriteImageSize
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: InitVP8Encoder
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: WebPValidateConfig
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: WriteRiffHeader
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: __libc_calloc
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 12.50%, 1/8
+	[0, 0]
+	Confidence: 87.50%, 7/8
+Function: strstr
+	[0, 0]
+	Confidence: 100.00%, 7/7
+Function: BackwardReferencesHashChainDistanceOnly
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: fputs
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: GetBackwardReferencesLowEffort
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: StoreImageToBitMask
+	[0, 0]
+	Confidence: 50.00%, 1/2
+	[1, 1]
+	Confidence: 50.00%, 1/2
+Function: VP8EnterCritical
+	[0, 0]
+	Confidence: 66.67%, 2/3
+	EMPTY
+	Confidence: 33.33%, 1/3
+Function: PutVP8XHeader
+	[1, 8]
+	Confidence: 100.00%, 1/1
+Function: opendir
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 100.00%, 2/2
+Function: strnlen
+	EMPTY
+	Confidence: 100.00%, 5/5
+Function: llvm.x86.sse2.pmovmskb.128
+	[-2147483648, 65534] U [65536, 2147483647]
+	Confidence: 100.00%, 2/2
+Function: read
+	EMPTY
+	Confidence: 16.67%, 1/6
+	[-1, -1]
+	Confidence: 83.33%, 5/6
+Function: do_catopen
+	[-2147483648, -2] U [0, 2147483647]
+	Confidence: 100.00%, 1/1
+Function: tre_set_empty
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: mbtowc
+	[-1, -1]
+	Confidence: 21.43%, 3/14
+	[-1, 0]
+	Confidence: 57.14%, 8/14
+	[-1, -1] U [1, 4]
+	Confidence: 7.14%, 1/14
+	[0, 4]
+	Confidence: 14.29%, 2/14
+Function: sigprocmask
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: PixOrCopyIsLiteral
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: mbsnrtowcs
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: GetProba
+	EMPTY
+	Confidence: 100.00%, 2/2
+Function: MemDataSize
+	EMPTY
+	Confidence: 100.00%, 2/2
+Function: __toread
+	[-2147483648, -1] U [1, 2147483646]
+	Confidence: 100.00%, 2/2
+Function: EncodePalette
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: posix_spawn_file_actions_addclose
+	[1, 12]
+	Confidence: 100.00%, 1/1
+Function: __mprotect
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: __libc_realloc
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: ParseRIFF
+	[1, 7]
+	Confidence: 100.00%, 1/1
+Function: getnameinfo
+	[-11, -10]
+	Confidence: 100.00%, 1/1
+Function: VP8Decode
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: isatty
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: find_sym
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: sendmsg
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: WebPPictureSharpARGBToYUVA
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: __lookup_serv
+	[-11, -1]
+	Confidence: 100.00%, 1/1
+Function: __get_resolv_conf
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: BuildHuffmanTable
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: access
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: __get_locale
+	[-1, -1]
+	Confidence: 100.00%, 2/2
+Function: __timedwait_cp
+	[4, 4] U [110, 110]
+	Confidence: 50.00%, 1/2
+	[22, 22] U [110, 110]
+	Confidence: 50.00%, 1/2
+Function: VP8LBackwardReferencesTraceBackwards
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: __mo_lookup
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: getsockname
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: poll
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: readlink
+	EMPTY
+	Confidence: 33.33%, 1/3
+	[-1, -1]
+	Confidence: 66.67%, 2/3
+Function: DecodeInto
+	[1, 7]
+	Confidence: 100.00%, 2/2
+Function: WebPIsAlphaMode
+	[1, 1]
+	Confidence: 100.00%, 2/2
+Function: AllocateInternalBuffers32b
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: VP8PutBitUniform
+	EMPTY
+	Confidence: 100.00%, 2/2
+Function: append
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: ParseVP8X
+	[1, 7]
+	Confidence: 100.00%, 1/1
+Function: __clone
+	[-2147483648, -1]
+	Confidence: 100.00%, 2/2
+	[-2147483648, 0]
+	Confidence: 0.00%, 0/2
+Function: fscanf
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: sigaddset
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: wcschr
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 100.00%, 2/2
+Function: fdopendir
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: VP8LHuffmanTablesAllocate
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: VP8LDecodeHeader
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: ns_skiprr
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: tre_stack_push
+	[1, 12]
+	Confidence: 70.00%, 56/80
+	[0, 0]
+	Confidence: 30.00%, 24/80
+Function: ApplyPalette
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: netlink_msg_to_ifaddr
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: pipe
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: WebPIoInitFromOptions
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: WebPAllocateDecBuffer
+	[1, 2]
+	Confidence: 75.00%, 3/4
+	[0, 0]
+	Confidence: 25.00%, 1/4
+Function: EncoderAnalyze
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: ferror
+	[1, 1]
+	Confidence: 57.14%, 4/7
+	[0, 0]
+	Confidence: 42.86%, 3/7
+Function: tre_copy_ast
+	[1, 12]
+	Confidence: 100.00%, 4/4
+Function: __res_send
+	EMPTY
+	Confidence: 100.00%, 2/2
+Function: VP8InitFrame
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: tre_ast_new_literal
+	[0, 0]
+	Confidence: 83.33%, 5/6
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 16.67%, 1/6
+Function: VP8LBitWriterInit
+	[0, 0]
+	Confidence: 75.00%, 3/4
+	[1, 1]
+	Confidence: 25.00%, 1/4
+Function: __strftime_fmt_1
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: posix_spawn_file_actions_adddup2
+	[1, 12]
+	Confidence: 100.00%, 1/1
+Function: strlen
+	EMPTY
+	Confidence: 100.00%, 7/7
+Function: CheckSizeOverflow
+	[0, 0]
+	Confidence: 100.00%, 5/5
+Function: VP8GetInfo
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: mbsinit
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: PutRIFFHeader
+	[1, 8]
+	Confidence: 100.00%, 1/1
+Function: PutWebPHeaders
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: ParseHeadersInternal
+	[0, 0] U [7, 7]
+	Confidence: 100.00%, 1/1
+Function: strcmp
+	EMPTY
+	Confidence: 100.00%, 19/19
+Function: HistoQueueInit
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: WebPDequantizeLevels
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: do_nftw
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: MapImageFromPalette
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: tre_set_one
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: WebPRescalerInit
+	[0, 0]
+	Confidence: 100.00%, 9/9
+Function: tre_ast_new_iter
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: pread
+	[-1, -1]
+	Confidence: 100.00%, 2/2
+Function: socket
+	[-1, -1]
+	Confidence: 100.00%, 6/6
+Function: __fgetwc_unlocked
+	[-1, -1] U [10, 10]
+	Confidence: 100.00%, 1/1
+Function: fopen
+	[0, 0]
+	Confidence: 50.00%, 3/6
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 50.00%, 3/6
+Function: prctl
+	EMPTY
+	Confidence: 100.00%, 2/2
+Function: __init_tp
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: VP8LDecodeImage
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: VP8GetHeaders
+	[1, 1]
+	Confidence: 100.00%, 2/2
+Function: PutVP8Header
+	[1, 8]
+	Confidence: 100.00%, 1/1
+Function: ioctl
+	[-1, -1]
+	Confidence: 100.00%, 2/2
+Function: ReadImageInfo
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: VP8ProcessRow
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: VP8LGetHistoImageSymbols
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: memchr
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 50.00%, 1/2
+	[0, 0]
+	Confidence: 50.00%, 1/2
+Function: __shgetc
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: calloc
+	[0, 0]
+	Confidence: 100.00%, 12/12
+Function: pthread_cond_init
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: ParseFilterHeader
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: WebPGetInfo
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: WebPConfigPreset
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: AllocateBuffer
+	[1, 2]
+	Confidence: 100.00%, 1/1
+Function: GetFeatures
+	[7, 7]
+	Confidence: 100.00%, 1/1
+Function: netlink_msg_to_nameindex
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: __timedwait
+	[110, 110]
+	Confidence: 100.00%, 1/1
+Function: Hev
+	[1, 1]
+	Confidence: 100.00%, 2/2
+Function: ignore_err
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: wctomb
+	[-1, -1]
+	Confidence: 100.00%, 3/3
+Function: write
+	EMPTY
+	Confidence: 33.33%, 1/3
+	[-1, -1]
+	Confidence: 66.67%, 2/3
+Function: accept
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: tre_new_lit
+	[0, 0]
+	Confidence: 100.00%, 4/4
+Function: WebPEncode
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: getline
+	[0, 0]
+	Confidence: 83.33%, 5/6
+	EMPTY
+	Confidence: 16.67%, 1/6
+Function: CostModelBuild
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: WebPPictureAlloc
+	[0, 0]
+	Confidence: 100.00%, 3/3
+Function: __rtnetlink_enumerate
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: VP8ParseIntraModeRow
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: __stdio_write
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: GetHuffBitLengthsAndCodes
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: DecodeImageStream
+	[0, 0]
+	Confidence: 75.00%, 3/4
+	[1, 1]
+	Confidence: 25.00%, 1/4
+Function: posix_spawn_file_actions_init
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: strtoull
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: WebPPictureView
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: ALPHDecode
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: __stdout_write
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: cgt_init
+	EMPTY
+	Confidence: 100.00%, 1/1
+Function: alloc_slot
+	[-1, -1]
+	Confidence: 100.00%, 1/1
+Function: sigismember
+	[1, 1]
+	Confidence: 50.00%, 1/2
+	[0, 0]
+	Confidence: 50.00%, 1/2
+Function: fgets
+	[0, 0]
+	Confidence: 38.46%, 5/13
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 61.54%, 8/13
+Function: EncoderInit
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: if_nametoindex
+	[-2147483648, -1] U [1, 2147483646]
+	Confidence: 100.00%, 1/1
+Function: ApplyCrossColorFilter
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: __lookup_name
+	[-11, -1]
+	Confidence: 50.00%, 1/2
+	[-11, -10] U [0, 1]
+	Confidence: 50.00%, 1/2
+Function: readdir
+	[0, 0]
+	Confidence: 100.00%, 4/4
+Function: isalnum
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: AddToken
+	EMPTY
+	Confidence: 100.00%, 7/7
+Function: InitThreadContext
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: __inet_aton
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: tre_ast_new_union
+	[0, 0]
+	Confidence: 100.00%, 3/3
+Function: find_charmap
+	[-1, -1]
+	Confidence: 100.00%, 2/2
+Function: HistogramCombineGreedy
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: VP8ExitCritical
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: iswctype
+	[1, 1]
+	Confidence: 77.78%, 7/9
+	[0, 0]
+	Confidence: 22.22%, 2/9
+Function: __syscall_ret
+	EMPTY
+	Confidence: 20.00%, 2/10
+	[-1, -1]
+	Confidence: 80.00%, 8/10
+Function: VP8GetValue
+	EMPTY
+	Confidence: 20.00%, 1/5
+	[0, 0]
+	Confidence: 80.00%, 4/5
+Function: fnmatch
+	[1, 1]
+	Confidence: 100.00%, 3/3
+Function: getcwd
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: iswlower
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: tre_add_tags
+	[1, 12]
+	Confidence: 100.00%, 2/2
+Function: WebPParseHeaders
+	[1, 7]
+	Confidence: 100.00%, 2/2
+Function: pipe2
+	[-1, -1]
+	Confidence: 100.00%, 4/4
+Function: mbrtowc
+	[-2, -1]
+	Confidence: 60.00%, 3/5
+	[-2, -2]
+	Confidence: 20.00%, 1/5
+	[-1, -1]
+	Confidence: 20.00%, 1/5
+Function: __fdopen
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: connect
+	[-1, -1]
+	Confidence: 100.00%, 3/3
+Function: __tre_mem_alloc_impl
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 12.50%, 2/16
+	[0, 0]
+	Confidence: 87.50%, 14/16
+Function: RecordTokens
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: PreprocessARGB
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: WriteRealAlphaAndVersion
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: feof
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: open
+	[-1, -1]
+	Confidence: 85.71%, 12/14
+	EMPTY
+	Confidence: 14.29%, 2/14
+Function: VP8EncStartAlpha
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: __tre_mem_new_impl
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 50.00%, 1/2
+	[0, 0]
+	Confidence: 50.00%, 1/2
+Function: EncodeImageInternal
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: tre_compute_nfl
+	[1, 12]
+	Confidence: 100.00%, 1/1
+Function: VP8LEncodeStream
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: ALPHNew
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: map_library
+	[0, 0]
+	Confidence: 100.00%, 2/2
+Function: WriteImage
+	[1, 1]
+	Confidence: 100.00%, 1/1
+Function: VP8BitWriterInit
+	[0, 0]
+	Confidence: 100.00%, 1/1
+Function: aio_error
+	[0, 114] U [116, 2147483647]
+	Confidence: 100.00%, 3/3
+Function: recvfrom
+	[-1, -1]
+	Confidence: 66.67%, 2/3
+	EMPTY
+	Confidence: 33.33%, 1/3
+Function: getenv
+	[0, 0]
+	Confidence: 57.14%, 4/7
+	[-2147483648, -1] U [1, 2147483647]
+	Confidence: 42.86%, 3/7
+Function: __nscd_query
+	[0, 0]
+	Confidence: 100.00%, 3/3
+Function: tre_make_trans
+	[1, 12]
+	Confidence: 50.00%, 1/2
+	[0, 0]
+	Confidence: 50.00%, 1/2
+Empty __lxstat
+Empty setmntent
+Empty wait
+Empty bcmp
+Empty strcoll
+Empty sort
+Empty __strcoll_l
+[ErrorCheckViolationFinder] Initializing 219 modules ...........................................................................................................................................................................................................................
+[ErrorCheckViolationFinder / 1] Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Unhandled error checks:
+Not found in totalFunctionToIntervalCounts
+Not found in totalFunctionToIntervalCounts
+Unhandled error checks:
+Unhandled error checks:
+[ErrorCheckViolationFinder] Postprocessing ...
+[ErrorCheckViolationFinder] Done!
+
+[ErrorCheckViolationFinder] Initializing 219 modules ...........................................................................................................................................................................................................................
+[ErrorCheckViolationFinder / 1] [ErrorCheckViolationFinder] Postprocessing ...
+[ErrorCheckViolationFinder] Done!
+
+Function error return intervals (220, pre-libc-pruning 825):
+Function: VP8LColorCacheInit {return index 0}
+  [0, 0]
+Function: CustomSetup {return index 0}
+  [0, 0]
+Function: InitRGBRescaler {return index 0}
+  [0, 0]
+Function: InitYUVRescaler {return index 0}
+  [0, 0]
+Function: StatLoop {return index 0}
+  [0, 0]
+Function: GetProba {return index 0}
+  EMPTY
+Function: RecordTokens {return index 0}
+  [0, 0]
+Function: VP8DecompressAlphaRows {return index 0}
+  [0, 0]
+Function: ALPHNew {return index 0}
+  [0, 0]
+Function: AllocateAlphaPlane {return index 0}
+  [0, 0]
+Function: ALPHInit {return index 0}
+  [0, 0]
+Function: ALPHDecode {return index 0}
+  [0, 0]
+Function: VP8New {return index 0}
+  [0, 0]
+Function: VP8CheckSignature {return index 0}
+  [0, 0]
+Function: VP8GetInfo {return index 0}
+  [0, 0]
+Function: VP8GetHeaders {return index 0}
+  [1, 1]
+Function: ParseSegmentHeader {return index 0}
+  [0, 0]
+Function: ParseFilterHeader {return index 0}
+  [0, 0]
+Function: ParsePartitions {return index 0}
+  [1, 7]
+Function: VP8DecodeMB {return index 0}
+  [0, 0]
+Function: VP8Decode {return index 0}
+  [0, 0]
+Function: GetCoeffsFast {return index 0}
+  [16, 16]
+Function: VP8GetBit {return index 0}
+  [1, 1]
+Function: WebPPictureView {return index 0}
+  [0, 0]
+Function: AdjustAndCheckRectangle {return index 0}
+  [0, 0]
+Function: RescalePlane {return index 0}
+  [0, 0]
+Function: NeedsFilter2_C {return index 0}
+  [0, 0]
+Function: Hev {return index 0}
+  [1, 1]
+Function: VP8ApplyNearLossless {return index 0}
+  [0, 0]
+Function: IsSmooth {return index 0}
+  [0, 0]
+Function: IsNear {return index 0}
+  [0, 0]
+Function: AddToken {return index 0}
+  EMPTY
+Function: TBufferNewPage {return index 0}
+  [0, 0]
+Function: WebPINewDecoder {return index 0}
+  [0, 0]
+Function: VP8GetValue {return index 0}
+  [0, 0]
+Function: VP8GetSignedValue {return index 0}
+  [0, 0]
+Function: VP8LReadBits {return index 0}
+  [-2147483648, 46] U [48, 2147483647]
+Function: NewDecoder {return index 0}
+  [0, 0]
+Function: WebPGetFeatures {return index 0}
+  [7, 7]
+Function: WebPINewRGB {return index 0}
+  [0, 0]
+Function: WebPINewYUVA {return index 0}
+  [0, 0]
+Function: IDecCheckStatus {return index 0}
+  [0, 4]
+Function: CheckMemBufferMode {return index 0}
+  [0, 0]
+Function: AppendToMemBuffer {return index 0}
+  [1, 1]
+Function: RemapMemBuffer {return index 0}
+  [1, 1]
+Function: MemDataSize {return index 0}
+  EMPTY
+Function: DecodeWebPHeaders {return index 0}
+  [1, 1] U [5, 5]
+Function: CopyParts0Data {return index 0}
+  [1, 3]
+Function: FinishDecoding {return index 0}
+  [0, 0]
+Function: WebPReportProgress {return index 0}
+  [0, 0]
+Function: WebPEncode {return index 0}
+  [0, 0]
+Function: InitVP8Encoder {return index 0}
+  [0, 0]
+Function: DeleteVP8Encoder {return index 0}
+  [0, 0]
+Function: BackwardRefsNewBlock {return index 0}
+  [0, 0]
+Function: VP8LHashChainInit {return index 0}
+  [0, 0]
+Function: GetBackwardReferencesLowEffort {return index 0}
+  [0, 0]
+Function: VP8LHashChainFill {return index 0}
+  [0, 0]
+Function: VP8LRefsCursorOk {return index 0}
+  [0, 0]
+Function: VP8LGetBackwardReferences {return index 0}
+  [0, 0]
+Function: GetBackwardReferences {return index 0}
+  [0, 0]
+Function: VP8LColorCacheContains {return index 0}
+  EMPTY
+Function: BackwardReferencesLz77Box {return index 0}
+  [0, 0]
+Function: CalculateBestCacheSize {return index 0}
+  [0, 0]
+Function: BackwardRefsWithLocalCache {return index 0}
+  [0, 0]
+Function: BackwardRefsClone {return index 0}
+  [0, 0]
+Function: PixOrCopyIsLiteral {return index 0}
+  [0, 0]
+Function: WebPPlaneDistortion {return index 0}
+  [0, 0]
+Function: WebPPictureInit {return index 0}
+  [0, 0]
+Function: VP8LAllocateHistogram {return index 0}
+  [0, 0]
+Function: VP8LAllocateHistogramSet {return index 0}
+  [0, 0]
+Function: HistogramCombineStochastic {return index 0}
+  [0, 0]
+Function: VP8LGetHistoImageSymbols {return index 0}
+  [0, 0]
+Function: HistogramCombineGreedy {return index 0}
+  [0, 0]
+Function: HistoQueueInit {return index 0}
+  [0, 0]
+Function: PairComparison {return index 0}
+  EMPTY
+Function: VP8LEncodeStream {return index 0}
+  [1, 1]
+Function: VP8LEncoderNew {return index 0}
+  [0, 0]
+Function: EncoderAnalyze {return index 0}
+  [0, 0]
+Function: EncoderInit {return index 0}
+  [0, 0]
+Function: WriteImageSize {return index 0}
+  [0, 0]
+Function: MapImageFromPalette {return index 0}
+  [0, 0]
+Function: MakeInputImageCopy {return index 0}
+  [0, 0]
+Function: ApplyPredictFilter {return index 0}
+  [0, 0]
+Function: ApplyCrossColorFilter {return index 0}
+  [0, 0]
+Function: WriteRealAlphaAndVersion {return index 0}
+  [1, 1]
+Function: WriteImage {return index 0}
+  [1, 1]
+Function: ApplyPalette {return index 0}
+  [0, 0]
+Function: AllocateTransformBuffer {return index 0}
+  [0, 0]
+Function: PaletteSortModifiedZeng {return index 0}
+  [0, 0]
+Function: EncodePalette {return index 0}
+  [0, 0]
+Function: EncodeImageInternal {return index 0}
+  [0, 0]
+Function: EncodeImageNoHuffman {return index 0}
+  [0, 0]
+Function: GetHuffBitLengthsAndCodes {return index 0}
+  [0, 0]
+Function: StoreImageToBitMask {return index 0}
+  EMPTY
+Function: WriteRiffHeader {return index 0}
+  EMPTY
+Function: VP8EncStartAlpha {return index 0}
+  [0, 0]
+Function: VP8EncFinishAlpha {return index 0}
+  [0, 0]
+Function: VP8EncDeleteAlpha {return index 0}
+  [0, 0]
+Function: ApplyFiltersAndEncode {return index 0}
+  [0, 0]
+Function: WebPConfigInit {return index 0}
+  [0, 0]
+Function: WebPDequantizeLevels {return index 0}
+  [0, 0]
+Function: InitParams {return index 0}
+  [0, 0]
+Function: WebPParseHeaders {return index 0}
+  [1, 7]
+Function: ParseHeadersInternal {return index 0}
+  [0, 0] U [7, 7]
+Function: WebPDecodeRGBInto {return index 0}
+  [0, 0]
+Function: DecodeIntoRGBABuffer {return index 0}
+  [0, 0]
+Function: WebPDecodeRGBAInto {return index 0}
+  [0, 0]
+Function: WebPDecodeARGBInto {return index 0}
+  [0, 0]
+Function: WebPDecodeBGRInto {return index 0}
+  [0, 0]
+Function: WebPDecodeBGRAInto {return index 0}
+  [0, 0]
+Function: WebPDecodeBGRA {return index 0}
+  [0, 0]
+Function: WebPDecodeYUVInto {return index 0}
+  [0, 0]
+Function: DecodeInto {return index 0}
+  [1, 7]
+Function: WebPDecodeRGB {return index 0}
+  [0, 0]
+Function: Decode {return index 0}
+  [0, 0]
+Function: WebPDecodeRGBA {return index 0}
+  [0, 0]
+Function: WebPDecodeARGB {return index 0}
+  [0, 0]
+Function: WebPDecodeBGR {return index 0}
+  [0, 0]
+Function: WebPDecodeYUV {return index 0}
+  [0, 0]
+Function: WebPGetInfo {return index 0}
+  [0, 0]
+Function: GetFeatures {return index 0}
+  [7, 7]
+Function: WebPGetFeaturesInternal {return index 0}
+  [7, 7]
+Function: WebPDecode {return index 0}
+  [0, 7]
+Function: WebPCheckCropDimensions {return index 0}
+  [0, 0]
+Function: WebPIoInitFromOptions {return index 0}
+  [0, 0]
+Function: ParseRIFF {return index 0}
+  [1, 7]
+Function: ParseVP8X {return index 0}
+  [1, 7]
+Function: ParseOptionalChunks {return index 0}
+  [0, 0]
+Function: GetLE32 {return index 0}
+  EMPTY
+Function: VP8IteratorProgress {return index 0}
+  [0, 0]
+Function: VP8ProcessRow {return index 0}
+  [0, 0]
+Function: VP8EnterCritical {return index 0}
+  [0, 0]
+Function: VP8ExitCritical {return index 0}
+  [0, 0]
+Function: VP8InitFrame {return index 0}
+  [0, 0]
+Function: InitThreadContext {return index 0}
+  [0, 0]
+Function: AllocateMemory {return index 0}
+  [0, 0]
+Function: CheckSizeOverflow {return index 0}
+  [0, 0]
+Function: QuantizeBlockWHT_SSE2 {return index 0}
+  [1, 1]
+Function: QuantizeBlock_SSE2 {return index 0}
+  [1, 1]
+Function: DoQuantizeBlock_SSE2 {return index 0}
+  [1, 1]
+Function: VP8ParseIntraModeRow {return index 0}
+  [0, 0]
+Function: WebPValidatePicture {return index 0}
+  [0, 0]
+Function: WebPPictureInitInternal {return index 0}
+  [1, 1]
+Function: WebPPictureAllocYUVA {return index 0}
+  [0, 0]
+Function: WebPPictureAlloc {return index 0}
+  [0, 0]
+Function: WebPMemoryWrite {return index 0}
+  [0, 0]
+Function: WebPConfigPreset {return index 0}
+  [0, 0]
+Function: VP8LResidualImage {return index 0}
+  [0, 0]
+Function: VP8EncWrite {return index 0}
+  [0, 0]
+Function: VP8BitWriterSize {return index 0}
+  EMPTY
+Function: PutWebPHeaders {return index 0}
+  [0, 0]
+Function: PutPaddingByte {return index 0}
+  [0, 0]
+Function: PutVP8FrameHeader {return index 0}
+  [1, 8]
+Function: PutRIFFHeader {return index 0}
+  [1, 8]
+Function: PutVP8XHeader {return index 0}
+  [1, 8]
+Function: PutAlphaChunk {return index 0}
+  [1, 8]
+Function: PutVP8Header {return index 0}
+  [1, 8]
+Function: WebPSafeMalloc {return index 0}
+  [0, 0]
+Function: WebPSafeCalloc {return index 0}
+  [0, 0]
+Function: WebPMalloc {return index 0}
+  [0, 0]
+Function: WebPConfigInitInternal {return index 0}
+  [0, 0]
+Function: WebPIsRGBMode {return index 0}
+  [1, 1]
+Function: HasAlpha8b_SSE2 {return index 0}
+  [1, 1]
+Function: HasAlpha32b_SSE2 {return index 0}
+  [1, 1]
+Function: QuantizeBlock_SSE41 {return index 0}
+  [1, 1]
+Function: QuantizeBlockWHT_SSE41 {return index 0}
+  [1, 1]
+Function: DoQuantizeBlock_SSE41 {return index 0}
+  [1, 1]
+Function: WebPFlipBuffer {return index 0}
+  [0, 0]
+Function: WebPCopyDecBufferPixels {return index 0}
+  [0, 0]
+Function: WebPIsAlphaMode {return index 0}
+  [1, 1]
+Function: WebPAvoidSlowMemory {return index 0}
+  [0, 0]
+Function: IsValidColorspace {return index 0}
+  [0, 0]
+Function: AllocateBuffer {return index 0}
+  [1, 2]
+Function: WebPAllocateDecBuffer {return index 0}
+  [1, 2]
+Function: WebPValidateConfig {return index 0}
+  [0, 0]
+Function: WebPPictureARGBToYUVADithered {return index 0}
+  [0, 0]
+Function: WebPPictureSharpARGBToYUVA {return index 0}
+  [0, 0]
+Function: WebPPictureSmartARGBToYUVA {return index 0}
+  [0, 0]
+Function: WebPPictureYUVAToARGB {return index 0}
+  [0, 0]
+Function: PreprocessARGB {return index 0}
+  [0, 0]
+Function: SharpYuvConvert {return index 0}
+  [0, 0]
+Function: Reset {return index 0}
+  [0, 0]
+Function: Sync {return index 0}
+  [0, 0]
+Function: WebPRescalerInit {return index 0}
+  [0, 0]
+Function: VP8PutBitUniform {return index 0}
+  EMPTY
+Function: VP8BitWriterInit {return index 0}
+  [0, 0]
+Function: BitWriterResize {return index 0}
+  [0, 0]
+Function: VP8LBitWriterInit {return index 0}
+  [0, 0]
+Function: VP8LBitWriterResize {return index 0}
+  [0, 0]
+Function: VP8LBitWriterClone {return index 0}
+  [0, 0]
+Function: VP8PutBit {return index 0}
+  EMPTY
+Function: WebPRescalerGetScaledDimensions {return index 0}
+  [0, 0]
+Function: BackwardReferencesHashChainFollowChosenPath {return index 0}
+  [0, 0]
+Function: BackwardReferencesHashChainDistanceOnly {return index 0}
+  [0, 0]
+Function: VP8LBackwardReferencesTraceBackwards {return index 0}
+  [0, 0]
+Function: CostModelBuild {return index 0}
+  [0, 0]
+Function: CostManagerInit {return index 0}
+  [0, 0]
+Function: VP8LCheckSignature {return index 0}
+  [0, 0]
+Function: VP8LGetInfo {return index 0}
+  [0, 0]
+Function: ReadImageInfo {return index 0}
+  [0, 0]
+Function: VP8LNew {return index 0}
+  [0, 0]
+Function: VP8LDecodeAlphaHeader {return index 0}
+  [0, 0]
+Function: VP8LDecodeHeader {return index 0}
+  [1, 1]
+Function: DecodeImageStream {return index 0}
+  [0, 0]
+Function: AllocateInternalBuffers8b {return index 0}
+  [0, 0]
+Function: AllocateInternalBuffers32b {return index 0}
+  [0, 0]
+Function: VP8LDecodeAlphaImageStream {return index 0}
+  [0, 0]
+Function: DecodeImageData {return index 0}
+  [0, 0]
+Function: VP8LDecodeImage {return index 0}
+  [0, 0]
+Function: AllocateAndInitRescaler {return index 0}
+  [0, 0]
+Function: ReadTransform {return index 0}
+  [0, 0]
+Function: ExpandColorMap {return index 0}
+  [0, 0]
+Function: ReadHuffmanCode {return index 0}
+  [0, 0]
+Function: VP8LIsEndOfStream {return index 0}
+  [0, 0]
+Function: ReadPackedSymbols {return index 0}
+  [0, 0]
+Function: VP8LBuildHuffmanTable {return index 0}
+  [0, 0]
+Function: BuildHuffmanTable {return index 0}
+  [0, 0]
+Function: VP8LHuffmanTablesAllocate {return index 0}
+  [0, 0]
+Function: VP8LHtreeGroupsNew {return index 0}
+  [0, 0]
+Function: llvm.x86.sse2.pmovmskb.128 {return index 0}
+  [-2147483648, 65534] U [65536, 2147483647]
+Potential bug, missing check for the following call: huffman_utils.c: 259
+  %134 = call i32 @BuildHuffmanTable(%struct.HuffmanCode* noundef %129, i32 noundef %130, i32* noundef %131, i32 noundef %132, i16* noundef %133), !dbg !207
+  Score: 74.65% (I=2.000000e+00, C=1.000000e+00)
+  Reported at: huffman_utils.c: 259
+  Callees:
+    -> BuildHuffmanTable
+       [0, 0]
+  Union of error values: [0, 0]
+Potential bug, missing check for the following call: vp8_dec.c: 384
+  %325 = call i32 @VP8GetValue(%struct.VP8BitReader* noundef %324, i32 noundef 1), !dbg !1015
+  Score: 98.68% (I=1.000000e+00, C=1.600000e+01)
+  Reported at: vp8_dec.c: 384
+  Callees:
+    -> VP8GetValue
+       [0, 0]
+  Union of error values: [0, 0]
+Potential bug, missing check for the following call: idec_dec.c: 291
+  %16 = call i32 @VP8ExitCritical(%struct.VP8Decoder* noundef %13, %struct.VP8Io* noundef %15), !dbg !680
+  Score: 74.65% (I=2.000000e+00, C=1.000000e+00)
+  Reported at: idec_dec.c: 291
+  Callees:
+    -> VP8ExitCritical
+       [0, 0]
+  Union of error values: [0, 0]
+Potential bug, missing check for the following call: idec_dec.c: 261
+  %42 = call i32 @WebPCopyDecBufferPixels(%struct.WebPDecBuffer* noundef %38, %struct.WebPDecBuffer* noundef %41), !dbg !711
+  Score: 73.02% (I=1.000000e+00, C=0.000000e+00)
+  Reported at: idec_dec.c: 261
+  Callees:
+    -> WebPCopyDecBufferPixels
+       [0, 0]
+  Union of error values: [0, 0]
+Potential bug, missing check for the following call: idec_dec.c: 677
+  %28 = call i32 @VP8ExitCritical(%struct.VP8Decoder* noundef %25, %struct.VP8Io* noundef %27), !dbg !693
+  Score: 74.65% (I=2.000000e+00, C=1.000000e+00)
+  Reported at: idec_dec.c: 677
+  Callees:
+    -> VP8ExitCritical
+       [0, 0]
+  Union of error values: [0, 0]
+Potential bug, missing check for the following call: vp8l_enc.c: 1978
+  %44 = call i32 @WebPPictureInit(%struct.WebPPicture* noundef %23), !dbg !501
+  Score: 85.73% (I=2.000000e+00, C=3.000000e+00)
+  Reported at: vp8l_enc.c: 1978
+  Callees:
+    -> WebPPictureInit
+       [0, 0]
+  Union of error values: [0, 0]
+Potential bug, missing check for the following call: alpha_enc.c: 69
+  %42 = call i32 @WebPConfigInit(%struct.WebPConfig* noundef %17), !dbg !482
+  Score: 73.02% (I=1.000000e+00, C=0.000000e+00)
+  Reported at: alpha_enc.c: 69
+  Callees:
+    -> WebPConfigInit
+       [0, 0]
+  Union of error values: [0, 0]
+Potential bug, missing check for the following call: alpha_enc.c: 238
+  %7 = call i32 @VP8BitWriterInit(%struct.VP8BitWriter* noundef %6, i64 noundef 0), !dbg !440
+  Score: 92.17% (I=1.000000e+00, C=2.000000e+00)
+  Reported at: alpha_enc.c: 238
+  Callees:
+    -> VP8BitWriterInit
+       [0, 0]
+  Union of error values: [0, 0]
+Potential bug, missing check for the following call: huffman_utils.c: 253
+  %115 = call i32 @BuildHuffmanTable(%struct.HuffmanCode* noundef %110, i32 noundef %111, i32* noundef %112, i32 noundef %113, i16* noundef %114), !dbg !186
+  Score: 74.65% (I=2.000000e+00, C=1.000000e+00)
+  Reported at: huffman_utils.c: 253
+  Callees:
+    -> BuildHuffmanTable
+       [0, 0]
+  Union of error values: [0, 0]
+Potential bug, missing check for the following call: analysis_enc.c: 364
+  %46 = call i32 @WebPReportProgress(%struct.WebPPicture* noundef %39, i32 noundef %43, i32* noundef %45), !dbg !535
+  Score: 98.26% (I=1.000000e+00, C=1.200000e+01)
+  Reported at: analysis_enc.c: 364
+  Callees:
+    -> WebPReportProgress
+       [0, 0]
+  Union of error values: [0, 0]
+Potential bug, missing check for the following call: frame_enc.c: 744
+  %16 = call i32 @StatLoop(%struct.VP8Encoder* noundef %15), !dbg !501
+  Score: 73.02% (I=1.000000e+00, C=0.000000e+00)
+  Reported at: frame_enc.c: 744
+  Callees:
+    -> StatLoop
+       [0, 0]
+  Union of error values: [0, 0]
+Potential bug, missing check for the following call: alpha_enc.c: 58
+  %19 = call i32 @WebPPictureInit(%struct.WebPPicture* noundef %18), !dbg !459
+  Score: 85.73% (I=2.000000e+00, C=3.000000e+00)
+  Reported at: alpha_enc.c: 58
+  Callees:
+    -> WebPPictureInit
+       [0, 0]
+  Union of error values: [0, 0]
+Potential bug, missing check for the following call: thread_utils.c: 294
+  %42 = call i32 @pthread_mutex_lock(%union.pthread_mutex_t* noundef %41) #6, !dbg !178
+  Score: 93.14% (I=3.000000e+00, C=1.500000e+01)
+  Reported at: thread_utils.c: 294
+  Callees:
+    -> __pthread_mutex_lock
+       [110, 110]
+  Union of error values: [110, 110]
+Potential bug, missing check for the following call: thread_utils.c: 209
+  %19 = call i32 @pthread_mutex_lock(%union.pthread_mutex_t* noundef %18) #6, !dbg !151
+  Score: 93.14% (I=3.000000e+00, C=1.500000e+01)
+  Reported at: thread_utils.c: 209
+  Callees:
+    -> __pthread_mutex_lock
+       [110, 110]
+  Union of error values: [110, 110]
+Potential bug, missing check for the following call: thread_utils.c: 238
+  %16 = call i32 @pthread_mutex_lock(%union.pthread_mutex_t* noundef %15) #6, !dbg !148
+  Score: 93.14% (I=3.000000e+00, C=1.500000e+01)
+  Reported at: thread_utils.c: 238
+  Callees:
+    -> __pthread_mutex_lock
+       [110, 110]
+  Union of error values: [110, 110]
+time=0:00.40 memory=141604
+~/errorchecks/crix/evaluation

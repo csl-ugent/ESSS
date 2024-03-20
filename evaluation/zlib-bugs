@@ -1,0 +1,20 @@
+# The prefix before the _ indicates whether it's an incorrect (I) case or a missing (M) case.
+
+# A   = applied the fix
+# C   = confirmed
+# PT  = probably true positive
+# PF  = probably false positive
+# FNE = false positive because not an error
+# FPS = false positive because path-sensitive
+# L   = limitation of my tool
+# W   = wrong value included in error interval
+# IDK = I don't know
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+M_FNE	gzwrite.c: 592
+M_PT	gzread.c: 616
+M_PT	gzwrite.c: 631
+M_PT	gzlib.c: 254

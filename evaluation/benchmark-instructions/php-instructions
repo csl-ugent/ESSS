@@ -1,0 +1,10 @@
+export LLVM_COMPILER=clang
+export LLVM_COMPILER_PATH=/home/evaluation/ESSS/llvm/llvm-project/prefix/bin
+mkdir -p tmp
+rm tmp/* tmp/.*
+./buildconf
+CC=wllvm CXX=wllvm++ ./configure --disable-gcc-global-regs --enable-bcmath=shared --enable-calendar=shared --enable-dba=shared --enable-exif=shared --enable-ftp=shared --enable-gd=shared --enable-intl=shared --enable-mbstring --enable-pcntl --enable-shmop=shared --enable-soap=shared --enable-sockets=shared --enable-sysvmsg=shared --enable-sysvsem=shared --enable-sysvshm=shared --with-bz2=shared --with-curl=shared --with-enchant=shared --with-ffi=shared --with-gdbm --with-gettext=shared --with-gmp=shared --with-iconv=shared --with-imap-ssl --with-imap=shared --with-kerberos --with-ldap=shared,/usr --with-ldap-sasl --with-mhash --with-mysql-sock=/run/mysqld/mysqld.sock --with-mysqli=shared,mysqlnd --with-openssl --with-password-argon2 --with-pdo-dblib=shared --with-pdo-mysql=shared,mysqlnd --with-pdo-odbc=unixODBC,/usr/ --with-pdo-pgsql=shared --with-pdo-sqlite=shared --with-pgsql=shared --with-readline --with-snmp=shared --with-sodium=shared --with-sqlite3=shared --with-tidy=shared --with-unixODBC=shared --with-xsl=shared --with-zip=shared --with-zlib
+make -j4
+#extract-bc --manifest ./sapi/cli/php # Doesn't work because of module shared objects
+find . -type f -name "*.o.bc"| sort|uniq&>./sapi/cli/php.llvm.manifest
+cat ./sapi/cli/php.llvm.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; done

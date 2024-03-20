@@ -1,0 +1,17 @@
+# The prefix before the _ indicates whether it's an incorrect (I) case or a missing (M) case.
+
+# A   = applied the fix
+# C   = confirmed
+# PT  = probably true positive
+# PF  = probably false positive
+# FNE = false positive because not an error
+# FPS = false positive because path-sensitive
+# L   = limitation of my tool
+# W   = wrong value included in error interval
+# IDK = I don't know
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+M_PT	pngrutil.c: 1303

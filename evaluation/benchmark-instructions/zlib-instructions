@@ -1,0 +1,9 @@
+export LLVM_COMPILER=clang
+export LLVM_COMPILER_PATH=/home/evaluation/ESSS/llvm/llvm-project/prefix/bin
+mkdir -p tmp
+rm tmp/* tmp/.*
+CC=wllvm CXX=wllvm++ CFLAGS="-g" CXXFLAGS="-g" ./configure
+make -j4
+extract-bc --manifest libz.so.1
+cat *.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; done
+$LLVM_COMPILER_PATH/llvm-link tmp/.*.o.bc -o combined.bc

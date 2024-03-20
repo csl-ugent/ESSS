@@ -1,0 +1,12 @@
+export LLVM_COMPILER=clang
+export LLVM_COMPILER_PATH=/home/evaluation/ESSS/llvm/llvm-project/prefix/bin
+mkdir -p tmp
+rm tmp/* tmp/.*
+# sudo pacman -Sy wayland-protocols
+# patchen van Cargo.toml en sources om Windows reference te wissen
+# patchen van moderne Rust features
+RUSTFLAGS="--emit=llvm-bc" cargo +1.56.0 build
+# bytecode file at: target/debug/deps/webrender-d1fcd5fee32c3551.bc
+cp target/debug/deps/webrender-*.bc tmp
+cp target/debug/deps/wr_glyph_rasterizer-*.bc tmp
+# cat ./sapi/cli/php.llvm.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; done

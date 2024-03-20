@@ -1,0 +1,48 @@
+# The prefix before the _ indicates whether it's an incorrect (I) case or a missing (M) case.
+
+# A   = applied the fix
+# C   = confirmed
+# PT  = probably true positive
+# PF  = probably false positive
+# FNE = false positive because not an error
+# FPS = false positive because path-sensitive
+# L   = limitation of my tool
+# W   = wrong value included in error interval
+# IDK = I don't know
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+# FT_CMap_New
+I_PT	src/sfnt/ttcmap.c: 3853
+I_PT	src/winfonts/winfnt.c: 870
+
+I_L	src/cff/cffparse.c: 1057
+
+I_W	src/cff/cffparse.c: 1540
+
+M_PT	src/pfr/pfrdrivr.c: 39
+M_PT	src/type42/t42parse.c: 1026
+M_PT	src/type42/t42parse.c: 377
+M_PT	src/sfnt/ttcmap.c: 3673
+M_PT	src/sfnt/sfobjs.c: 909
+M_PT	src/sfnt/sfobjs.c: 1002
+M_PT	src/sfnt/sfobjs.c: 1018
+M_PT	src/truetype/ttdriver.c: 319
+M_PT	src/sfnt/sfobjs.c: 1017
+M_PT	src/type1/t1load.c: 1548
+M_PT	src/sfnt/sfobjs.c: 1016
+M_PT	src/sfnt/sfobjs.c: 1007
+M_PT	src/sfnt/sfobjs.c: 905
+M_PT	src/sfnt/sfobjs.c: 1008
+M_PT	src/sfnt/sfobjs.c: 904
+M_PT	src/truetype/ttgxvar.c: 2557
+M_PT	src/base/ftobjs.c: 1170
+M_PT	src/sfnt/sfobjs.c: 1013
+
+# Confirmed by comment
+M_C	src/sfnt/ttsbit.c: 419
+M_C	src/base/ftinit.c: 175
+
+M_IDK	src/base/ftrfork.c: 818
