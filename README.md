@@ -117,10 +117,10 @@ In particular, the specification inference is implemented in EHBlockDetector.cc 
 The instructions for running each benchmark are provided in the `evaluation/benchmark-instructions` directory.
 To run one of the benchmarks, execute the corresponding script in the `evaluation` directory (as described in the above repository structure overview).
 
-* compute_my_stats.py: This script computes the precision, recall, and F1 score of the ESSS tool for a given benchmark.
-* compute_eesi_stats.py: This script computes the precision, recall, and F1 score of the EESI tool for a given benchmark.
-* run-eesi-<program>.sh: This script runs the EESI tool on the given benchmark.
-* run-my-<program>.sh: This script runs the ESSS tool on the given benchmark.
+* `compute_my_stats.py`: This script computes the precision, recall, and F1 score of the ESSS tool for a given benchmark.
+* `compute_eesi_stats.py`: This script computes the precision, recall, and F1 score of the EESI tool for a given benchmark.
+* `run-eesi-<program>.sh`: This script runs the EESI tool on the given benchmark.
+* `run-my-<program>.sh`: This script runs the ESSS tool on the given benchmark.
 
 ## Tool evaluation
 
