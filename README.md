@@ -1,9 +1,13 @@
 # ESSS
 
+This repository contains the ESSS source code, as well as the scripts and data to run the tool and EESI on the benchmarks used in the paper.
+
 The artifact evaluation VM already contains the ESSS tool and the LLVM toolchain pre-built.
 The LLVM version used is 14.0.6.
 The reason we perform the build ourselves rather than a distro-provided version is to ensure reproducibility of the exact results without having potentially-interfering distro-specific patches.
 
+The tool is supported on any recent Linux distribution. We confirmed that it works for sure on Ubuntu 22.04.
+No special hardware requirements are necessary to run ESSS, although we do recommend at least 8 GiB of RAM. Even though the tool can run with less, it may take up to 2 GiB of RAM for the largest benchmark, leaving fewer memory for other processes.
 
 ## Tool build instructions
 
