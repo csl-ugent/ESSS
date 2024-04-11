@@ -68,24 +68,6 @@ To run the tool for inferring specifications and detecting bugs in a program, yo
 The output will be written to stdout, this includes the inferred specifications and the bugs.
 Additionally, the _optional_ options `--missing-ct=0.725` and `--incorrect-ct=0.725` can be used to set the threshold for missing and incorrect specifications, respectively. They are 0.725 by default.
 
-## Tool evaluation
-
-To ease the evaluation, we provided for each benchmark a run script to run the tool.
-These can be found in `/home/evaluation/ESSS/evaluation`:
-  * `run-my-openssl.sh`
-  * `run-my-openssh.sh`
-  * `run-my-php.sh`
-  * `run-my-zlib.sh`
-  * `run-my-libpng.sh`
-  * `run-my-freetype.sh`
-  * `run-my-libwebp.sh`
-
-## License
-
-This tool is based on the [Crix](https://github.com/umnsec/crix) tool from the University of Minnesota.
-In particular, we reuse the MLTA component of Crix
-ESSS is distributed under the same license.
-
 ## Repository structure
 
 The repository is structured as follows. Files adapted from [Crix](https://github.com/umnsec/crix) are marked as such.
@@ -134,6 +116,24 @@ In particular, the specification inference is implemented in EHBlockDetector.cc 
 
 The instructions for running each benchmark are provided in the `evaluation/benchmark-instructions` directory.
 To run one of the benchmarks, execute the corresponding script in the `evaluation` directory (as described in the above repository structure overview).
+
+## Tool evaluation
+
+To ease the evaluation, we provided for each benchmark a run script to run the tool.
+These can be found in `/home/evaluation/ESSS/evaluation`:
+  * `run-my-openssl.sh`
+  * `run-my-openssh.sh`
+  * `run-my-php.sh`
+  * `run-my-zlib.sh`
+  * `run-my-libpng.sh`
+  * `run-my-freetype.sh`
+  * `run-my-libwebp.sh`
+
+## License
+
+This tool is based on the [Crix](https://github.com/umnsec/crix) tool from the University of Minnesota.
+In particular, we reuse the MLTA component of Crix
+ESSS is distributed under the same license.
 
 ## More details
 
