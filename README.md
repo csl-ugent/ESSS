@@ -46,3 +46,19 @@ These can be found in `/home/evaluation/ESSS/evaluation`:
 This tool is based on the [Crix](https://github.com/umnsec/crix) tool from the University of Minnesota.
 In particular, we reuse the MLTA component of Crix
 ESSS is distributed under the same license.
+
+## More details
+
+Link to paper: TBD
+
+```
+@inproceedings{dossche2024inferenceoferrorspecifications,
+  author       = {Niels Dossche and Bart Coppens},
+  title        = {{Inference of Error Specifications and Bug Detection Using Structural Similarities}},
+  booktitle    = {33rd {USENIX} Security Symposium ({USENIX} Security 2024)},
+  year         = {2024},
+  month        = {August},
+  address      = {Philadelphia, PA},
+}
+```
+
