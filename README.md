@@ -147,6 +147,12 @@ These can be found in `/home/evaluation/ESSS/evaluation`:
   * `run-my-freetype.sh`
   * `run-my-libwebp.sh`
 
+## Virtual Machine
+
+The evaluation artifact is provided as a VirtualBox VM image.
+To build the VM image, we started from a Ubuntu 22.04 LTS (x86-64) installation.
+We can then use the script provided in `vm/build-vm.sh` to install and setup everything needed for the evaluation.
+
 ## License
 
 This tool is based on the [Crix](https://github.com/umnsec/crix) tool from the University of Minnesota.
