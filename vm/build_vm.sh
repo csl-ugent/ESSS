@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# The instructions used in the artifact appendix and README assume that the user is called "evaluation" and the home directory is "/home/evaluation".
+
 cd
 
 # Install dependencies
@@ -77,7 +79,7 @@ make
 # Setup Docker
 sudo systemctl enable docker
 sudo systemctl start docker
-sudo usermod -aG docker evaluation
+sudo usermod -aG docker $USER
 newgrp docker
 
 # Build Docker images
@@ -138,7 +140,7 @@ make
 
 # Setup wllvm
 export LLVM_COMPILER=clang
-export LLVM_COMPILER_PATH=/home/evaluation/ESSS/llvm/llvm-project/prefix/bin
+export LLVM_COMPILER_PATH=$HOME/ESSS/llvm/llvm-project/prefix/bin
 alias wllvm="wllvm -g"
 
 # Build musl
