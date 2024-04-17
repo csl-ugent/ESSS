@@ -57,8 +57,9 @@ pip3 install wllvm
 cd
 mkdir tools
 cd tools
-tar xfz codeql-bundle-linux64.tar.gz 
-rm -rf codeql-bundle-linux64.tar.gz 
+wget https://github.com/github/codeql-action/releases/download/codeql-bundle-20230524/codeql-bundle-linux64.tar.gz
+tar xfz codeql-bundle-linux64.tar.gz
+rm codeql-bundle-linux64.tar.gz
 cd codeql
 ./codeql query compile
 echo "export PATH=$PATH:~/tools/codeql" >> ~/.bashrc
@@ -67,6 +68,7 @@ echo "export PATH=$PATH:~/tools/codeql" >> ~/.bashrc
 cd ~/tools
 git clone https://github.com/nielsdos/eesi-updated.git eesi
 cd eesi
+git checkout 884a3f3833df440b78e1ca5f7129f7c2f5a57552
 mkdir build
 cd build
 cmake ../src
