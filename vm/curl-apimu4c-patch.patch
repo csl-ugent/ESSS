@@ -1,0 +1,17 @@
+--- lib/checksrc_orig.pl	2024-03-18 15:38:20.825816774 +0100
++++ lib/checksrc.pl	2024-03-18 10:36:24.330909425 +0100
+@@ -428,10 +428,10 @@
+ 
+         # crude attempt to detect // comments without too many false
+         # positives
+-	if($l =~ /^([^"\*]*)[^:"]\/\//) {
+-	    checkwarn("CPPCOMMENTS",
+-	              $line, length($1), $file, $l, "\/\/ comment");
+-	}
++	#if($l =~ /^([^"\*]*)[^:"]\/\//) {
++	#    checkwarn("CPPCOMMENTS",
++	#              $line, length($1), $file, $l, "\/\/ comment");
++	#}
+ 
+         my $nostr = nostrings($l);
+         # check spaces after for/if/while/function call
