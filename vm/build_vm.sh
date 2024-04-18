@@ -17,6 +17,7 @@ sudo apt install -y libboost-program-options-dev
 sudo apt install -y python3-pip
 sudo apt install -y libgoogle-glog-dev libunwind-dev
 sudo apt install -y --no-install-recommends clang
+sudo apt install -y llvm-dev
 sudo apt install -y libstdc++-12-dev
 sudo apt install -y autoconf
 sudo apt install -y libtool
@@ -70,7 +71,7 @@ echo "export PATH=$PATH:~/tools/codeql" >> ~/.bashrc
 cd ~/tools
 git clone https://github.com/nielsdos/eesi-updated.git eesi
 cd eesi
-git checkout 884a3f3833df440b78e1ca5f7129f7c2f5a57552
+git checkout 687180d496dadb9110bbfeddb0b5353341f4933b
 mkdir build
 cd build
 cmake ../src
