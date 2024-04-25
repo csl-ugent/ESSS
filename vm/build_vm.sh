@@ -61,10 +61,17 @@ cd
 mkdir tools
 cd tools
 wget https://github.com/github/codeql-action/releases/download/codeql-bundle-20230524/codeql-bundle-linux64.tar.gz
+wget https://github.com/github/codeql/archive/refs/tags/codeql-cli/v2.13.3.tar.gz
 tar xfz codeql-bundle-linux64.tar.gz
+tar xfz v2.13.3.tar.gz
 rm codeql-bundle-linux64.tar.gz
-cd codeql
-./codeql query compile
+rm v2.13.3.tar.gz
+codeql query compile codeql-codeql-cli-v2.13.3/cpp/ql/src/Critical/MissingNullTest.ql
+codeql query compile codeql-codeql-cli-v2.13.3/cpp/ql/src/Critical/ReturnValueIgnored.ql
+codeql query compile codeql-codeql-cli-v2.13.3/cpp/ql/src/Critical/InconsistentNullnessTesting.ql
+codeql query compile codeql-codeql-cli-v2.13.3/cpp/ql/src/Likely\ Bugs/InconsistentCheckReturnNull.ql
+codeql query compile codeql-codeql-cli-v2.13.3/cpp/ql/src/Critical/MissingNegativityTest.ql
+export PATH="$PATH:~/tools/codeql"
 echo "export PATH=$PATH:~/tools/codeql" >> ~/.bashrc
 
 # Download and install EESI
@@ -146,7 +153,7 @@ alias wllvm="wllvm -g"
 
 # Build musl
 cd
-mdir build-musl-1.2.3
+mkdir build-musl-1.2.3
 cd build-musl-1.2.3
 wget https://git.musl-libc.org/cgit/musl/snapshot/musl-1.2.3.tar.gz
 mv musl-1.2.3 musl
