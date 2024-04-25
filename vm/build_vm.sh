@@ -57,6 +57,7 @@ sudo apt install -y libreoffice-calc --no-install-recommends
 
 # Install wllvm
 pip3 install wllvm
+export PATH="$PATH:/home/evaluation/.local/bin"
 
 # Download and install CodeQL
 cd
