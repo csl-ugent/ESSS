@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euxo pipefail
+
 # The instructions used in the artifact appendix and README assume that the user is called "evaluation" and the home directory is "/home/evaluation".
 
 cd
@@ -104,6 +106,10 @@ docker build -t apisan .
 cd
 mkdir benchmarks
 cd benchmarks
+git clone https://github.com/openssl/openssl.git
+cd openssl
+git checkout 8d927e55b751ba1af6c08cd4e37d565a43c56157
+cd ..
 git clone https://github.com/openssh/openssh-portable.git
 cd openssh-portable/
 git checkout 36c6c3eff5e4a669ff414b9daf85f919666e8e03
@@ -156,6 +162,7 @@ cd
 mkdir build-musl-1.2.3
 cd build-musl-1.2.3
 wget https://git.musl-libc.org/cgit/musl/snapshot/musl-1.2.3.tar.gz
+tar -xvf musl-1.2.3.tar.gz
 mv musl-1.2.3 musl
 cd musl
 mkdir prefix
@@ -231,7 +238,7 @@ cat ./objs/.libs/*.manifest | sort | uniq | awk 'NF' | while read line; do cp -n
 
 # Build benchmark: php
 cd ~/benchmarks
-cd php
+cd php-src
 mkdir -p tmp
 ./buildconf
 CC=wllvm CXX=wllvm++ ./configure --disable-gcc-global-regs --enable-bcmath=shared --enable-calendar=shared --enable-dba=shared --enable-exif=shared --enable-ftp=shared --enable-gd=shared --enable-intl=shared --enable-mbstring --enable-pcntl --enable-shmop=shared --enable-soap=shared --enable-sockets=shared --enable-sysvmsg=shared --enable-sysvsem=shared --enable-sysvshm=shared --with-bz2=shared --with-curl=shared --with-enchant=shared --with-ffi=shared --with-gdbm --with-gettext=shared --with-gmp=shared --with-iconv=shared --with-imap-ssl --with-imap=shared --with-kerberos --with-ldap=shared,/usr --with-ldap-sasl --with-mhash --with-mysql-sock=/run/mysqld/mysqld.sock --with-mysqli=shared,mysqlnd --with-openssl --with-password-argon2 --with-pdo-dblib=shared --with-pdo-mysql=shared,mysqlnd --with-pdo-odbc=unixODBC,/usr/ --with-pdo-pgsql=shared --with-pdo-sqlite=shared --with-pgsql=shared --with-readline --with-snmp=shared --with-sodium=shared --with-sqlite3=shared --with-tidy=shared --with-unixODBC=shared --with-xsl=shared --with-zip=shared --with-zlib
