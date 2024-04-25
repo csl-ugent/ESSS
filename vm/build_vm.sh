@@ -168,7 +168,7 @@ mv musl-1.2.3 musl
 cd musl
 mkdir prefix
 export CC=wllvm
-./configure --prefix="$(realpath prefix)"
+WLLVM_CONFIGURE_ONLY=1 ./configure --prefix="$(realpath prefix)"
 make -j4
 make install
 extract-bc prefix/lib/libc.so
