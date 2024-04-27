@@ -23,13 +23,13 @@ tar xfz codeql-bundle-linux64.tar.gz
 tar xfz v2.13.3.tar.gz
 rm codeql-bundle-linux64.tar.gz
 rm v2.13.3.tar.gz
+export PATH="$PATH:/home/evaluation/tools/codeql"
+echo "export PATH=$PATH:/home/evaluation/tools/codeql" >> ~/.bashrc
 codeql query compile codeql-codeql-cli-v2.13.3/cpp/ql/src/Critical/MissingNullTest.ql
 codeql query compile codeql-codeql-cli-v2.13.3/cpp/ql/src/Critical/ReturnValueIgnored.ql
 codeql query compile codeql-codeql-cli-v2.13.3/cpp/ql/src/Critical/InconsistentNullnessTesting.ql
 codeql query compile codeql-codeql-cli-v2.13.3/cpp/ql/src/Likely\ Bugs/InconsistentCheckReturnNull.ql
 codeql query compile codeql-codeql-cli-v2.13.3/cpp/ql/src/Critical/MissingNegativityTest.ql
-export PATH="$PATH:~/tools/codeql"
-echo "export PATH=$PATH:~/tools/codeql" >> ~/.bashrc
 
 # Download and install EESI
 cd ~/tools
