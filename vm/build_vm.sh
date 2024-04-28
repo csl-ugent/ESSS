@@ -222,12 +222,12 @@ cd
 git clone https://github.com/imchecker/compsac19.git
 mv compsac19 APIMU4C
 cd APIMU4C/APIMU4C
-unzip curl-curl-7_63_0_patched.zip
-unzip httpd-2.4.37_patched.zip
-unzip openssl-1-1-pre8_patched.zip
+unzip -d curl-curl-7_63_0_patched curl-curl-7_63_0_patched.zip
+unzip -d httpd-2.4.37_patched httpd-2.4.37_patched.zip
+unzip -d openssl-1-1-pre8_patched openssl-1-1-pre8_patched.zip
 
 # Build APIMU4C curl benchmark
-cd ~/APIMU4C/APIMU4C/curl-curl-7_63_0
+cd ~/APIMU4C/APIMU4C/curl-curl-7_63_0_patched/curl-curl-7_63_0
 wget https://raw.githubusercontent.com/csl-ugent/ESSS/main/vm/curl-apimu4c-patch.patch
 patch -p0 < curl-apimu4c-patch.patch
 mkdir -p tmp
@@ -239,7 +239,7 @@ cat src/.libs/curl.llvm.manifest | sort | uniq | awk 'NF' | while read line; do 
 cat lib/.libs/libcurl.so.4.5.0.llvm.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; done
 
 # Build APIMU4C openssl benchmark
-cd ~/APIMU4C/APIMU4C/openssl-1-1-pre8_patched
+cd ~/APIMU4C/APIMU4C/openssl-1-1-pre8_patched/openssl-1-1-pre8_patched
 make clean # remove build files from packer's build
 mkdir -p tmp
 CC=wllvm CXX=wllvm++ ./Configure -g linux-x86_64-clang
@@ -250,7 +250,7 @@ cat *.manifest | sort | uniq | awk 'NF' | while read line; do cp -nf $line tmp; 
 $LLVM_COMPILER_PATH/llvm-link libcrypto.so.bc --override=libssl.so.bc -o combined.bc
 
 # Build APIMU4C httpd benchmark
-cd ~/APIMU4C/APIMU4C/httpd-2.4.37
+cd ~/APIMU4C/APIMU4C/httpd-2.4.37_patched/httpd-2.4.37
 mkdir -p tmp
 CFLAGS='-g -Xclang -disable-O0-optnone' CC=wllvm CXX=wllvm++ ./configure --enable-ssl=~/build-openssl-1.1.1/openssl/prefix/  --enable-md --enable-lua --enable-http --enable-mods-static=all
 make -j4
