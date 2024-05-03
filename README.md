@@ -161,7 +161,9 @@ ESSS is distributed under the same license.
 
 ## More details
 
-Link to paper: TBD
+Link to paper prepublication page: https://www.usenix.org/conference/usenixsecurity24/presentation/dossche
+
+Link to paper PDF: https://www.usenix.org/system/files/sec24fall-prepub-93-dossche.pdf
 
 ```
 @inproceedings{dossche2024inferenceoferrorspecifications,
