@@ -79,7 +79,24 @@ To run the tool for inferring specifications and detecting bugs in a program, yo
 ```
 
 The output will be written to stdout, this includes the inferred specifications and the bugs.
-Additionally, the _optional_ options `--missing-ct=0.725` and `--incorrect-ct=0.725` can be used to set the threshold for missing and incorrect specifications, respectively. They are 0.725 by default.
+
+### Options
+
+The tool supports configuration options that can be set using command line arguments.
+
+The most important configuration options are:
+  * `--missing-ct`: The threshold for missing checks. Only reports with a score that is at least this value will be reported. The default value is 0.725.
+  * `--incorrect-ct`: The threshold for incorrect specifications. Only reports with a score that is at least this value will be reported. The default value is 0.725.
+
+Other useful options include:
+  * `--refine-vsa`: This enables taking the intersection between the error value set and the possible constant return values of the function to increase the precision of the error specifications. Defaults to true.
+  * `--st`: Association analysis confidence between [0, 1]. The higher the more confident the association must be. Defaults to 0.925.
+  * `--interval-ct`: Confidence threshold between [0, 1]. The higher the more similar the error intervals should be.
+  * `-c <number>`: Sets the number of threads to `<number>`. Not thoroughly tested for values other than 1.
+
+There are a few debugging options as well:
+  * `--print-random-non-void-function-samples`: How many random non-void function names to print, useful for sampling functions to compute a recall. Defaults to 0.
+  * `--ssc`: Prints the detected error checks out separately. Defaults to false.
 
 ## Repository structure
 
