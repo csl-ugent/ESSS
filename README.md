@@ -166,7 +166,8 @@ These can be found in `/home/evaluation/ESSS/evaluation`:
 
 ## Virtual Machine
 
-The evaluation artifact is provided as a VirtualBox VM image.
+The evaluation artifact is provided as a [VirtualBox VM image](https://
+zenodo.org/doi/10.5281/zenodo.10843435).
 To build the VM image, we started from a Ubuntu 22.04 LTS (x86-64) installation.
 We can then use the script provided in `vm/build-vm.sh` to install and setup everything needed for the evaluation.
 
@@ -178,9 +179,9 @@ ESSS is distributed under the same license.
 
 ## More details
 
-Link to paper prepublication page: https://www.usenix.org/conference/usenixsecurity24/presentation/dossche
+Link to the Usenix paper publication page: https://www.usenix.org/conference/usenixsecurity24/presentation/dossche
 
-Link to paper PDF: https://www.usenix.org/system/files/sec24fall-prepub-93-dossche.pdf
+Link to the prepublication PDF: https://www.usenix.org/system/files/sec24fall-prepub-93-dossche.pdf
 
 ```
 @inproceedings{dossche2024inferenceoferrorspecifications,
