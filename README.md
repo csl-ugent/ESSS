@@ -166,8 +166,7 @@ These can be found in `/home/evaluation/ESSS/evaluation`:
 
 ## Virtual Machine
 
-The evaluation artifact is provided as a [VirtualBox VM image](https://
-zenodo.org/doi/10.5281/zenodo.10843435).
+The evaluation artifact is provided as a [VirtualBox VM image](https://zenodo.org/doi/10.5281/zenodo.10843435).
 To build the VM image, we started from a Ubuntu 22.04 LTS (x86-64) installation.
 We can then use the script provided in `vm/build-vm.sh` to install and setup everything needed for the evaluation.
 
