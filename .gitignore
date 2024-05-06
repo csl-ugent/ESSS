@@ -2,6 +2,7 @@
 .idea/
 threshold-outputs/output-*
 build
+*.o
 *.bc
 *.ll
 .ipynb_checkpoints/

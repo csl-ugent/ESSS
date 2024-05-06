@@ -95,8 +95,22 @@ Other useful options include:
   * `-c <number>`: Sets the number of threads to `<number>`. Not thoroughly tested for values other than 1.
 
 There are a few debugging options as well:
-  * `--print-random-non-void-function-samples`: How many random non-void function names to print, useful for sampling functions to compute a recall. Defaults to 0.
+  * `--print-random-non-void-function-samples <number>`: How many random non-void function names to print, useful for sampling functions to compute a recall. Defaults to 0.
   * `--ssc`: Prints the detected error checks out separately. Defaults to false.
+
+### Minimal example
+
+We provide a minimal example in the `example` directory. There is some simple toy code in `example/example.c` that you can run through the analyzer using the `example/build_and_run.sh` script. Upon running you should get the following output:
+
+```
+Function error return intervals (3, pre-libc-pruning 3):
+Function: func {return index 0}
+  [0, 0]
+Function: generate_error {return index 0}
+  [-2147483648, -1] U [1, 2147483647]
+Function: malloc {return index 0}
+  [0, 0]
+```
 
 ## Repository structure
 
