@@ -1,5 +1,8 @@
 # ESSS
 
+ESSS is a static analysis tool to detect missing and incorrect error checks in C and C++ codebases.
+The tool automatically deduces error specifications for functions, without needing a priori knowledge, and then it finds code locations where error checks are either missing or inconsistent with those specifications. 
+
 This repository contains the ESSS source code, as well as the scripts and data to run the tool and EESI on the benchmarks used in the paper.
 
 The artifact evaluation VM already contains the ESSS tool and the LLVM toolchain pre-built.
