@@ -200,13 +200,17 @@ Link to the Usenix paper publication page: https://www.usenix.org/conference/use
 Link to the final publication PDF: https://www.usenix.org/system/files/usenixsecurity24-dossche.pdf
 
 ```
-@inproceedings{dossche2024inferenceoferrorspecifications,
-  author       = {Niels Dossche and Bart Coppens},
-  title        = {{Inference of Error Specifications and Bug Detection Using Structural Similarities}},
-  booktitle    = {33rd {USENIX} Security Symposium ({USENIX} Security 2024)},
-  year         = {2024},
-  month        = {August},
-  address      = {Philadelphia, PA},
+@inproceedings {dossche2024inferenceoferrorspecifications,
+  author = {Niels Dossche and Bart Coppens},
+  title = {Inference of Error Specifications and Bug Detection Using Structural Similarities},
+  booktitle = {33rd USENIX Security Symposium (USENIX Security 24)},
+  year = {2024},
+  isbn = {978-1-939133-44-1},
+  address = {Philadelphia, PA},
+  pages = {1885--1902},
+  url = {https://www.usenix.org/conference/usenixsecurity24/presentation/dossche},
+  publisher = {USENIX Association},
+  month = aug
 }
 ```
 
