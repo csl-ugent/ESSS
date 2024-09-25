@@ -2,7 +2,7 @@ export LLVM_COMPILER=clang
 export LLVM_COMPILER_PATH=/home/evaluation/ESSS/llvm/llvm-project/prefix/bin
 mkdir prefix
 export CC=wllvm
-./configure --prefix="$(realpath prefix)"
+WLLVM_CONFIGURE_ONLY=1 ./configure --prefix="$(realpath prefix)"
 make -j4
 make install
 extract-bc prefix/lib/libc.so
