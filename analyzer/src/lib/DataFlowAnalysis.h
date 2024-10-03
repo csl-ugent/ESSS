@@ -107,7 +107,7 @@ public:
 
 using namespace llvm;
 
-using PHISet = SmallPtrSet<const PHINode*, 1>;
+using PHISet = SmallPtrSet<const Value*, 2>;
 
 class DataFlowAnalysis {
 	public:

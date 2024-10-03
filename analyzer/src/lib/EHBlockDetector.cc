@@ -704,7 +704,7 @@ void EHBlockDetectorPass::stage0(Module* M) {
 
         vector<const Path*> pathSummaryIndexToPath;
         vector<Summary> pathsAsSummaries;
-        map<const BasicBlock*, Summary> summaries;
+        DenseMap<const BasicBlock*, Summary> summaries;
         for (const auto* path : paths) {
             if (path->blocks.size() == 1) // Optimisation: this will only be the non-conditional part
                 continue;
@@ -719,7 +719,7 @@ void EHBlockDetectorPass::stage0(Module* M) {
                 if (it == summaries.end()) {
                     auto subSummary = summarizeBlock(BB);
                     summary.merge(subSummary);
-                    summaries.emplace(BB, std::move(subSummary));
+                    summaries.try_emplace(BB, std::move(subSummary));
                 } else {
                     summary.merge(it->second);
                 }

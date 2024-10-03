@@ -309,6 +309,11 @@ const Value* DataFlowAnalysis::findUndisputedValueWithoutLeavingCurrentPath(cons
                         //LOG(LOG_INFO, "otherCmp: ");
                         //otherCmp->dump();
 
+                        // It's possible to get into a loop when backtracking along the path that's part of a do-while construct
+                        if (!phiSet.insert(otherCmp->getOperand(0)).second) {
+                            continue;
+                        }
+
                         auto otherComparand = findUndisputedValueWithoutLeavingCurrentPath(otherCmp->getOperand(0),
                                                                                            otherCmp, blocks, phiSet);
                         if (otherComparand == comparand) {
