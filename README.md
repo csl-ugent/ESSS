@@ -199,6 +199,8 @@ Link to the Usenix paper publication page: https://www.usenix.org/conference/use
 
 Link to the final publication PDF: https://www.usenix.org/system/files/usenixsecurity24-dossche.pdf
 
+Link to the final artifact appendix PDF (Available, Functional, Reproduced badges): https://www.usenix.org/system/files/usenixsecurity24-appendix-dossche.pdf
+
 ```
 @inproceedings {dossche2024inferenceoferrorspecifications,
   author = {Niels Dossche and Bart Coppens},
