@@ -908,13 +908,13 @@ bool MLTA::getGEPLayerTypes(GEPOperator *GEP, list<typeidx_t> &TyList) {
         // Continue to parse subty
         Type* SubTy = NULL;
         if (StructType *STy = dyn_cast<StructType>(ETy)) {
-            SubTy = STy->getElementType(Idx);
+            SubTy = STy->getPointerElementType(Idx);
         }
         else if (ArrayType *ATy = dyn_cast<ArrayType>(ETy)) {
-            SubTy = ATy->getElementType();
+            SubTy = ATy->getPointerElementType();
         }
         else if (VectorType *VTy = dyn_cast<VectorType>(ETy)) {
-            SubTy = VTy->getElementType();
+            SubTy = VTy->getPointerElementType();
         }
         assert(SubTy);
 
@@ -927,7 +927,7 @@ bool MLTA::getGEPLayerTypes(GEPOperator *GEP, list<typeidx_t> &TyList) {
     StructType *STy = dyn_cast<StructType>(ETy);
     if (STy && STy->getNumElements() > 0) {
         // Get the type of its first field
-        Type *Ty0 = STy->getElementType(0);
+        Type *Ty0 = STy->getPointerElementType(0);
         for (auto U : GEP->users()) {
             if (BitCastOperator *BCO = dyn_cast<BitCastOperator>(U)) {
                 if (PointerType *PTy

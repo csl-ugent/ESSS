@@ -264,7 +264,7 @@ bool CallGraphPass::typeConfineInInitializer(User* Ini) {
 			// Case 3: a reference (i.e., pointer) of a composite-type
 			// object is assigned to a field of another composite-type
 			// object
-			else if (auto POTy = dyn_cast<PointerType>(OTy)) {
+			else if (isa<PointerType>(OTy)) {
 				if (isa<ConstantPointerNull>(O))
 					continue;
 				// if the pointer points a composite type, skip it as
@@ -273,7 +273,7 @@ bool CallGraphPass::typeConfineInInitializer(User* Ini) {
 
 				// now consider if it is a bitcast from a function
 				// address
-				if (auto CO = dyn_cast<BitCastOperator>(O)) {
+				if (isa<BitCastOperator>(O)) {
 					// TODO: ? to test if all address-taken functions
 					// are captured
 				}
@@ -306,7 +306,7 @@ bool CallGraphPass::typeConfineInStore(StoreInst *SI) {
 
 	// Cast 2: value-based store
 	// A composite-type object is stored
-	Type *EPTy = dyn_cast<PointerType>(PO->getType())->getElementType();
+	Type *EPTy = dyn_cast<PointerType>(PO->getType())->getPointerElementType();
 	Type *VTy = VO->getType();
 	if (isCompositeType(VTy)) {
 		if (isCompositeType(EPTy)) {
@@ -327,7 +327,7 @@ bool CallGraphPass::typeConfineInStore(StoreInst *SI) {
 	if (!PVTy)
 		return false;
 
-	Type *EVTy = PVTy->getElementType();
+	Type *EVTy = PVTy->getPointerElementType();
     auto containingFunction = SI->getFunction();
 
 	// Store something to a field of a composite-type object
@@ -397,8 +397,8 @@ bool CallGraphPass::typeConfineInCast(CastInst *CastI) {
 
 	if (!FromTy->isPointerTy() || !ToTy->isPointerTy())
 		return false;
-	Type *EToTy = dyn_cast<PointerType>(ToTy)->getElementType();
-	Type *EFromTy = dyn_cast<PointerType>(FromTy)->getElementType();
+	Type *EToTy = dyn_cast<PointerType>(ToTy)->getPointerElementType();
+	Type *EFromTy = dyn_cast<PointerType>(FromTy)->getPointerElementType();
 	if (isCompositeType(EToTy) && isCompositeType(EFromTy)) {
 		transitType(EToTy, EFromTy);
 		return true;
