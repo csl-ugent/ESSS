@@ -21,6 +21,7 @@
 #include "Analyzer.h"
 #include "CallGraph.h"
 #include "ClOptForward.h"
+#include "DataFlowAnalysis.h"
 #include "EHBlockDetector.h"
 #include "ErrorCheckViolationFinder.h"
 
