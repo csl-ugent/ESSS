@@ -125,7 +125,7 @@ The repository is structured as follows. Files adapted from [Crix](https://githu
 │ │   │ ├── 📃 Makefile [adapted from Crix]
 │ │   │ └── 📁 src
 │ │   │     │ ├── 📃 ...
-│ │   │     │ └── 📁 src
+│ │   │     │ └── 📁 lib
 │ │   │     │     │ ├── 📃 Analyzer.{cc, h} [Entry point of the application, adapted from Crix]
 │ │   │     │     │ ├── 📃 CallGraph.{cc, h} [MLTA component from Crix]
 │ │   │     │     │ ├── 📃 ClOptForward.h [Forward declarations of command line options]
