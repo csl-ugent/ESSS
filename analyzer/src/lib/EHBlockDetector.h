@@ -3,6 +3,7 @@
 #include "Analyzer.h"
 #include "Common.h"
 #include "PathSpan.h"
+#include <shared_mutex>
 
 
 enum class OperationType : unsigned char {
@@ -105,6 +106,7 @@ private:
     map<const Function*, InErrorNotInErrorPair> functionToInErrorNotInErrorPair;
     FunctionToIntervalCounts functionToIntervalCounts;
     map<const Module*, map<const AbstractComparison*, SafetyCheckData>> moduleToSafetyChecks;
+    shared_mutex conditionalToActionLock;
     map<const AbstractComparison*, pair<const Value*, unsigned int>> conditionalToAction;
     set<const Function*> associatedErrorHandlerFunctions;
     int stage = 0;

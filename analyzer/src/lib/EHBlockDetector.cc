@@ -658,18 +658,19 @@ void EHBlockDetectorPass::stage0(Module* M) {
 
         // Collect summarised paths to a terminator of the function
         set<const BasicBlock*> basicBlocksOfNonInterest;
+        vector<Path*> paths;
         for (const auto& [value, conditional] : functionToSanityCheckCallAndCmpInstructionsIt->second) {
+            if (!conditional->isFromConditionalBranch()) continue;
+
             if (auto abstractComparison = dyn_cast<AbstractComparison>(conditional)) {
-                if (!abstractComparison->isFromConditionalBranch()) continue;
                 basicBlocksOfNonInterest.insert(conditional->getParent());
                 assert(value.first);
+
+                conditionalToActionLock.lock();
                 conditionalToAction.emplace(abstractComparison, value);
+                conditionalToActionLock.unlock();
                 //LOG(LOG_INFO, "Basic block of non interest: " << getBasicBlockName(conditional->getParent()) << "\n");
             }
-        }
-        vector<Path*> paths;
-        for (const auto& [_, conditional] : functionToSanityCheckCallAndCmpInstructionsIt->second) {
-            if (!conditional->isFromConditionalBranch()) continue;
 
             auto currentPath = new Path();
             currentPath->reason = conditional;
@@ -905,11 +906,12 @@ void EHBlockDetectorPass::processSafetyCheckMapping(const map<const AbstractComp
     // Take the union for checks on the same value, and intersect for the targets relating to the values.
     map<pair<const CallInst*, unsigned int>, Interval> valueToInterval;
     for (const auto& [safetyCheckComparison, safetyCheckData] : mapping) {
-        assert(safetyCheckComparison);
         if (!safetyCheckComparison->isFromConditionalBranch()) continue;
+        conditionalToActionLock.lock_shared();
         auto conditionalToActionIt = conditionalToAction.find(safetyCheckComparison);
         assert(conditionalToActionIt != conditionalToAction.end());
         auto pair = conditionalToActionIt->second;
+        conditionalToActionLock.unlock_shared();
         assert(pair.first);
         auto call = dyn_cast<CallInst>(pair.first);
         if (!call) continue;
@@ -938,6 +940,8 @@ void EHBlockDetectorPass::processSafetyCheckMapping(const map<const AbstractComp
             continue;
 
         if (auto calleesIt = Ctx->Callees.find(pair.first); calleesIt != Ctx->Callees.end()) {
+            static mutex functionToIntervalCountsMutex {};
+            lock_guard _{functionToIntervalCountsMutex};
             for (const auto* target : calleesIt->second) {
                 functionToIntervalCounts[make_pair(target, pair.second)][interval]++;
             }
