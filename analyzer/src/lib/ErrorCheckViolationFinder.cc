@@ -269,7 +269,7 @@ void ErrorCheckViolationFinderPass::determineMissingChecksAndPropagationRules(co
     // Report unhandled errors (which are also not propagated)
     if (!instSet.empty()) {
 #ifdef REPORT
-        LOG(LOG_INFO, "Unhandled error checks:\n");
+        // LOG(LOG_INFO, "Unhandled error checks:\n");
         set<const Value*> result;
         for (const auto& instruction : instructions(function)) {
             set<const Value*> visited;
