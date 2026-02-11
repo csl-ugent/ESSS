@@ -425,6 +425,7 @@ void EHBlockDetectorPass::identifyPotentialSanityChecks(const Function& function
     }
 }
 
+// Note: runs non-concurrently
 bool EHBlockDetectorPass::doInitialization(Module *M) {
     if (stage != 0)
         return false;
@@ -446,7 +447,8 @@ bool EHBlockDetectorPass::doInitialization(Module *M) {
             identifyPotentialSanityChecks(function);
     }
 
-    moduleToSafetyChecks[M]; // Trick to moduleToSafetyChecks[M]
+    // Pre-init this such that concurrent accesses are possible
+    moduleToSafetyChecks[M] = {};
 
     return false;
 }
@@ -982,7 +984,7 @@ const BasicBlock* EHBlockDetectorPass::determineSuccessorOfAbstractComparisonWhi
  * Detect basic blocks as error blocks if a typical error handling function is called within the block
  */
 void EHBlockDetectorPass::stage1(Module* M) {
-    auto& safetyChecks = moduleToSafetyChecks[M];
+    auto& safetyChecks = moduleToSafetyChecks.find(M)->second;
 
     map<const AbstractComparison*, SafetyCheckData> mapping;
     for (const auto& F : *M) {
