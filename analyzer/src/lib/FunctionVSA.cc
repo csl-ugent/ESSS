@@ -160,34 +160,29 @@ ConstantRange FunctionVSA::computeConstantRangeFor(const Value* V, const Instruc
     } else if (auto sext = dyn_cast<SExtInst>(V)) {
         return computeConstantRangeFor(sext->getOperand(0), sext, valueSet).signExtend(sext->getDestTy()->getIntegerBitWidth());
     } else if (auto bop = dyn_cast<BinaryOperator>(V)) {
-        auto isDisallowedBop = [](const BinaryOperator *B) {
-            auto opcode = B->getOpcode();
-            return opcode == Instruction::BinaryOps::Add || opcode == Instruction::BinaryOps::Sub ||
-                   opcode == Instruction::BinaryOps::Mul || opcode == Instruction::BinaryOps::SDiv ||
-                   opcode == Instruction::BinaryOps::UDiv || opcode == Instruction::BinaryOps::SRem ||
-                   opcode == Instruction::BinaryOps::Or;
-        };
-
-        if (bop->getOpcode() == Instruction::BinaryOps::And) {
-            if (auto constant = dyn_cast<ConstantInt>(bop->getOperand(1))) {
-                auto upper = constant->getSExtValue();
-                if (upper < 0) {
-                    // TODO
-                } else {
-                    range = ConstantRange(APInt(range.getBitWidth(), 0),
-                                          APInt(range.getBitWidth(), constant->getSExtValue() + 1));
-                }
-            }
+        using BinRangeOp = ConstantRange (ConstantRange::*)(const ConstantRange &) const;
+        BinRangeOp op = nullptr;
+        switch (bop->getOpcode()) {
+            case Instruction::BinaryOps::Add:  op = &ConstantRange::add;       break;
+            case Instruction::BinaryOps::Sub:  op = &ConstantRange::sub;       break;
+            case Instruction::BinaryOps::Mul:  op = &ConstantRange::multiply;  break;
+            case Instruction::BinaryOps::SDiv: op = &ConstantRange::sdiv;      break;
+            case Instruction::BinaryOps::UDiv: op = &ConstantRange::udiv;      break;
+            case Instruction::BinaryOps::SRem: op = &ConstantRange::srem;      break;
+            case Instruction::BinaryOps::URem: op = &ConstantRange::urem;      break;
+            case Instruction::BinaryOps::And:  op = &ConstantRange::binaryAnd; break;
+            case Instruction::BinaryOps::Or:   op = &ConstantRange::binaryOr;  break;
+            case Instruction::BinaryOps::Xor:  op = &ConstantRange::binaryXor; break;
+            case Instruction::BinaryOps::Shl:  op = &ConstantRange::shl;       break;
+            case Instruction::BinaryOps::LShr: op = &ConstantRange::lshr;      break;
+            case Instruction::BinaryOps::AShr: op = &ConstantRange::ashr;      break;
+            default: break;
         }
-
-        if (isDisallowedBop(bop)) {
-            return ConstantRange::getEmpty(bop->getType()->getIntegerBitWidth());
-        } else if (auto transitiveBop = dyn_cast<BinaryOperator>(bop->getOperand(0)); transitiveBop && isDisallowedBop(transitiveBop)) {
-            // Or transitively dependent on bop
-            return ConstantRange::getEmpty(transitiveBop->getType()->getIntegerBitWidth());
+        if (op) {
+            ConstantRange lhs = computeConstantRangeFor(bop->getOperand(0), bop, valueSet);
+            ConstantRange rhs = computeConstantRangeFor(bop->getOperand(1), bop, valueSet);
+            range = (lhs.*op)(rhs);
         }
-
-        // TODO: approximate other bitwise ops?
 
         // In other cases, bail
     } else if (auto load = dyn_cast<LoadInst>(V)) {
