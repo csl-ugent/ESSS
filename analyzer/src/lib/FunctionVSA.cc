@@ -61,17 +61,12 @@ IntervalHashMap FunctionVSA::refine(const Function* function, IntervalHashMap& m
                 continue;
             }
             tmp.appendUnsafeBecauseExpectsSortMaintained(Range(lower32, upper32));
-            tmp.intersectionInPlace(interval);
 #if 0
             LOG(LOG_INFO, "Narrowing " << function->getName() << " from -> to:\n");
             constantRange.dump();
             interval.dump();
 #endif
-            if (map.size() > 1 && tmp == interval) {
-                //interval.clear();
-            } else {
-                interval.replaceWith(std::move(tmp));
-            }
+            interval.intersectionInPlace(tmp);
         } else if (constantRange.isEmptySet()) {
             interval.clear();
         }
