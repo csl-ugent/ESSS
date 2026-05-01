@@ -224,6 +224,9 @@ std::string Interval::toString() const {
 }
 
 Interval Interval::complement() const {
+    if (empty()) {
+        return Interval {false};
+    }
     Interval result;
     if (ranges[0].low != INT_MIN) {
         result.appendUnsafeBecauseExpectsSortMaintained(Range(INT_MIN, ranges[0].low - 1));
