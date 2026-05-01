@@ -208,46 +208,24 @@ bool Summary::resolvePathSensitiveValues(const vector<const BasicBlock*>& blocks
 }
 
 template<typename T>
-static unsigned short longestCommonSubsequence(const T* a, size_t aLen, const T* b, size_t bLen) {
-    // To reduce memory usage, we should pick the smallest array for the rows
-    if (aLen < bLen) {
-        swap(aLen, bLen);
+static bool isEitherSubsequenceOfTheOther(const vector<T> &aVec, const vector<T> &bVec, unsigned short &lcsOut) {
+    // Shortest one should be in a
+    span<const T> a = aVec, b = bVec;
+    if (a.size() > b.size()) {
         swap(a, b);
     }
 
-    auto* currentRow = new unsigned short[bLen + 1];
-    currentRow[0] = 0;
-    auto* previousRow = new unsigned short[bLen + 1]();
-
-    for (size_t i = 1; i <= aLen; ++i) {
-        for (size_t j = 1; j <= bLen; ++j) {
-            if (a[i - 1] == b[j - 1]) {
-                currentRow[j] = previousRow[j - 1] + 1;
-            } else {
-                currentRow[j] = max(currentRow[j - 1], previousRow[j]);
-            }
+    size_t aIdx = 0;
+    size_t diff = b.size() - a.size(); // >= 0 because |a| <= |b|
+    // Note: aIdx <= bIdx
+    for (size_t bIdx = 0; aIdx < a.size() && diff >= bIdx - aIdx /* checks if remaining for b >= remaining for a */; ++bIdx) {
+        if (a[aIdx] == b[bIdx]) {
+            ++aIdx;
         }
-        swap(currentRow, previousRow);
     }
 
-    auto ret = previousRow[bLen];
-
-    delete[] currentRow;
-    delete[] previousRow;
-
-    return ret;
-}
-
-template<typename T>
-static unsigned short longestCommonSubsequence(const vector<T>& a, const vector<T>& b) {
-    return longestCommonSubsequence(a.data(), a.size(), b.data(), b.size());
-}
-
-template<typename T>
-inline static float longestCommonSubsequenceRatio(const vector<T>& a, const vector<T>& b, unsigned short* lcsOut) {
-    auto lcs = longestCommonSubsequence(a, b);
-    *lcsOut = lcs;
-    return static_cast<float>(lcs) / min(a.size(), b.size());
+    lcsOut = a.size();
+    return aIdx == a.size();
 }
 
 Summary EHBlockDetectorPass::summarizeBlock(const BasicBlock* currentBlock) const {
@@ -776,9 +754,7 @@ void EHBlockDetectorPass::stage0(Module* M) {
 
                 size_t indicesArray[] { i, j };
                 unsigned short lcs;
-                float ratio = longestCommonSubsequenceRatio(pathSummaryI.ops, pathSummaryJ.ops, &lcs);
-
-                if (ratio >= 0.999f /* ratio must be 1 */) {
+                if (isEitherSubsequenceOfTheOther(pathSummaryI.ops, pathSummaryJ.ops, lcs)) {
                     auto sumOfCondBrCount = pathSummaryI.numberOfCondBrs() + pathSummaryJ.numberOfCondBrs(); // Penalize on number of condbrs
 
                     // NOTE: we want to get the longest match for the error handling block because we are more confident in long matches.
@@ -795,7 +771,6 @@ void EHBlockDetectorPass::stage0(Module* M) {
                             || (data.lcs <= lcs && data.pathLength >= pathLength && data.sumOfCondBrCount >= sumOfCondBrCount)) {
                             data.errorHandlingBlock = pathsAsSummaries[pathIdx].originalBlockIndex1;
                             data.lcs = lcs;
-                            data.ratio = ratio;
                             data.pathLength = pathLength;
                             data.sumOfCondBrCount = sumOfCondBrCount;
                             conditionalToErrorPath[reasonAsComparison] = &path->blocks;
@@ -1017,7 +992,6 @@ void EHBlockDetectorPass::stage1(Module* M) {
                 SafetyCheckData safetyCheckData {
                         .lcs = 0, // Doesn't matter
                         .pathLength = 0, // Doesn't matter
-                        .ratio = 0.0f, // Doesn't matter
                         .errorHandlingBlock = errorHandlingBlock,
                         .sumOfCondBrCount = 0, // Doesn't matter
                 };

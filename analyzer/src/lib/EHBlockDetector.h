@@ -69,7 +69,6 @@ struct Summary {
 struct SafetyCheckData {
     unsigned short lcs {};
     unsigned short pathLength {numeric_limits<unsigned short>::max()};
-    float ratio {};
     const BasicBlock* errorHandlingBlock {};
     unsigned short sumOfCondBrCount {numeric_limits<unsigned short>::max()};
 };
