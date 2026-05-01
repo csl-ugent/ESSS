@@ -102,7 +102,7 @@ void IterativeModulePass::run(ModuleMap &modules, bool multithreaded) {
   {
     OP << "[" << ID << " / " << 1 << "] ";
 
-    if (multithreaded) {
+    if (multithreaded && ThreadCount > 1) {
         ThreadPool threadPool(hardware_concurrency(ThreadCount));
         for (auto&[module, _]: modules) {
             threadPool.async(&IterativeModulePass::_doModulePass, this, module);
