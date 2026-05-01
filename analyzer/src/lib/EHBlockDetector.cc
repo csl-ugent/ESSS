@@ -137,14 +137,8 @@ bool Operation::operator==(const Operation& other) const {
                     return false; // Resolution independent of path
                 return true;
             }
-            auto valueAsCall = dyn_cast<CallInst>(condBrData.value);
-            auto otherValueAsCall = dyn_cast<CallInst>(other.condBrData.value);
-            if (valueAsCall && otherValueAsCall) {
-                auto valueTargets = GlobalCtx.Callees.find(valueAsCall);
-                auto otherValueTargets = GlobalCtx.Callees.find(otherValueAsCall);
-                if (valueTargets != GlobalCtx.Callees.end() && otherValueTargets != GlobalCtx.Callees.end()) {
-                    return areCallsEquivalent(&valueTargets->second, &otherValueTargets->second);
-                }
+            if (condBrData.callTargets && other.condBrData.callTargets) {
+                return areCallsEquivalent(condBrData.callTargets, other.condBrData.callTargets);
             }
         }
         return false;
@@ -171,14 +165,9 @@ bool Operation::operator==(const Operation& other) const {
     else if (type == OperationType::Store) {
         if (!storeData.value || !other.storeData.value)
             return false;
-        const Module* module;
-        if (auto ins = dyn_cast<Instruction>(storeData.value))
-            module = ins->getModule();
-        else if (auto arg = dyn_cast<Argument>(storeData.value))
-            module = arg->getParent()->begin()->getModule();
-        else
+        if (!storeData.aa)
             return storeData.value == other.storeData.value;
-        if (GlobalCtx.AAPass.find(module)->second->getAAResults().alias(storeData.value, other.storeData.value) >= AliasResult::MayAlias)
+        if (storeData.aa->alias(storeData.value, other.storeData.value) >= AliasResult::MayAlias)
             return true;
         return areInlinedEquivalent(storeData.instruction, other.storeData.instruction);
     } else if (type == OperationType::Switch || type == OperationType::Unreachable)
@@ -310,21 +299,31 @@ Summary EHBlockDetectorPass::summarizeBlock(const BasicBlock* currentBlock) cons
                     predicate = icmp->getPredicate();
                 }
 
+                FlatFuncSet *ffs = nullptr;
+                if (auto call = dyn_cast<CallInst>(value)) {
+                    if (auto it = GlobalCtx.Callees.find(call); it != GlobalCtx.Callees.end()) {
+                        ffs = &it->second;
+                    }
+                }
+
                 summary.ops.emplace_back(Operation {
                     .type = OperationType::CondBr,
                     .predicate = predicate,
                     .condBrData = {
                         .value = value,
                         .instruction = condBr,
+                        .callTargets = ffs,
                     }
                 });
             }
         } else if (auto store = dyn_cast<StoreInst>(&instruction)) {
+            auto it = GlobalCtx.AAPass.find(currentBlock->getModule());
             summary.ops.emplace_back(Operation{
                     .type = OperationType::Store,
                     .storeData = {
                             .value = store->getPointerOperand(),
                             .instruction = store,
+                            .aa = it != GlobalCtx.AAPass.end() ? &it->second->getAAResults() : nullptr,
                     },
             });
         } else if (isa<SwitchInst>(instruction)) {
@@ -632,6 +631,8 @@ void EHBlockDetectorPass::stage0(Module* M) {
     auto testCases = getListOfTestCases();
 
     for (const auto& F : *M) {
+        // LOG(LOG_INFO, "Handling " << F.getName() << "\n");
+
         if (Ctx->shouldSkipFunction(&F))
             continue;
 

@@ -34,10 +34,12 @@ struct Operation {
         struct {
             const Value* value;
             const Instruction* instruction;
+            const FlatFuncSet *callTargets;
         } condBrData;
         struct {
             const Value* value;
             const Instruction* instruction;
+            AAResults *aa;
         } storeData;
     };
 
