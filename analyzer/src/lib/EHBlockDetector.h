@@ -26,7 +26,7 @@ struct Operation {
         ICmpInst::Predicate predicate; // Here for struct packing
     };
     union {
-        const FuncSet *callTargets;
+        const FlatFuncSet *callTargets;
         const Value *value;
         struct {
             const Value* resolvedValue, *unresolvedValue;

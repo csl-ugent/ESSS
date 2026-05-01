@@ -6,6 +6,7 @@
 #include <llvm/IR/Instructions.h>
 #include <llvm/ADT/DenseMap.h>
 #include <llvm/ADT/SmallPtrSet.h>
+#include <llvm/ADT/SmallVector.h>
 #include <llvm/ADT/StringExtras.h>
 #include <llvm/Support/Path.h>
 #include <llvm/Support/raw_ostream.h>
@@ -32,11 +33,12 @@ using CallInstSetEntry = llvm::CallInst*;
 using ModuleMap = DenseMap<Module*, StringRef>;
 // The set of all functions.
 typedef llvm::SmallPtrSet<llvm::Function*, 2> FuncSet;
+typedef llvm::SmallVector<llvm::Function*, 1 /* XXX */> FlatFuncSet;
 // Mapping from function name to function.
 typedef unordered_map<string_view, llvm::Function*> NameFuncMap;
 typedef llvm::SmallPtrSet<CallInstSetEntry, 2> CallInstSet;
 typedef DenseMap<Function*, CallInstSet> CallerMap;
-typedef DenseMap<CallInst *, FuncSet> CalleeMap;
+typedef DenseMap<CallInst *, FlatFuncSet> CalleeMap;
 // Pointer analysis types.
 typedef DenseMap<Value *, SmallPtrSet<Value *, 16>> PointerAnalysisMap;
 typedef unordered_map<Function *, PointerAnalysisMap> FuncPointerAnalysisMap;

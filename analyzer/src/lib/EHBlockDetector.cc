@@ -103,7 +103,7 @@ void Summary::dump() const {
     }
 }
 
-static bool areCallsEquivalent(const FuncSet* first, const FuncSet* second) {
+static bool areCallsEquivalent(const FlatFuncSet* first, const FlatFuncSet* second) {
     // NOTE: maybe we can leverage some kind of deduplication logic to do fast compares and save memory?
     // Fast paths
     if (first == second)

@@ -829,14 +829,14 @@ void CallGraphPass::doModulePass(Module *M) {
 
                     if (CF->isDeclaration()) {
                         //LOG(LOG_INFO, "is decl: " << CF->getName() << "\n");
-                        Ctx->Callees[CI].insert(CF);
+                        Ctx->Callees[CI].push_back(CF);
                         Ctx->Callers[CF].insert(CI);
                     } else {
                         // Use unified function
                         size_t fh = funcHash(CF);
                         CF = Ctx->UnifiedFuncMap[fh];
                         if (CF) {
-                            Ctx->Callees[CI].insert(CF);
+                            Ctx->Callees[CI].push_back(CF);
                             Ctx->Callers[CF].insert(CI);
                         }
                     }
@@ -859,14 +859,24 @@ void CallGraphPass::doModulePass(Module *M) {
                     continue;
 
 				if (CI->isIndirectCall()) {
-                    auto& FS = Ctx->Callees[CI];
+					FuncSet result;
                     if (MLTA == FullMLTA)
-					    findCalleesWithMLTA(CI, FS);
+					    findCalleesWithMLTA(CI, result);
                     else if (MLTA == MatchSignatures)
-					    findCalleesWithType(CI, FS);
+					    findCalleesWithType(CI, result);
 
-					for (Function *Callee : FS)
+					auto &FV = Ctx->Callees[CI];
+					Ctx->Callees[CI].reserve(result.size());
+					for (Function *Callee : result) {
 						Ctx->Callers[Callee].insert(CI);
+						FV.push_back(Callee);
+					}
+
+					if (FV.size() > 1) {
+						std::sort(FV.begin(), FV.end(), [](llvm::Function *fst, llvm::Function *snd) {
+							return fst < snd; // fst->getName() < snd->getName();
+						});
+					}
 				}
 			}
 		}
