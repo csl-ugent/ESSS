@@ -23,7 +23,7 @@ build_analyzer_func = \
 				-DCMAKE_BUILD_TYPE=Release \
 				-DLLVM_ENABLE_ASSERTIONS=OFF \
 				-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
-				-DCMAKE_CXX_FLAGS_RELEASE="-std=c++20 -fno-rtti -gdwarf-4 -Og -march=native -fpic -Wall -Wno-type-limits -Wextra -Wno-cpp -Wno-unused-parameter -Wl,--build-id -Wno-unused-command-line-argument" \
+				-DCMAKE_CXX_FLAGS_RELEASE="-std=c++20 -fno-rtti -gdwarf-4 -O3 -march=native -fpic -Wall -Wno-type-limits -Wextra -Wno-cpp -Wno-unused-parameter -Wl,--build-id -Wno-unused-command-line-argument" \
 		&& make -j${NPROC})
 
 all: kanalyzer
