@@ -812,7 +812,7 @@ void EHBlockDetectorPass::stage0(Module* M) {
 
         // Register function calls in error paths and not in error paths to perform association analysis
         // First determine the error blocks.
-        set<const BasicBlock*> errorBlocks, blocksThatAreOnAtLeastOneInspectedPath;
+        set<const BasicBlock*> blocksThatAreOnAtLeastOneInspectedPath;
         for (const auto* path : pathSummaryIndexToPath) {
             if (safetyChecks.find(dyn_cast<AbstractComparison>(path->reason)) == safetyChecks.end())
                 continue;
@@ -824,16 +824,17 @@ void EHBlockDetectorPass::stage0(Module* M) {
                 blocksThatAreOnAtLeastOneInspectedPath.insert(*it);
             }
         }
-        for (const auto& [reason, path] : conditionalToErrorPath) {
-            // Note: first block is the one that contains the condition, so skip that one as it's not part of the error
-            //       handling code in the path.
-            auto end = path->end();
-            for (auto it = path->begin() + 1; it != end; ++it) {
-                errorBlocks.insert(*it);
-            }
-        }
         // Then count
         if (!blocksThatAreOnAtLeastOneInspectedPath.empty()) {
+            set<const BasicBlock*> errorBlocks;
+            for (const auto& [reason, path] : conditionalToErrorPath) {
+                // Note: first block is the one that contains the condition, so skip that one as it's not part of the error
+                //       handling code in the path.
+                auto end = path->end();
+                for (auto it = path->begin() + 1; it != end; ++it) {
+                    errorBlocks.insert(*it);
+                }
+            }
             for (const auto &BB: F) {
                 if (blocksThatAreOnAtLeastOneInspectedPath.find(&BB) == blocksThatAreOnAtLeastOneInspectedPath.end())
                     continue;
