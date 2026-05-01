@@ -566,6 +566,8 @@ void EHBlockDetectorPass::storeData() {
             }
         }
 
+        Ctx->functionToConfidenceMutex.lock();
+
         if (!intersected) {
             LOG(LOG_VERBOSE, "Dropped " << function->getName() << " due to low confidence, falling back to empty interval\n");
             // Empty interval indicates it must be checked, but not how. The following line creates an empty interval.
@@ -573,7 +575,6 @@ void EHBlockDetectorPass::storeData() {
         }
 
         // Note: we still need this data to compare support and confidence in case of inheriting error intervals
-        Ctx->functionToConfidenceMutex.lock();
         Ctx->functionToConfidence[pair] = highestFraction;
         Ctx->functionToConfidenceMutex.unlock();
     }
