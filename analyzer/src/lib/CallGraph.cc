@@ -866,7 +866,7 @@ void CallGraphPass::doModulePass(Module *M) {
 					    findCalleesWithType(CI, result);
 
 					auto &FV = Ctx->Callees[CI];
-					Ctx->Callees[CI].reserve(result.size());
+					FV.reserve(result.size());
 					for (Function *Callee : result) {
 						Ctx->Callers[Callee].insert(CI);
 						FV.push_back(Callee);
