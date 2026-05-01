@@ -192,8 +192,7 @@ static const Value* resolveValueAlongPath(const Value* value, const vector<const
         return nullptr;
     if (isa<Constant>(value) || isa<Argument>(value))
         return value;
-    auto instruction = dyn_cast<Instruction>(value);
-    assert(instruction);
+    auto instruction = cast<Instruction>(value);
     PHISet phiSet;
     return DataFlowAnalysis::findUndisputedValueWithoutLeavingCurrentPath(value, instruction, PathSpan{blocks, false}, phiSet);
 }
