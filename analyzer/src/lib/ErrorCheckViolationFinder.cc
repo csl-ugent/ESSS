@@ -197,7 +197,7 @@ void ErrorCheckViolationFinderPass::determineMissingChecksAndPropagationRules(co
                 notFound = false;
                 auto it = Ctx->functionToConfidence.find(make_pair(function, 0 /* Only return values supported right now */));
                 if (it == Ctx->functionToConfidence.end()) {
-                    LOG(LOG_INFO, "Not found in totalFunctionToIntervalCounts\n");
+                    // LOG(LOG_INFO, "Not found in totalFunctionToIntervalCounts\n");
                     notFound = true;
                     return 0;
                 }
