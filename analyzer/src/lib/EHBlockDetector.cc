@@ -108,13 +108,8 @@ static bool areCallsEquivalent(const FuncSet* first, const FuncSet* second) {
     // Fast paths
     if (first == second)
         return true;
-    if (first->size() != second->size())
-        return false;
-
     // Slow path
-    return all_of(*first, [second](const Function* target) {
-        return second->find(target) != second->end();
-    });
+    return *first == *second;
 }
 
 static bool areInlinedEquivalent(const Instruction* a, const Instruction* b) {
