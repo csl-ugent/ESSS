@@ -132,10 +132,11 @@ bool Operation::operator==(const Operation& other) const {
         return areCallsEquivalent(callTargets, other.callTargets);
     else if (type == OperationType::CondBr) {
         if (predicate == other.predicate && condBrData.value && other.condBrData.value) {
-            if (isa<GetElementPtrInst>(condBrData.value) && isa<GetElementPtrInst>(other.condBrData.value))
-                return false; // Resolution independent of path
-            if (condBrData.value == other.condBrData.value)
+            if (condBrData.value == other.condBrData.value) {
+                if (isa<GetElementPtrInst>(condBrData.value) && isa<GetElementPtrInst>(other.condBrData.value))
+                    return false; // Resolution independent of path
                 return true;
+            }
             auto valueAsCall = dyn_cast<CallInst>(condBrData.value);
             auto otherValueAsCall = dyn_cast<CallInst>(other.condBrData.value);
             if (valueAsCall && otherValueAsCall) {
