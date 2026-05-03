@@ -55,7 +55,7 @@ struct Summary {
     [[nodiscard]] bool resolvePathSensitiveValues(const vector<const BasicBlock*>& blocks);
 
     void merge(const Summary& summary) {
-        ops.reserve(summary.ops.size());
+        ops.reserve(ops.size() + summary.ops.size());
         ops.insert(ops.end(), summary.ops.begin(), summary.ops.end());
     }
 
