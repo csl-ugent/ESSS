@@ -364,11 +364,11 @@ void EHBlockDetectorPass::collectPathsAux(const BasicBlock* currentBlock, vector
 
         unsigned int currentSuccessor = 0;
         for (const auto *successor : successors(currentBlock)) {
-            set<const BasicBlock*> visitedClone{visited};
             if (currentSuccessor == numberOfSuccessors - 1) {
                 // Last one can reuse the memory
-                collectPathsAux(successor, allPaths, myCurrentPath, visitedClone, basicBlocksOfNonInterest, lastBr);
+                collectPathsAux(successor, allPaths, myCurrentPath, visited, basicBlocksOfNonInterest, lastBr);
             } else {
+                set<const BasicBlock*> visitedClone{visited};
                 auto newCurrentPath = new Path();
                 newCurrentPath->reason = myCurrentPath->reason;
                 newCurrentPath->blocks.reserve(myCurrentPath->blocks.size());
