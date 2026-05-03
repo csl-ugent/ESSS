@@ -736,6 +736,9 @@ void EHBlockDetectorPass::stage0(Module* M) {
         auto amountOfSummaries = pathsAsSummaries.size();
 
         for (size_t i = 0; i < amountOfSummaries; ++i) {
+            const auto& pathSummaryI = pathsAsSummaries[i];
+            auto numberOfCondBrsI = pathSummaryI.numberOfCondBrs();
+
             for (size_t j = i + 1; j < amountOfSummaries; ++j) {
                 // Note: multiple paths may origin from the same point
                 if (pathSummaryIndexToPath[i]->reason == pathSummaryIndexToPath[j]->reason) {
@@ -745,13 +748,12 @@ void EHBlockDetectorPass::stage0(Module* M) {
                     continue;
                 }
 
-                auto& pathSummaryI = pathsAsSummaries[i];
-                auto& pathSummaryJ = pathsAsSummaries[j];
+                const auto& pathSummaryJ = pathsAsSummaries[j];
 
                 size_t indicesArray[] { i, j };
                 unsigned short lcs;
                 if (isEitherSubsequenceOfTheOther(pathSummaryI.ops, pathSummaryJ.ops, lcs)) {
-                    auto sumOfCondBrCount = pathSummaryI.numberOfCondBrs() + pathSummaryJ.numberOfCondBrs(); // Penalize on number of condbrs
+                    auto sumOfCondBrCount = numberOfCondBrsI + pathSummaryJ.numberOfCondBrs(); // Penalize on number of condbrs
 
                     // NOTE: we want to get the longest match for the error handling block because we are more confident in long matches.
                     for (auto pathIdx : indicesArray) {
