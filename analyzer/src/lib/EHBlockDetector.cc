@@ -26,16 +26,22 @@
 
 vector<const BasicBlock*> extendPathWithUniquePredecessors(const Path* path) {
     vector<const BasicBlock*> blocksCopy;
-    {
-        auto begin = path->blocks[0];
-        auto previous = begin->getUniquePredecessor();
-        while (previous) {
-            blocksCopy.insert(blocksCopy.begin(), previous);
-            previous = previous->getUniquePredecessor();
-        }
-        blocksCopy.reserve(path->blocks.size());
-        blocksCopy.insert(blocksCopy.end(), path->blocks.begin(), path->blocks.end());
+    auto begin = path->blocks[0];
+    auto previous = begin->getUniquePredecessor();
+#if 1
+    while (previous) {
+        blocksCopy.insert(blocksCopy.begin(), previous);
+        previous = previous->getUniquePredecessor();
     }
+#else
+    while (previous) {
+        blocksCopy.push_back(previous);
+        previous = previous->getUniquePredecessor();
+    }
+    std::reverse(blocksCopy.begin(), blocksCopy.end());
+#endif
+    blocksCopy.reserve(blocksCopy.size() + path->blocks.size());
+    blocksCopy.insert(blocksCopy.end(), path->blocks.begin(), path->blocks.end());
 
     // Prevent cycle
     if (blocksCopy.size() >= 2 && *blocksCopy.begin() == blocksCopy.back()) {
