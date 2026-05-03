@@ -118,11 +118,7 @@ static bool areInlinedEquivalent(const Instruction* a, const Instruction* b) {
     if (!aLoc || !bLoc) return false;
     if (!aLoc->getInlinedAt() || !bLoc->getInlinedAt()) return false;
     if (aLoc->getLine() == 0 || bLoc->getLine() == 0) return false;
-    if (aLoc->getLine() == bLoc->getLine() && aLoc->getColumn() == bLoc->getColumn()) {
-        return true;
-    } else {
-        return true;
-    }
+    return aLoc->getLine() == bLoc->getLine() && aLoc->getColumn() == bLoc->getColumn();
 }
 
 bool Operation::operator==(const Operation& other) const {
