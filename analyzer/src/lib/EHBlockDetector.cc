@@ -459,25 +459,6 @@ void EHBlockDetectorPass::storeData() {
             if (it->first.first->empty())
                 continue;
 
-            const Value* previousOne = nullptr;
-            if (all_of(*it->first.first, [&](const BasicBlock& BB) {
-                if (auto ret = dyn_cast<ReturnInst>(BB.getTerminator())) {
-                    if (!isa<ConstantInt>(ret->getReturnValue()) && !isa<ConstantPointerNull>(ret->getReturnValue()))
-                        return false;
-                    if (!previousOne) {
-                        previousOne = ret->getReturnValue();
-                        return true;
-                    }
-                    return ret->getReturnValue() == previousOne;
-                }
-                return true;
-            })) {
-                IntervalHashMap hm;
-                hm.emplace(Interval{}, 1);
-                it->second = std::move(hm);
-                continue;
-            }
-
             it->second = fvsa.refine(it->first.first, it->second);
         }
     }
