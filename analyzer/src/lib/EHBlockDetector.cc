@@ -1160,7 +1160,10 @@ void EHBlockDetectorPass::propagateCheckedErrors() {
                     auto lastBlock = path->blocks.back();
                     auto returnInstruction = dyn_cast<ReturnInst>(lastBlock->getTerminator());
                     // We don't necessarily have a path slice that terminates in a return (think about slices that are cut short due to other checks).
-                    if (!returnInstruction) continue;
+                    if (!returnInstruction) {
+                        delete path;
+                        continue;
+                    }
 
                     auto blocksCopy = extendPathWithUniquePredecessors(path);
 
