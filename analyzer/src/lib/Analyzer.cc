@@ -87,12 +87,12 @@ cl::opt<string> FunctionTestCasesToAnalyze(
 GlobalContext GlobalCtx;
 
 
-void IterativeModulePass::run(ModuleMap &modules, bool multithreaded) {
+void IterativeModulePass::run(const std::vector<llvm::Module *> &modules, bool multithreaded) {
   OP << "[" << ID << "] Initializing " << modules.size() << " modules ";
   bool again = true;
   while (again) {
     again = false;
-    for (const auto& [module, _] : modules) {
+    for (auto *module : modules) {
       again |= doInitialization(module);
       OP << ".";
     }
@@ -104,12 +104,12 @@ void IterativeModulePass::run(ModuleMap &modules, bool multithreaded) {
 
     if (multithreaded && ThreadCount > 1) {
         ThreadPool threadPool(hardware_concurrency(ThreadCount));
-        for (auto&[module, _]: modules) {
+        for (auto *module : modules) {
             threadPool.async(&IterativeModulePass::_doModulePass, this, module);
         }
         threadPool.wait();
     } else {
-        for (auto&[module, _]: modules) {
+        for (auto *module : modules) {
             _doModulePass(module);
         }
     }
@@ -121,7 +121,7 @@ void IterativeModulePass::run(ModuleMap &modules, bool multithreaded) {
   again = true;
   while (again) {
     again = false;
-    for (const auto& [m, _] : modules) {
+    for (auto *m : modules) {
       again |= doFinalization(m);
     }
   }
@@ -144,9 +144,8 @@ void loadModule(const char* argv[], unsigned i, mutex* modulesVectorMutex) {
 #if 0
     OP << "Amount of instructions in " << InputFilenames[i] << ": " << Module->getInstructionCount() << "\n";
 #endif
-    StringRef MName(strdup(InputFilenames[i].data()));
     lock_guard _(*modulesVectorMutex);
-    GlobalCtx.Modules.insert({Module, MName});
+    GlobalCtx.Modules.push_back(Module);
 }
 
 int main(int argc, const char* argv[]) {
@@ -173,7 +172,7 @@ int main(int argc, const char* argv[]) {
 
     if (PrintRandomNonVoidFunctionSamples > 0) {
         set<const Function*> functionsToSampleFrom;
-        for (const auto& [module, _] : GlobalCtx.Modules) {
+        for (auto *module : GlobalCtx.Modules) {
 #if 1
             if (module->getName().contains("/libc.so.bc"))
                 continue;
@@ -202,7 +201,7 @@ int main(int argc, const char* argv[]) {
 #if 1
     unsigned int totalCount = 0;
     unsigned int totalCountNonVoid = 0;
-    for (const auto& [module, _] : GlobalCtx.Modules) {
+    for (auto *module : GlobalCtx.Modules) {
 #if 1
         if (module->getName().contains("/libc.so.bc"))
             continue;

@@ -43,7 +43,7 @@ struct Operation {
         } storeData;
     };
 
-    bool resolvePathSensitiveValues(const vector<const BasicBlock*>& blocks);
+    void resolvePathSensitiveValues(const vector<const BasicBlock*>& blocks);
 
     bool operator==(const Operation& other) const;
 };
@@ -52,7 +52,7 @@ struct Summary {
     vector<Operation> ops;
     const BasicBlock* originalBlockIndex1;
 
-    [[nodiscard]] bool resolvePathSensitiveValues(const vector<const BasicBlock*>& blocks);
+    void resolvePathSensitiveValues(const vector<const BasicBlock*>& blocks);
 
     void merge(const Summary& summary) {
         ops.reserve(ops.size() + summary.ops.size());
@@ -60,8 +60,6 @@ struct Summary {
     }
 
     [[nodiscard]] unsigned int numberOfCondBrs() const;
-
-    [[nodiscard]] unsigned int numberOfSameCondBrs(const Summary& other) const;
 
     void dump() const;
 };

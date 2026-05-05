@@ -189,7 +189,7 @@ static const Value* resolveValueAlongPath(const Value* value, const vector<const
     return DataFlowAnalysis::findUndisputedValueWithoutLeavingCurrentPath(value, instruction, PathSpan{blocks, false}, phiSet);
 }
 
-bool Operation::resolvePathSensitiveValues(const vector<const BasicBlock*>& blocks) {
+void Operation::resolvePathSensitiveValues(const vector<const BasicBlock*>& blocks) {
     if (type == OperationType::Store) {
         value = resolveValueAlongPath(value, blocks);
     } else if (type == OperationType::Return) {
@@ -199,14 +199,11 @@ bool Operation::resolvePathSensitiveValues(const vector<const BasicBlock*>& bloc
         if (!condBrData.value)
             condBrData.value = condBrData.instruction;
     }
-    return true;
 }
 
-bool Summary::resolvePathSensitiveValues(const vector<const BasicBlock*>& blocks) {
+void Summary::resolvePathSensitiveValues(const vector<const BasicBlock*>& blocks) {
     for (auto& op : ops)
-        if (!op.resolvePathSensitiveValues(blocks)) // If fatal error
-            return false;
-    return true;
+        op.resolvePathSensitiveValues(blocks);
 }
 
 template<typename T>
@@ -690,11 +687,10 @@ void EHBlockDetectorPass::stage0(Module* M) {
                 auto originalBlockIndex1 = path->blocks[1];
                 auto blocksCopy = extendPathWithUniquePredecessors(path);
 
-                if (summary.resolvePathSensitiveValues(blocksCopy)) {
-                    summary.originalBlockIndex1 = originalBlockIndex1;
-                    pathsAsSummaries.emplace_back(std::move(summary));
-                    pathSummaryIndexToPath.push_back(path);
-                }
+                summary.resolvePathSensitiveValues(blocksCopy);
+                summary.originalBlockIndex1 = originalBlockIndex1;
+                pathsAsSummaries.emplace_back(std::move(summary));
+                pathSummaryIndexToPath.push_back(path);
             }
         }
 
@@ -1145,19 +1141,17 @@ void EHBlockDetectorPass::propagateCheckedErrors() {
                     auto lastBlock = path->blocks.back();
                     auto returnInstruction = dyn_cast<ReturnInst>(lastBlock->getTerminator());
                     // We don't necessarily have a path slice that terminates in a return (think about slices that are cut short due to other checks).
-                    if (!returnInstruction) {
-                        delete path;
-                        continue;
+                    if (returnInstruction) {
+                        auto blocksCopy = extendPathWithUniquePredecessors(path);
+
+                        auto result = addForSpanAndReturnInstruction(PathSpan{blocksCopy, false}, returnInstruction);
+                        if (result.has_value()) {
+                            newIntervals.intervalFor(functionKeyPair, true).unionInPlace(result.value());
+                            added = true;
+                        }
                     }
 
-                    auto blocksCopy = extendPathWithUniquePredecessors(path);
-
-                    auto result = addForSpanAndReturnInstruction(PathSpan{blocksCopy, false}, returnInstruction);
-                    if (result.has_value()) {
-                        newIntervals.intervalFor(functionKeyPair, true).unionInPlace(result.value());
-                        added = true;
-                        delete path;
-                    }
+                    delete path;
                 }
             }
             //newIntervals.dump();

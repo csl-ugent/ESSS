@@ -30,7 +30,6 @@ using CallInstSetEntry = llvm::CallInst*;
 // 
 // typedefs
 //
-using ModuleMap = DenseMap<Module*, StringRef>;
 // The set of all functions.
 typedef llvm::SmallPtrSet<llvm::Function*, 2> FuncSet;
 typedef llvm::SmallVector<llvm::Function*, 1 /* XXX */> FlatFuncSet;
@@ -67,8 +66,7 @@ struct GlobalContext {
 	// Map function signature to functions
 	DenseMap<size_t, FuncSet>sigFuncsMap;
 
-	// Modules.
-	ModuleMap Modules;
+	std::vector<llvm::Module *> Modules;
 
 	// Pointer analysis results.
     FuncPointerAnalysisMap FuncPAResults;
@@ -96,6 +94,8 @@ protected:
 	GlobalContext *Ctx;
 	const char * ID;
 public:
+	virtual ~IterativeModulePass() = default;
+
 	IterativeModulePass(GlobalContext *Ctx_, const char *ID_)
 		: Ctx(Ctx_), ID(ID_) { }
 
@@ -111,7 +111,7 @@ public:
 	virtual void doModulePass(llvm::Module *M)
 		{  }
 
-	virtual void run(ModuleMap &modules, bool multithreaded=false);
+	virtual void run(const std::vector<llvm::Module *> &modules, bool multithreaded=false);
 
 private:
     void _doModulePass(llvm::Module* M) {
