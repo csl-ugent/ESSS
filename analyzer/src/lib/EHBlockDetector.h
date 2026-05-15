@@ -67,8 +67,8 @@ struct Summary {
 struct SafetyCheckData {
     unsigned short lcs {};
     unsigned short pathLength {numeric_limits<unsigned short>::max()};
-    const BasicBlock* errorHandlingBlock {};
     unsigned short sumOfCondBrCount {numeric_limits<unsigned short>::max()};
+    const BasicBlock* errorHandlingBlock {};
 };
 
 class EHBlockDetectorPass : public IterativeModulePass {

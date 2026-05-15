@@ -974,8 +974,8 @@ void EHBlockDetectorPass::stage1(Module* M) {
                 SafetyCheckData safetyCheckData {
                         .lcs = 0, // Doesn't matter
                         .pathLength = 0, // Doesn't matter
-                        .errorHandlingBlock = errorHandlingBlock,
                         .sumOfCondBrCount = 0, // Doesn't matter
+                        .errorHandlingBlock = errorHandlingBlock,
                 };
                 mapping.emplace(abstractComparison, safetyCheckData);
                 LOG(LOG_VERBOSE, "Discovered a new error handling path starting at: " << getBasicBlockName(errorHandlingBlock) << "\n");
