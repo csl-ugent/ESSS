@@ -203,7 +203,7 @@ Link to the final artifact appendix PDF (Available, Functional, Reproduced badge
 
 ```
 @inproceedings {dossche2024inferenceoferrorspecifications,
-  author = {Niels Dossche and Bart Coppens},
+  author = {Nora Dossche and Bart Coppens},
   title = {Inference of Error Specifications and Bug Detection Using Structural Similarities},
   booktitle = {33rd USENIX Security Symposium (USENIX Security 24)},
   year = {2024},
