@@ -33,7 +33,7 @@ codeql query compile codeql-codeql-cli-v2.13.3/cpp/ql/src/Critical/MissingNegati
 
 # Download and install EESI
 cd ~/tools
-git clone https://github.com/nielsdos/eesi-updated.git eesi
+git clone https://github.com/ndossche/eesi-updated.git eesi
 cd eesi
 git checkout 687180d496dadb9110bbfeddb0b5353341f4933b
 mkdir build
@@ -47,8 +47,8 @@ mkdir deploy
 cd deploy
 mkdir apisan
 cd apisan
-wget https://raw.githubusercontent.com/nielsdos/apisan/7273b7fedbff79b8d18cf69f304f2d6e9cee1f89/Dockerfile
-wget https://raw.githubusercontent.com/nielsdos/apisan/15b697819610b4dd0671c8f420a552dbf0a46e04/0001.patch
+wget https://raw.githubusercontent.com/ndossche/apisan/7273b7fedbff79b8d18cf69f304f2d6e9cee1f89/Dockerfile
+wget https://raw.githubusercontent.com/ndossche/apisan/15b697819610b4dd0671c8f420a552dbf0a46e04/0001.patch
 docker build -t apisan .
 
 # Download and checkout benchmarks
