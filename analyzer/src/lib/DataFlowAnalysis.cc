@@ -567,10 +567,12 @@ void DataFlowAnalysis::getPotentialSanityCheck(const BasicBlock& BB, const std::
                                 return;
                             }
 
+                            // TODO: check whether op1 of cmp is zero?
+
                             auto nestedCmpI = dyn_cast<Instruction>(nestedCmp->getOperand(0));
-                            if (!nestedCmpI) return;
+                            if (!nestedCmpI) continue;
                             auto resolvedNested = handleLhs(nestedCmpI);
-                            if (!resolvedNested.first) return;
+                            if (!resolvedNested.first) continue;
 
                             if (cmp->getPredicate() == llvm::CmpInst::ICMP_EQ) {
                                 // nestedCmp == 0 <=> !nestedCmp
