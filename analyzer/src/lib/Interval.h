@@ -74,7 +74,7 @@ public:
 
 private:
     // Invariant: this is sorted and disjoint!
-    llvm::SmallVector<Range, 1> ranges;
+    llvm::SmallVector<Range, 2> ranges;
 
     friend struct IntervalHash;
 };
