@@ -534,8 +534,11 @@ void DataFlowAnalysis::getPotentialSanityCheck(const BasicBlock& BB, const std::
     if (auto _switch = dyn_cast<SwitchInst>(BB.getTerminator())) {
         if (auto lhs = dyn_cast<Instruction>(_switch->getCondition())) {
             value = handleLhs(lhs);
-            if (value.first) {
-                assert(!isa<CmpInst>(value.first));
+            // handleLhs() also propagates comparisons up (see the ICmpInst case there).
+            // Can happen when its condition resolves to a boolean, e.g. a load of a field that was stored a "zext i1 (icmp ...)".
+            // Note that clang doesn't produce direct i1 cases because of integer promotion rules
+            // TODO: this could be improved
+            if (value.first && !isa<CmpInst>(value.first)) {
                 for (const auto& _case: _switch->cases()) {
                     callback(new AbstractComparison(ICmpInst::Predicate::ICMP_EQ, value.first, _case.getCaseValue(),
                                                     _switch, true), value);
