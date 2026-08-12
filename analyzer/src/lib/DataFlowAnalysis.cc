@@ -562,12 +562,17 @@ void DataFlowAnalysis::getPotentialSanityCheck(const BasicBlock& BB, const std::
                     value = handleLhs(lhs);
                     if (value.first) {
                         if (auto nestedCmp = dyn_cast<ICmpInst>(value.first)) {
+                            // Note: instcombine causes the comparison to be against 0, simplifying our implementation
                             auto constant = dyn_cast<ConstantInt>(nestedCmp->getOperand(1));
                             if (!constant || !constant->isZero()) {
                                 continue;
                             }
 
-                            // TODO: check whether op1 of cmp is zero?
+                            // Ditto.
+                            constant = dyn_cast<ConstantInt>(cmp->getOperand(1));
+                            if (!constant || !constant->isZero()) {
+                                continue;
+                            }
 
                             auto nestedCmpI = dyn_cast<Instruction>(nestedCmp->getOperand(0));
                             if (!nestedCmpI) continue;
