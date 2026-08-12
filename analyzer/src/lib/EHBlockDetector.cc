@@ -203,6 +203,15 @@ void Summary::resolvePathSensitiveValues(const vector<const BasicBlock*>& blocks
         op.resolvePathSensitiveValues(blocks);
 }
 
+void Summary::computeSignature() {
+    signature = {};
+    for (const auto& op : ops) {
+        signature.add(op.type);
+        if (op.type == OperationType::Call)
+            signature.addCallTargets(op.callTargets);
+    }
+}
+
 template<typename T>
 static bool isEitherSubsequenceOfTheOther(const vector<T> &aVec, const vector<T> &bVec, unsigned short &lcsOut) {
     // Shortest one should be in a
@@ -686,6 +695,7 @@ void EHBlockDetectorPass::stage0(Module* M) {
 
                 summary.resolvePathSensitiveValues(blocksCopy);
                 summary.originalBlockIndex1 = originalBlockIndex1;
+                summary.computeSignature();
                 pathsAsSummaries.emplace_back(std::move(summary));
                 pathSummaryIndexToPath.push_back(path);
             }
@@ -729,6 +739,12 @@ void EHBlockDetectorPass::stage0(Module* M) {
                 }
 
                 const auto& pathSummaryJ = pathsAsSummaries[j];
+
+                // Fast check signature first before performing matching.
+                const auto& shortest = pathSummaryI.ops.size() <= pathSummaryJ.ops.size() ? pathSummaryI : pathSummaryJ;
+                const auto& longest = pathSummaryI.ops.size() <= pathSummaryJ.ops.size() ? pathSummaryJ : pathSummaryI;
+                if (!shortest.signature.canBeSubsequenceOf(longest.signature))
+                    continue;
 
                 size_t indicesArray[] { i, j };
                 unsigned short lcs;
