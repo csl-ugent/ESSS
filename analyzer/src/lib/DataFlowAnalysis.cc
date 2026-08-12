@@ -342,6 +342,12 @@ const Value* DataFlowAnalysis::findUndisputedValueWithoutLeavingCurrentPath(cons
                         }
                     }
                 } else if (const SwitchInst* _switch = dyn_cast<SwitchInst>(block->getTerminator())) {
+                    // Just like for the branch case, it's possible to get into a loop when backtracking along the path.
+                    // Possible with a do-while construct: the switch condition may (transitively) depend on "cmp" itself.
+                    if (!phiSet.insert(_switch->getCondition()).second) {
+                        continue;
+                    }
+
                     auto resolvedCondition = findUndisputedValueWithoutLeavingCurrentPath(_switch->getCondition(), _switch, blocks, phiSet);
                     if (resolvedCondition == comparand) {
                         for (const auto& _case : _switch->cases()) {
