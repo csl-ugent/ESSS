@@ -575,10 +575,12 @@ void DataFlowAnalysis::getPotentialSanityCheck(const BasicBlock& BB, const std::
                             if (cmp->getPredicate() == llvm::CmpInst::ICMP_EQ) {
                                 // nestedCmp == 0 <=> !nestedCmp
                                 callback(new AbstractComparison(nestedCmp->getInversePredicate(), resolvedNested.first, nestedCmp->getOperand(1), cmp, fromConditionalBranch), resolvedNested);
-                            } else {
-                                assert(cmp->getPredicate() == llvm::CmpInst::ICMP_NE);
+                            } else if (cmp->getPredicate() == llvm::CmpInst::ICMP_NE) {
                                 // nestedCmp != 0 <=> nestedCmp
                                 callback(new AbstractComparison(nestedCmp->getPredicate(), resolvedNested.first, nestedCmp->getOperand(1), cmp, fromConditionalBranch), resolvedNested);
+                            } else {
+                                // These cases are possible with sanitizers like -fsanitize=bool, where constructs like (icmp result) u< 2 are emitted.
+                                // Ignore these.
                             }
                         } else {
                             callback(new AbstractComparison(cmp, fromConditionalBranch), value);
