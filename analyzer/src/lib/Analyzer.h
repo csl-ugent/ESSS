@@ -81,6 +81,17 @@ struct GlobalContext {
 	mutex functionToConfidenceMutex;
 	map<pair<const Function*, unsigned int>, float> functionToConfidence;
 
+	// Maps every callee set onto a canonical set with the same contents, so that comparing the callee sets of two call sites is a pointer comparison instead of an element-wise comparison.
+	DenseMap<const FlatFuncSet*, const FlatFuncSet*> canonicalCalleeSets;
+
+	// Returns the canonical set for the given callee set, or the set itself if it wasn't canonicalised.
+	[[nodiscard]] inline const FlatFuncSet* canonicalCalleeSet(const FlatFuncSet* set) const {
+		auto it = canonicalCalleeSets.find(set);
+		return it == canonicalCalleeSets.end() ? set : it->second;
+	}
+
+	void canonicaliseCalleeSets();
+
 	bool shouldSkipFunction(const Function* function) const {
 		return function->empty() || UnifiedFuncSet.find(function) == UnifiedFuncSet.end();
 	}

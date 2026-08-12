@@ -110,11 +110,11 @@ void Summary::dump() const {
 }
 
 static bool areCallsEquivalent(const FlatFuncSet* first, const FlatFuncSet* second) {
-    // NOTE: maybe we can leverage some kind of deduplication logic to do fast compares and save memory?
-    // Fast paths
+    // Fast path: the callee sets are canonicalised (see GlobalContext::canonicaliseCalleeSets),
+    // so they can be compared by pointer equality.
     if (first == second)
         return true;
-    // Slow path
+    // XXX: unreachable?
     return *first == *second;
 }
 
@@ -251,7 +251,7 @@ Summary EHBlockDetectorPass::summarizeBlock(const BasicBlock* currentBlock) cons
             if (auto calleesIt = Ctx->Callees.find(CI); calleesIt != Ctx->Callees.end()) {
                 summary.ops.emplace_back(Operation {
                     .type = OperationType::Call,
-                    .callTargets = &calleesIt->second,
+                    .callTargets = Ctx->canonicalCalleeSet(&calleesIt->second),
                 });
             } else {
                 CI->dump();
@@ -276,10 +276,10 @@ Summary EHBlockDetectorPass::summarizeBlock(const BasicBlock* currentBlock) cons
                     predicate = icmp->getPredicate();
                 }
 
-                FlatFuncSet *ffs = nullptr;
+                const FlatFuncSet *ffs = nullptr;
                 if (auto call = dyn_cast<CallInst>(value)) {
                     if (auto it = GlobalCtx.Callees.find(call); it != GlobalCtx.Callees.end()) {
-                        ffs = &it->second;
+                        ffs = GlobalCtx.canonicalCalleeSet(&it->second);
                     }
                 }
 

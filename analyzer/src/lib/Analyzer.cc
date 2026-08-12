@@ -87,6 +87,34 @@ cl::opt<string> FunctionTestCasesToAnalyze(
 GlobalContext GlobalCtx;
 
 
+/**
+ * Groups the callee sets of all call sites by their contents and picks one canonical set per group.
+ * Must run after the call graph is complete and before the passes that use it, since it is read concurrently later.
+ */
+void GlobalContext::canonicaliseCalleeSets() {
+    // NOTE: the hash only groups candidates, the contents are still compared to decide, so a collision is harmless.
+    unordered_map<size_t, SmallVector<const FlatFuncSet*, 1>> setsByHash;
+    canonicalCalleeSets.reserve(Callees.size());
+    for (const auto& [call, calleeSet] : Callees) {
+        auto hash = static_cast<size_t>(hash_combine_range(calleeSet.begin(), calleeSet.end()));
+        auto& candidates = setsByHash[hash];
+        const FlatFuncSet* canonical = nullptr;
+        for (const auto* candidate : candidates) {
+            if (*candidate == calleeSet) {
+                canonical = candidate;
+                break;
+            }
+        }
+        if (!canonical) {
+            canonical = &calleeSet;
+            candidates.push_back(canonical);
+        }
+        canonicalCalleeSets.try_emplace(&calleeSet, canonical);
+    }
+
+    LOG(LOG_VERBOSE, "Canonicalised " << Callees.size() << " callee sets into " << setsByHash.size() << " groups\n");
+}
+
 void IterativeModulePass::run(const std::vector<llvm::Module *> &modules, bool multithreaded) {
   OP << "[" << ID << "] Initializing " << modules.size() << " modules ";
   bool again = true;
@@ -217,6 +245,9 @@ int main(int argc, const char* argv[]) {
         CallGraphPass CGPass(&GlobalCtx);
         CGPass.run(GlobalCtx.Modules);
     }
+
+    // NOTE: the callee sets must not be modified anymore from here on, the passes below hold pointers into them.
+    GlobalCtx.canonicaliseCalleeSets();
 
     {
         EHBlockDetectorPass EHPass(&GlobalCtx);
