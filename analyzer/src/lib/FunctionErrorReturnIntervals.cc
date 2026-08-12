@@ -13,18 +13,25 @@ void FunctionErrorReturnIntervals::mergeDestructivelyForOther(FunctionErrorRetur
 }
 
 void FunctionErrorReturnIntervals::dump() const {
+    std::vector<std::pair<decltype(intervals)::key_type, std::reference_wrapper<const decltype(intervals)::mapped_type>>> sorted;
+    sorted.reserve(intervals.size());
+
     auto intervalCount = intervals.size();
-#if 1
     for (const auto& [pair, interval] : intervals) {
         auto function = pair.first;
         if (function->getParent()->getName().contains("/libc.so.bc"))
             --intervalCount;
+        sorted.emplace_back(pair, std::cref(interval));
     }
-#endif
+
+    std::sort(sorted.begin(), sorted.end(), [](const auto& a, const auto& b) {
+        return a.first.first->getName().str() < b.first.first->getName().str();
+    });
 
     LOG(LOG_INFO, "Function error return intervals (" << intervalCount << ", pre-libc-pruning " << intervals.size() << "):\n");
-    for (const auto& [pair, interval] : intervals) {
+    for (const auto& [pair, intervalRef] : sorted) {
         auto function = pair.first;
+        const auto& interval = intervalRef.get();
 #if 1
         if (function->getParent()->getName().contains("/libc.so.bc"))
             continue;
