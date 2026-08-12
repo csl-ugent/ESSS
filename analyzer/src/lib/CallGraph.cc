@@ -491,7 +491,7 @@ bool CallGraphPass::findCalleesWithMLTA(CallInst *CI, FuncSet &FS) {
 #endif
 
     // Filter using debug info on first occurrence of second-layer type
-    if (auto structType = dyn_cast_or_null<StructType>(LayerTy); structType && static_cast<int>(structType->getNumElements()) > FieldIdx) {
+    if (auto structType = dyn_cast_or_null<StructType>(LayerTy); FieldIdx >= 0 && structType && static_cast<int>(structType->getNumElements()) > FieldIdx) {
         auto x = CurrentLayout->getStructLayout(structType)->getElementOffsetInBits(FieldIdx);
         //LOG(LOG_INFO, "X: " << x << ", " << structType->getName() << "\n");
         if (auto typeAndOffsetToDebugTag = typeAndOffsetToDebugTags.find(make_pair(structType->getName().substr(7), x)); typeAndOffsetToDebugTag != typeAndOffsetToDebugTags.end()) {
