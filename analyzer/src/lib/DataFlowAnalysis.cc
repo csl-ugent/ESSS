@@ -564,7 +564,7 @@ void DataFlowAnalysis::getPotentialSanityCheck(const BasicBlock& BB, const std::
                         if (auto nestedCmp = dyn_cast<ICmpInst>(value.first)) {
                             auto constant = dyn_cast<ConstantInt>(nestedCmp->getOperand(1));
                             if (!constant || !constant->isZero()) {
-                                return;
+                                continue;
                             }
 
                             // TODO: check whether op1 of cmp is zero?
