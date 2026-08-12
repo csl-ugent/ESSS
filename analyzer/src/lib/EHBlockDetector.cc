@@ -110,12 +110,9 @@ void Summary::dump() const {
 }
 
 static bool areCallsEquivalent(const FlatFuncSet* first, const FlatFuncSet* second) {
-    // Fast path: the callee sets are canonicalised (see GlobalContext::canonicaliseCalleeSets),
+    // The callee sets are canonicalised (see GlobalContext::canonicaliseCalleeSets),
     // so they can be compared by pointer equality.
-    if (first == second)
-        return true;
-    // XXX: unreachable?
-    return *first == *second;
+    return first == second;
 }
 
 static bool areInlinedEquivalent(const Instruction* a, const Instruction* b) {
